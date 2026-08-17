@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,26 @@
             font-family: Arial, sans-serif;
             background: white;
             color: black;
+        }
+
+        .language {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .language button {
+            border: none;
+            background: none;
+            font: inherit;
+            cursor: pointer;
+            padding: 0 5px;
+        }
+
+        .language button.active {
+            text-decoration: underline;
         }
 
         .hero {
@@ -34,14 +55,14 @@
 
         p {
             font-size: 20px;
-            max-width: 600px;
+            max-width: 650px;
             line-height: 1.5;
             margin: 0;
         }
 
         .enter {
             margin-top: 50px;
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: 3px;
             text-transform: uppercase;
         }
@@ -50,20 +71,65 @@
 
 <body>
 
+    <div class="language">
+        <button id="it" class="active" onclick="setLanguage('it')">IT</button>
+        |
+        <button id="en" onclick="setLanguage('en')">EN</button>
+    </div>
+
     <section class="hero">
 
         <h1>CLUB ALIENO</h1>
 
-        <p>
-            Una compagnia di danza e arti performative
-            che attraversa i confini tra corpi, linguaggi e immaginari.
+        <p id="description">
+            Una compagnia di danza e arti performative che attraversa
+            i confini tra corpi, linguaggi e immaginari.
         </p>
 
-        <div class="enter">
+        <div class="enter" id="discover">
             SCOPRI
         </div>
 
     </section>
 
+    <script>
+
+        function setLanguage(language) {
+
+            const description = document.getElementById("description");
+            const discover = document.getElementById("discover");
+
+            const itButton = document.getElementById("it");
+            const enButton = document.getElementById("en");
+
+            if (language === "en") {
+
+                description.innerHTML =
+                    "A dance and performing arts company exploring the boundaries between bodies, languages and imagination.";
+
+                discover.innerHTML = "DISCOVER";
+
+                document.documentElement.lang = "en";
+
+                enButton.classList.add("active");
+                itButton.classList.remove("active");
+
+            } else {
+
+                description.innerHTML =
+                    "Una compagnia di danza e arti performative che attraversa i confini tra corpi, linguaggi e immaginari.";
+
+                discover.innerHTML = "SCOPRI";
+
+                document.documentElement.lang = "it";
+
+                itButton.classList.add("active");
+                enButton.classList.remove("active");
+            }
+        }
+
+    </script>
+
 </body>
+
 </html>
