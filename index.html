@@ -561,23 +561,33 @@ body {
     top: 66px;
 
     transform:
-        translateX(-50%);
+        translateX(-50%)
+        scaleY(0);
 
-    width: 0;
-    height: 0;
+    transform-origin: top center;
 
-    border-left:
-        19px solid transparent;
-
-    border-right:
-        19px solid transparent;
-
-    border-top:
-        0 solid transparent;
+    width: 110px;
+    height: 95px;
 
     opacity: 0;
 
     z-index: -1;
+
+    /*
+       Parte molto stretto dall'apertura
+       e si allarga verso il basso.
+    */
+
+    clip-path: polygon(
+        43% 0%,
+        57% 0%,
+        100% 100%,
+        0% 100%
+    );
+
+    background: rgba(0,0,0,0.10);
+
+    filter: blur(1px);
 
     animation:
         beamAppear 1.5s ease-out forwards;
@@ -592,44 +602,36 @@ body {
 
         opacity: 0;
 
-        border-left-width: 5px;
-        border-right-width: 5px;
-
-        border-top:
-            0 solid transparent;
+        transform:
+            translateX(-50%)
+            scaleY(0);
     }
 
     25% {
 
         opacity: 0.025;
 
-        border-left-width: 12px;
-        border-right-width: 12px;
-
-        border-top:
-            20px solid rgba(0,0,0,0.15);
+        transform:
+            translateX(-50%)
+            scaleY(0.25);
     }
 
     55% {
 
-        opacity: 0.045;
+        opacity: 0.05;
 
-        border-left-width: 16px;
-        border-right-width: 16px;
-
-        border-top:
-            42px solid rgba(0,0,0,0.17);
+        transform:
+            translateX(-50%)
+            scaleY(0.60);
     }
 
     100% {
 
-        opacity: 0.08;
+        opacity: 0.09;
 
-        border-left-width: 25px;
-        border-right-width: 25px;
-
-        border-top:
-            68px solid rgba(0,0,0,0.20);
+        transform:
+            translateX(-50%)
+            scaleY(1);
     }
 }
 
@@ -682,10 +684,6 @@ body {
     }
 
     100% {
-
-        /*
-           Questa è la distanza che avevamo trovato giusta.
-        */
 
         top: calc(50% - 205px);
 
@@ -1062,14 +1060,10 @@ footer a {
 <section class="opening">
 
 
-    <!-- PALLINI -->
-
     <div class="dot dot-one"></div>
 
     <div class="dot dot-two"></div>
 
-
-    <!-- CERCHIO -->
 
     <svg
         class="circle-svg"
@@ -1085,8 +1079,6 @@ footer a {
 
     </svg>
 
-
-    <!-- TITOLO -->
 
     <div class="opening-title">
 
@@ -1108,9 +1100,7 @@ footer a {
 
 
 
-    <!-- =================================================
-         DISCO VOLANTE
-    ================================================== -->
+    <!-- UFO -->
 
     <div class="flying-saucer">
 
@@ -1139,11 +1129,8 @@ footer a {
     class="content"
     id="whats-on">
 
-
     <div class="section-number">
-
         01 / WHAT'S ON
-
     </div>
 
 
@@ -1165,7 +1152,6 @@ footer a {
                 <h2>
                     Vedo il mondo girare
                 </h2>
-
 
                 <div class="event-info">
 
@@ -1204,7 +1190,6 @@ footer a {
                     Unusual Suite
                 </h2>
 
-
                 <div class="event-info">
 
                     PERFORMANCE · ITALY
@@ -1241,7 +1226,6 @@ footer a {
                     Club Alieno
                 </h2>
 
-
                 <div class="event-info">
 
                     UPCOMING EVENTS
@@ -1275,7 +1259,6 @@ footer a {
 <section
     class="content"
     id="works">
-
 
     <div class="section-number">
 
@@ -1372,7 +1355,6 @@ footer a {
     class="content"
     id="about">
 
-
     <div class="section-number">
 
         03 / THE CLUB
@@ -1402,7 +1384,6 @@ footer a {
     class="content"
     id="people">
 
-
     <div class="section-number">
 
         04 / PEOPLE
@@ -1428,7 +1409,6 @@ footer a {
 ===================================================== -->
 
 <footer id="contact">
-
 
     <div>
 
@@ -1459,20 +1439,19 @@ footer a {
 
     </div>
 
-
 </footer>
 
 
 
 <!-- =====================================================
-     LINGUA + POSIZIONE UFO
+     JAVASCRIPT
 ===================================================== -->
 
 <script>
 
 
 /* =====================================================
-   POSIZIONA L'UFO ESATTAMENTE SOPRA LA A
+   POSIZIONE UFO
 ===================================================== */
 
 function positionSaucer() {
@@ -1510,7 +1489,6 @@ window.addEventListener(
     "resize",
     positionSaucer
 );
-
 
 
 /* =====================================================
