@@ -3,810 +3,683 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Club Alieno</title>
+<title>Club Alieno</title>
 
+<style>
 
-    <style>
+/* =========================
+   BASE
+========================= */
 
-        * {
-            box-sizing: border-box;
-        }
+* {
+    box-sizing: border-box;
+}
 
+html {
+    scroll-behavior: smooth;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+body {
+    margin: 0;
+    background: white;
+    color: black;
+    font-family: Arial, sans-serif;
+}
 
 
-        body {
-            margin: 0;
-            background: white;
-            color: black;
-            font-family: Arial, sans-serif;
-        }
 
+/* =========================
+   MENU
+========================= */
 
+.menu {
 
-        /* ========================================
-           MENU
-        ======================================== */
+    position: fixed;
 
-        .menu {
+    top: 30px;
+    left: 40px;
+    right: 40px;
 
-            position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-            top: 30px;
-            left: 40px;
-            right: 40px;
+    z-index: 100;
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
 
-            z-index: 100;
+.menu a {
 
-            font-size: 12px;
-            letter-spacing: 2px;
-        }
+    color: black;
+    text-decoration: none;
 
+    margin-right: 22px;
+}
 
-        .menu a {
+.menu-right {
 
-            color: black;
+    display: flex;
+    align-items: center;
+}
 
-            text-decoration: none;
+.language button {
 
-            margin-right: 22px;
-        }
+    border: none;
+    background: none;
 
+    cursor: pointer;
 
-        .menu-right {
+    font: inherit;
 
-            display: flex;
-            align-items: center;
-        }
+    padding: 0 4px;
+}
 
+.language button.active {
+    text-decoration: underline;
+}
 
-        .language button {
 
-            border: none;
 
-            background: none;
+/* =========================
+   OPENING
+========================= */
 
-            cursor: pointer;
+.opening {
 
-            font: inherit;
+    height: 100vh;
 
-            padding: 0 4px;
-        }
+    position: relative;
 
+    overflow: hidden;
 
-        .language button.active {
+    background: white;
+}
 
-            text-decoration: underline;
-        }
 
 
+/* =========================
+   PALLINI LATERALI
+========================= */
 
-        /* ========================================
-           OPENING
-        ======================================== */
+.dot {
 
-        .opening {
+    position: absolute;
 
-            height: 100vh;
+    width: 18px;
+    height: 18px;
 
-            position: relative;
+    top: calc(50% - 9px);
 
-            overflow: hidden;
+    background: black;
 
-            background: white;
-        }
+    border-radius: 50%;
 
+    z-index: 5;
+}
 
 
-        /* ========================================
-           I DUE PALLINI
-        ======================================== */
+/* sinistra */
 
-        .dot {
+.dot-one {
 
-            position: absolute;
+    left: 25%;
 
-            width: 18px;
-            height: 18px;
+    animation:
+        leftDot 5s cubic-bezier(0.65,0,0.35,1) forwards;
+}
 
-            top: calc(50% - 9px);
 
-            background: black;
+/* destra */
 
-            border-radius: 50%;
+.dot-two {
 
-            z-index: 4;
-        }
+    left: 75%;
 
+    animation:
+        rightDot 5s cubic-bezier(0.65,0,0.35,1) forwards;
+}
 
-        .dot-one {
 
-            left: 25%;
 
-            animation:
-                firstDot 7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-        }
+/* =========================
+   PUNTO CENTRALE
+========================= */
 
+.center-dot {
 
-        .dot-two {
+    position: absolute;
 
-            left: 75%;
+    width: 18px;
+    height: 18px;
 
-            animation:
-                secondDot 7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-        }
+    left: calc(50% - 9px);
+    top: calc(50% - 9px);
 
+    background: black;
 
+    border-radius: 50%;
 
-        /* ========================================
-           IL PUNTO CENTRALE
-           
-           È LUI che diventerà il cerchio.
-           Non viene creato un secondo elemento.
-        ======================================== */
+    opacity: 0;
 
-        .core {
+    z-index: 4;
 
-            position: absolute;
+    animation:
+        centerDot 5s ease-in-out forwards;
+}
 
-            width: 18px;
-            height: 18px;
 
-            left: calc(50% - 9px);
-            top: calc(50% - 9px);
 
-            background: black;
+/* =========================
+   CERCHIO
+========================= */
 
-            border: 1px solid black;
+.center-circle {
 
-            border-radius: 50%;
+    position: absolute;
 
-            opacity: 0;
+    width: 18px;
+    height: 18px;
 
-            z-index: 3;
+    left: calc(50% - 9px);
+    top: calc(50% - 9px);
 
-            animation:
-                coreTransform 7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-        }
+    border: 1px solid black;
 
+    border-radius: 50%;
 
+    opacity: 0;
 
-        /* ========================================
-           PRIMO PALLINO
-        ======================================== */
+    transform: scale(1);
 
-        @keyframes firstDot {
+    z-index: 3;
 
-            0% {
+    animation:
+        circleOpen 5s ease-in-out forwards;
+}
 
-                left: 25%;
 
-                opacity: 1;
 
-                transform: scale(1);
-            }
+/* =========================
+   PALLINO SINISTRO
+========================= */
 
+@keyframes leftDot {
 
-            55% {
+    0% {
+        left: 25%;
+        opacity: 1;
+    }
 
-                left: 50%;
+    65% {
+        left: 50%;
+        opacity: 1;
+    }
 
-                opacity: 1;
+    76% {
+        left: 50%;
+        opacity: 0;
+    }
 
-                transform: scale(1);
-            }
+    100% {
+        opacity: 0;
+    }
+}
 
 
-            63% {
 
-                left: 50%;
+/* =========================
+   PALLINO DESTRO
+========================= */
 
-                opacity: 1;
+@keyframes rightDot {
 
-                transform: scale(1);
-            }
+    0% {
+        left: 75%;
+        opacity: 1;
+    }
 
+    65% {
+        left: 50%;
+        opacity: 1;
+    }
 
-            70% {
+    76% {
+        left: 50%;
+        opacity: 0;
+    }
 
-                left: 50%;
+    100% {
+        opacity: 0;
+    }
+}
 
-                opacity: 0;
 
-                transform: scale(0);
-            }
 
+/* =========================
+   PUNTO CENTRALE
+========================= */
 
-            100% {
+@keyframes centerDot {
 
-                left: 50%;
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
 
-                opacity: 0;
-            }
-        }
+    70% {
+        opacity: 0;
+        transform: scale(0);
+    }
 
+    76% {
+        opacity: 1;
+        transform: scale(1);
+    }
 
+    82% {
+        opacity: 1;
+        transform: scale(1);
+    }
 
-        /* ========================================
-           SECONDO PALLINO
-        ======================================== */
+    86% {
+        opacity: 0;
+        transform: scale(0);
+    }
 
-        @keyframes secondDot {
+    100% {
+        opacity: 0;
+    }
+}
 
-            0% {
 
-                left: 75%;
 
-                opacity: 1;
+/* =========================
+   APERTURA CERCHIO
+========================= */
 
-                transform: scale(1);
-            }
+@keyframes circleOpen {
 
+    0% {
+        width: 18px;
+        height: 18px;
 
-            55% {
+        left: calc(50% - 9px);
+        top: calc(50% - 9px);
 
-                left: 50%;
+        opacity: 0;
+    }
 
-                opacity: 1;
+    80% {
 
-                transform: scale(1);
-            }
+        width: 18px;
+        height: 18px;
 
+        left: calc(50% - 9px);
+        top: calc(50% - 9px);
 
-            63% {
+        opacity: 0;
+    }
 
-                left: 50%;
+    84% {
 
-                opacity: 1;
+        width: 18px;
+        height: 18px;
 
-                transform: scale(1);
-            }
+        left: calc(50% - 9px);
+        top: calc(50% - 9px);
 
+        opacity: 1;
+    }
 
-            70% {
+    94% {
 
-                left: 50%;
+        width: 220px;
+        height: 220px;
 
-                opacity: 0;
+        left: calc(50% - 110px);
+        top: calc(50% - 110px);
 
-                transform: scale(0);
-            }
+        opacity: 1;
+    }
 
+    100% {
 
-            100% {
+        width: 260px;
+        height: 260px;
 
-                left: 50%;
+        left: calc(50% - 130px);
+        top: calc(50% - 130px);
 
-                opacity: 0;
-            }
-        }
+        opacity: 0;
+    }
+}
 
 
 
-        /* ========================================
-           IL PUNTO DIVENTA CERCHIO
-        ======================================== */
+/* =========================
+   TITOLO
+========================= */
 
-        @keyframes coreTransform {
+.opening-title {
 
-            /*
-            I due pallini stanno arrivando.
-            */
+    position: absolute;
 
-            0% {
+    top: 50%;
+    left: 50%;
 
-                width: 18px;
-                height: 18px;
+    transform: translate(-50%, -50%);
 
-                left: calc(50% - 9px);
-                top: calc(50% - 9px);
+    text-align: center;
 
-                background: black;
+    opacity: 0;
 
-                border: 1px solid black;
+    z-index: 10;
 
-                opacity: 0;
+    animation:
+        titleAppear 5s ease-in-out forwards;
+}
 
-                border-radius: 50%;
-            }
+.opening-title h1 {
 
+    margin: 0;
 
-            /*
-            I pallini arrivano al centro.
-            */
+    font-size: clamp(50px, 9vw, 130px);
 
-            55% {
+    font-weight: 400;
 
-                width: 18px;
-                height: 18px;
+    letter-spacing: 10px;
 
-                left: calc(50% - 9px);
-                top: calc(50% - 9px);
+    white-space: nowrap;
+}
 
-                background: black;
+.opening-title p {
 
-                border: 1px solid black;
+    margin-top: 25px;
 
-                opacity: 0;
+    font-size: 12px;
 
-                border-radius: 50%;
-            }
+    letter-spacing: 4px;
+}
 
 
-            /*
-            Appare il punto unico.
-            */
+@keyframes titleAppear {
 
-            63% {
+    0% {
+        opacity: 0;
+    }
 
-                width: 18px;
-                height: 18px;
+    88% {
+        opacity: 0;
+    }
 
-                left: calc(50% - 9px);
-                top: calc(50% - 9px);
+    96% {
+        opacity: 1;
+    }
 
-                background: black;
+    100% {
+        opacity: 1;
+    }
+}
 
-                border: 1px solid black;
 
-                opacity: 1;
 
-                border-radius: 50%;
-            }
+/* =========================
+   SEZIONI
+========================= */
 
+section.content {
 
-            /*
-            Il punto comincia ad aprirsi.
-            Il nero diventa trasparente
-            e nasce il bordo.
-            */
+    min-height: 100vh;
 
-            70% {
+    padding: 160px 7vw;
+}
 
-                width: 28px;
-                height: 28px;
+.section-number {
 
-                left: calc(50% - 14px);
-                top: calc(50% - 14px);
+    font-size: 11px;
 
-                background: transparent;
+    letter-spacing: 3px;
 
-                border: 1px solid black;
+    margin-bottom: 60px;
+}
 
-                opacity: 1;
+.statement {
 
-                border-radius: 50%;
-            }
+    max-width: 1100px;
 
+    font-size: clamp(35px,6vw,85px);
 
-            /*
-            Il cerchio cresce.
-            */
+    line-height: 1.05;
 
-            84% {
+    font-weight: 400;
+}
 
-                width: 220px;
-                height: 220px;
 
-                left: calc(50% - 110px);
-                top: calc(50% - 110px);
 
-                background: transparent;
+/* =========================
+   WHAT'S ON
+========================= */
 
-                border: 1px solid black;
+.events {
 
-                opacity: 1;
+    width: 100%;
 
-                border-radius: 50%;
-            }
+    max-width: 1200px;
+}
 
+.event {
 
-            /*
-            Il cerchio resta sospeso
-            per un momento.
-            */
+    display: grid;
 
-            90% {
+    grid-template-columns: 160px 1fr auto;
 
-                width: 220px;
-                height: 220px;
+    align-items: center;
 
-                left: calc(50% - 110px);
-                top: calc(50% - 110px);
+    gap: 40px;
 
-                background: transparent;
+    padding: 35px 0;
 
-                border: 1px solid black;
+    border-top: 1px solid black;
+}
 
-                opacity: 0.8;
+.event:last-child {
 
-                border-radius: 50%;
-            }
+    border-bottom: 1px solid black;
+}
 
+.event-date {
 
-            /*
-            Dissolvenza finale.
-            */
+    font-size: 12px;
 
-            100% {
+    letter-spacing: 2px;
 
-                width: 250px;
-                height: 250px;
+    line-height: 1.5;
+}
 
-                left: calc(50% - 125px);
-                top: calc(50% - 125px);
+.event-title h2 {
 
-                background: transparent;
+    margin: 0;
 
-                border: 1px solid black;
+    font-size: clamp(28px,4vw,55px);
 
-                opacity: 0;
+    font-weight: 400;
 
-                border-radius: 50%;
-            }
-        }
+    line-height: 1;
+}
 
+.event-info {
 
+    margin-top: 12px;
 
-        /* ========================================
-           CLUB ALIENO
-        ======================================== */
+    font-size: 11px;
 
-        .opening-title {
+    letter-spacing: 2px;
+}
 
-            position: absolute;
+.event-link {
 
-            top: 50%;
-            left: 50%;
+    font-size: 11px;
 
-            transform: translate(-50%, -50%);
+    letter-spacing: 2px;
 
-            text-align: center;
+    text-decoration: none;
 
-            opacity: 0;
+    color: black;
 
-            z-index: 10;
+    white-space: nowrap;
+}
 
-            animation:
-                showTitle 7s ease-in-out forwards;
-        }
 
 
-        .opening-title h1 {
+/* =========================
+   WORKS
+========================= */
 
-            margin: 0;
+.works {
 
-            font-size: clamp(50px, 9vw, 130px);
+    display: grid;
 
-            font-weight: 400;
+    grid-template-columns: repeat(2,1fr);
 
-            letter-spacing: 10px;
+    gap: 80px 40px;
+}
 
-            white-space: nowrap;
-        }
+.work {
 
+    min-height: 400px;
 
-        .opening-title p {
+    border: 1px solid black;
 
-            margin-top: 25px;
+    display: flex;
 
-            font-size: 12px;
+    align-items: flex-end;
 
-            letter-spacing: 4px;
-        }
+    padding: 30px;
+}
 
+.work h2 {
 
+    margin: 0;
 
-        @keyframes showTitle {
+    font-size: 35px;
 
-            0% {
-                opacity: 0;
-            }
+    font-weight: 400;
+}
 
+.work span {
 
-            84% {
-                opacity: 0;
-            }
+    display: block;
 
+    margin-top: 12px;
 
-            94% {
-                opacity: 1;
-            }
+    font-size: 11px;
 
+    letter-spacing: 2px;
+}
 
-            100% {
-                opacity: 1;
-            }
-        }
 
 
+/* =========================
+   FOOTER
+========================= */
 
-        /* ========================================
-           SEZIONI
-        ======================================== */
+footer {
 
-        section.content {
+    min-height: 60vh;
 
-            min-height: 100vh;
+    padding: 120px 7vw;
 
-            padding: 160px 7vw;
-        }
+    display: flex;
 
+    flex-direction: column;
 
-        .section-number {
+    justify-content: space-between;
+}
 
-            font-size: 11px;
+footer h2 {
 
-            letter-spacing: 3px;
+    margin: 0;
 
-            margin-bottom: 60px;
-        }
+    font-size: clamp(45px,8vw,100px);
 
+    font-weight: 400;
+}
 
-        .statement {
+footer a {
 
-            max-width: 1100px;
+    color: black;
 
-            font-size: clamp(35px, 6vw, 85px);
+    text-decoration: none;
+}
 
-            line-height: 1.05;
 
-            font-weight: 400;
-        }
 
+/* =========================
+   MOBILE
+========================= */
 
+@media (max-width:700px) {
 
-        /* ========================================
-           WHAT'S ON
-        ======================================== */
+    .menu {
 
-        .events {
+        top: 20px;
 
-            width: 100%;
+        left: 20px;
+        right: 20px;
 
-            max-width: 1200px;
-        }
+        font-size: 10px;
+    }
 
+    .menu a {
+        margin-right: 8px;
+    }
 
-        .event {
+    section.content {
+        padding: 120px 25px;
+    }
 
-            display: grid;
+    .event {
 
-            grid-template-columns: 160px 1fr auto;
+        grid-template-columns: 1fr;
 
-            align-items: center;
+        gap: 15px;
 
-            gap: 40px;
+        padding: 30px 0;
+    }
 
-            padding: 35px 0;
+    .works {
 
-            border-top: 1px solid black;
-        }
+        grid-template-columns: 1fr;
 
+        gap: 25px;
+    }
 
-        .event:last-child {
+    .work {
+        min-height: 300px;
+    }
 
-            border-bottom: 1px solid black;
-        }
+    .opening-title h1 {
 
+        font-size: 45px;
 
-        .event-date {
+        letter-spacing: 5px;
+    }
 
-            font-size: 12px;
+}
 
-            letter-spacing: 2px;
 
-            line-height: 1.5;
-        }
 
+/* =========================
+   LINGUA
+========================= */
 
-        .event-title h2 {
-
-            margin: 0;
-
-            font-size: clamp(28px, 4vw, 55px);
-
-            font-weight: 400;
-
-            line-height: 1;
-        }
-
-
-        .event-info {
-
-            margin-top: 12px;
-
-            font-size: 11px;
-
-            letter-spacing: 2px;
-        }
-
-
-        .event-link {
-
-            font-size: 11px;
-
-            letter-spacing: 2px;
-
-            text-decoration: none;
-
-            color: black;
-
-            white-space: nowrap;
-        }
-
-
-
-        /* ========================================
-           WORKS
-        ======================================== */
-
-        .works {
-
-            display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 80px 40px;
-        }
-
-
-        .work {
-
-            min-height: 400px;
-
-            border: 1px solid black;
-
-            display: flex;
-
-            align-items: flex-end;
-
-            padding: 30px;
-        }
-
-
-        .work h2 {
-
-            margin: 0;
-
-            font-size: 35px;
-
-            font-weight: 400;
-        }
-
-
-        .work span {
-
-            display: block;
-
-            margin-top: 12px;
-
-            font-size: 11px;
-
-            letter-spacing: 2px;
-        }
-
-
-
-        /* ========================================
-           FOOTER
-        ======================================== */
-
-        footer {
-
-            min-height: 60vh;
-
-            padding: 120px 7vw;
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: space-between;
-        }
-
-
-        footer h2 {
-
-            margin: 0;
-
-            font-size: clamp(45px, 8vw, 100px);
-
-            font-weight: 400;
-        }
-
-
-        footer a {
-
-            color: black;
-
-            text-decoration: none;
-        }
-
-
-
-        /* ========================================
-           MOBILE
-        ======================================== */
-
-        @media (max-width: 700px) {
-
-
-            .menu {
-
-                top: 20px;
-
-                left: 20px;
-
-                right: 20px;
-
-                font-size: 10px;
-            }
-
-
-            .menu a {
-
-                margin-right: 8px;
-            }
-
-
-            section.content {
-
-                padding: 120px 25px;
-            }
-
-
-            .event {
-
-                grid-template-columns: 1fr;
-
-                gap: 15px;
-
-                padding: 30px 0;
-            }
-
-
-            .event-link {
-
-                margin-top: 10px;
-            }
-
-
-            .works {
-
-                grid-template-columns: 1fr;
-
-                gap: 25px;
-            }
-
-
-            .work {
-
-                min-height: 300px;
-            }
-
-
-            .opening-title h1 {
-
-                font-size: 45px;
-
-                letter-spacing: 5px;
-            }
-
-        }
-
-    </style>
+</style>
 
 </head>
 
@@ -816,555 +689,486 @@
 
 
 
-    <!-- ========================================
-         MENU
-    ======================================== -->
+<!-- =========================
+     MENU
+========================= -->
 
-    <nav class="menu">
+<nav class="menu">
+
+    <div>
+
+        <a href="#whats-on">
+            WHAT'S ON
+        </a>
+
+        <a href="#works">
+            WORKS
+        </a>
+
+        <a href="#about">
+            ABOUT
+        </a>
+
+        <a href="#people">
+            PEOPLE
+        </a>
+
+    </div>
 
 
-        <div>
+    <div class="menu-right">
 
-            <a href="#whats-on">
-                WHAT'S ON
-            </a>
+        <a href="#contact">
+            CONTACT
+        </a>
+
+        <div class="language">
+
+            <button
+                id="it"
+                class="active"
+                onclick="setLanguage('it')">
+
+                IT
+
+            </button>
+
+            /
+
+            <button
+                id="en"
+                onclick="setLanguage('en')">
+
+                EN
+
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
 
 
-            <a href="#works">
-                WORKS
-            </a>
+
+<!-- =========================
+     OPENING
+========================= -->
+
+<section class="opening">
 
 
-            <a href="#about">
-                ABOUT
-            </a>
+    <!-- I DUE PALLINI -->
+
+    <div class="dot dot-one"></div>
+
+    <div class="dot dot-two"></div>
 
 
-            <a href="#people">
-                PEOPLE
+    <!-- IL PUNTO CHE NASCE
+         DOPO L'INCONTRO -->
+
+    <div class="center-dot"></div>
+
+
+    <!-- IL CERCHIO -->
+
+    <div class="center-circle"></div>
+
+
+    <!-- TITOLO -->
+
+    <div class="opening-title">
+
+        <h1>
+            CLUB ALIENO
+        </h1>
+
+        <p id="subtitle">
+            DANZA · PERFORMANCE · RICERCA
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     WHAT'S ON
+========================= -->
+
+<section
+    class="content"
+    id="whats-on">
+
+    <div class="section-number">
+        01 / WHAT'S ON
+    </div>
+
+
+    <div class="events">
+
+
+        <div class="event">
+
+            <div class="event-date">
+
+                01 NOV<br>
+                2026
+
+            </div>
+
+
+            <div class="event-title">
+
+                <h2>
+                    Vedo il mondo girare
+                </h2>
+
+                <div class="event-info">
+
+                    SPAZIO TONDELLI · RICCIONE · ITALY
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="#"
+                class="event-link">
+
+                MORE →
+
             </a>
 
         </div>
 
 
 
-        <div class="menu-right">
+        <div class="event">
+
+            <div class="event-date">
+
+                DATE<br>
+                TBC
+
+            </div>
 
 
-            <a href="#contact">
-                CONTACT
+            <div class="event-title">
+
+                <h2>
+                    Unusual Suite
+                </h2>
+
+                <div class="event-info">
+
+                    PERFORMANCE · ITALY
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="#"
+                class="event-link">
+
+                MORE →
+
             </a>
 
-
-            <div class="language">
-
-                <button
-                    id="it"
-                    class="active"
-                    onclick="setLanguage('it')">
-
-                    IT
-
-                </button>
+        </div>
 
 
-                /
+
+        <div class="event">
+
+            <div class="event-date">
+
+                2026
+
+            </div>
 
 
-                <button
-                    id="en"
-                    onclick="setLanguage('en')">
+            <div class="event-title">
 
-                    EN
+                <h2>
+                    Club Alieno
+                </h2>
 
-                </button>
+                <div class="event-info">
+
+                    UPCOMING EVENTS
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="#"
+                class="event-link">
+
+                MORE →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     WORKS
+========================= -->
+
+<section
+    class="content"
+    id="works">
+
+    <div class="section-number">
+        02 / WORKS
+    </div>
+
+
+    <div class="works">
+
+
+        <div class="work">
+
+            <div>
+
+                <h2>
+                    Vedo il mondo girare
+                </h2>
+
+                <span>
+                    2026 · PERFORMANCE
+                </span>
 
             </div>
 
         </div>
 
-    </nav>
 
 
+        <div class="work">
 
-    <!-- ========================================
-         OPENING
-    ======================================== -->
+            <div>
 
-    <section class="opening">
+                <h2>
+                    Suite
+                </h2>
 
+                <span>
+                    2023 · PERFORMANCE
+                </span>
 
-        <!-- I DUE PALLINI -->
-
-        <div class="dot dot-one"></div>
-
-        <div class="dot dot-two"></div>
-
-
-        <!-- QUESTO È IL PUNTO
-             CHE DIVENTA IL CERCHIO -->
-
-        <div class="core"></div>
-
-
-        <!-- TITOLO -->
-
-        <div class="opening-title">
-
-            <h1>
-                CLUB ALIENO
-            </h1>
-
-
-            <p id="subtitle">
-
-                DANZA · PERFORMANCE · RICERCA
-
-            </p>
+            </div>
 
         </div>
 
 
-    </section>
+
+        <div class="work">
+
+            <div>
+
+                <h2>
+                    Urban Suite
+                </h2>
+
+                <span>
+                    PERFORMATIVE PROJECT
+                </span>
+
+            </div>
+
+        </div>
 
 
 
-    <!-- ========================================
-         WHAT'S ON
-    ======================================== -->
+        <div class="work">
 
-    <section
-        class="content"
-        id="whats-on">
+            <div>
 
+                <h2>
+                    Unusual Suite
+                </h2>
+
+                <span>
+                    PERFORMANCE · MUSEUMS
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section
+    class="content"
+    id="about">
+
+    <div class="section-number">
+        03 / THE CLUB
+    </div>
+
+
+    <div
+        class="statement"
+        id="aboutText">
+
+        Un luogo dove corpi,
+        esperienze e immaginari
+        diversi entrano in relazione.
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PEOPLE
+========================= -->
+
+<section
+    class="content"
+    id="people">
+
+    <div class="section-number">
+        04 / PEOPLE
+    </div>
+
+
+    <div
+        class="statement"
+        id="peopleText">
+
+        Un collettivo di performer,
+        corpi e individualità differenti.
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<footer id="contact">
+
+    <div>
 
         <div class="section-number">
-
-            01 / WHAT'S ON
-
+            05 / CONTACT
         </div>
 
+        <h2>
+            ENTER<br>
+            THE CLUB
+        </h2>
 
-        <div class="events">
+    </div>
 
 
-            <!-- EVENTO 1 -->
+    <div>
 
-            <div class="event">
+        <a href="mailto:info@clubalieno.it">
 
+            info@clubalieno.it
 
-                <div class="event-date">
+        </a>
 
-                    01 NOV<br>
-                    2026
+    </div>
 
-                </div>
+</footer>
 
 
-                <div class="event-title">
 
-                    <h2>
-                        Vedo il mondo girare
-                    </h2>
+<!-- =========================
+     LINGUA
+========================= -->
 
+<script>
 
-                    <div class="event-info">
+function setLanguage(language) {
 
-                        SPAZIO TONDELLI · RICCIONE · ITALY
+    const aboutText =
+        document.getElementById("aboutText");
 
-                    </div>
+    const peopleText =
+        document.getElementById("peopleText");
 
-                </div>
+    const subtitle =
+        document.getElementById("subtitle");
 
+    const itButton =
+        document.getElementById("it");
 
-                <a
-                    href="#"
-                    class="event-link">
+    const enButton =
+        document.getElementById("en");
 
-                    MORE →
 
-                </a>
+    if (language === "en") {
 
+        subtitle.innerHTML =
+            "DANCE · PERFORMANCE · RESEARCH";
 
-            </div>
+        aboutText.innerHTML =
+            "A space where different bodies, experiences and imaginations meet.";
 
+        peopleText.innerHTML =
+            "A collective of performers, bodies and different individualities.";
 
+        document.documentElement.lang = "en";
 
-            <!-- EVENTO 2 -->
+        enButton.classList.add("active");
 
-            <div class="event">
+        itButton.classList.remove("active");
 
+    }
 
-                <div class="event-date">
+    else {
 
-                    DATE<br>
-                    TBC
+        subtitle.innerHTML =
+            "DANZA · PERFORMANCE · RICERCA";
 
-                </div>
+        aboutText.innerHTML =
+            "Un luogo dove corpi, esperienze e immaginari diversi entrano in relazione.";
 
+        peopleText.innerHTML =
+            "Un collettivo di performer, corpi e individualità differenti.";
 
-                <div class="event-title">
+        document.documentElement.lang = "it";
 
-                    <h2>
-                        Unusual Suite
-                    </h2>
+        itButton.classList.add("active");
 
+        enButton.classList.remove("active");
 
-                    <div class="event-info">
+    }
 
-                        PERFORMANCE · ITALY
+}
 
-                    </div>
-
-                </div>
-
-
-                <a
-                    href="#"
-                    class="event-link">
-
-                    MORE →
-
-                </a>
-
-
-            </div>
-
-
-
-            <!-- EVENTO 3 -->
-
-            <div class="event">
-
-
-                <div class="event-date">
-
-                    2026
-
-                </div>
-
-
-                <div class="event-title">
-
-                    <h2>
-                        Club Alieno
-                    </h2>
-
-
-                    <div class="event-info">
-
-                        UPCOMING EVENTS
-
-                    </div>
-
-                </div>
-
-
-                <a
-                    href="#"
-                    class="event-link">
-
-                    MORE →
-
-                </a>
-
-
-            </div>
-
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- ========================================
-         WORKS
-    ======================================== -->
-
-    <section
-        class="content"
-        id="works">
-
-
-        <div class="section-number">
-
-            02 / WORKS
-
-        </div>
-
-
-        <div class="works">
-
-
-            <div class="work">
-
-                <div>
-
-                    <h2>
-                        Vedo il mondo girare
-                    </h2>
-
-                    <span>
-                        2026 · PERFORMANCE
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="work">
-
-                <div>
-
-                    <h2>
-                        Suite
-                    </h2>
-
-                    <span>
-                        2023 · PERFORMANCE
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="work">
-
-                <div>
-
-                    <h2>
-                        Urban Suite
-                    </h2>
-
-                    <span>
-                        PERFORMATIVE PROJECT
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="work">
-
-                <div>
-
-                    <h2>
-                        Unusual Suite
-                    </h2>
-
-                    <span>
-                        PERFORMANCE · MUSEUMS
-                    </span>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- ========================================
-         ABOUT
-    ======================================== -->
-
-    <section
-        class="content"
-        id="about">
-
-
-        <div class="section-number">
-
-            03 / THE CLUB
-
-        </div>
-
-
-        <div
-            class="statement"
-            id="aboutText">
-
-            Un luogo dove corpi,
-            esperienze e immaginari
-            diversi entrano in relazione.
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- ========================================
-         PEOPLE
-    ======================================== -->
-
-    <section
-        class="content"
-        id="people">
-
-
-        <div class="section-number">
-
-            04 / PEOPLE
-
-        </div>
-
-
-        <div
-            class="statement"
-            id="peopleText">
-
-            Un collettivo di performer,
-            corpi e individualità differenti.
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- ========================================
-         CONTACT
-    ======================================== -->
-
-    <footer id="contact">
-
-
-        <div>
-
-
-            <div class="section-number">
-
-                05 / CONTACT
-
-            </div>
-
-
-            <h2>
-
-                ENTER<br>
-                THE CLUB
-
-            </h2>
-
-
-        </div>
-
-
-        <div>
-
-            <a href="mailto:info@clubalieno.it">
-
-                info@clubalieno.it
-
-            </a>
-
-        </div>
-
-
-    </footer>
-
-
-
-    <!-- ========================================
-         CAMBIO LINGUA
-    ======================================== -->
-
-    <script>
-
-
-        function setLanguage(language) {
-
-
-            const aboutText =
-                document.getElementById("aboutText");
-
-
-            const peopleText =
-                document.getElementById("peopleText");
-
-
-            const subtitle =
-                document.getElementById("subtitle");
-
-
-            const itButton =
-                document.getElementById("it");
-
-
-            const enButton =
-                document.getElementById("en");
-
-
-
-            if (language === "en") {
-
-
-                subtitle.innerHTML =
-                    "DANCE · PERFORMANCE · RESEARCH";
-
-
-                aboutText.innerHTML =
-                    "A space where different bodies, experiences and imaginations meet.";
-
-
-                peopleText.innerHTML =
-                    "A collective of performers, bodies and different individualities.";
-
-
-                document.documentElement.lang =
-                    "en";
-
-
-                enButton.classList.add("active");
-
-
-                itButton.classList.remove("active");
-
-
-            } else {
-
-
-                subtitle.innerHTML =
-                    "DANZA · PERFORMANCE · RICERCA";
-
-
-                aboutText.innerHTML =
-                    "Un luogo dove corpi, esperienze e immaginari diversi entrano in relazione.";
-
-
-                peopleText.innerHTML =
-                    "Un collettivo di performer, corpi e individualità differenti.";
-
-
-                document.documentElement.lang =
-                    "it";
-
-
-                itButton.classList.add("active");
-
-
-                enButton.classList.remove("active");
-
-            }
-
-        }
-
-    </script>
+</script>
 
 
 
