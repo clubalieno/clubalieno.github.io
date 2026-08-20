@@ -4,9 +4,11 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Club Alieno</title>
+
 
 <style>
 
@@ -295,6 +297,7 @@ body {
         titleAppear 5s ease-in-out forwards;
 }
 
+
 .opening-title h1 {
 
     margin: 0;
@@ -307,6 +310,7 @@ body {
 
     white-space: nowrap;
 }
+
 
 .opening-title p {
 
@@ -343,7 +347,7 @@ body {
 
 
 /* =====================================================
-   A — VIENE RISUCCHIATA
+   A — RISUCCHIATA
 ===================================================== */
 
 .alien-letter {
@@ -400,11 +404,6 @@ body {
 
     100% {
 
-        /*
-           La A sale pochissimo.
-           Rimane nettamente separata dal disco.
-        */
-
         transform:
             translateY(-14px)
             rotate(0deg);
@@ -413,19 +412,19 @@ body {
 
 
 /* =====================================================
-   DISCO VOLANTE
+   UFO
 ===================================================== */
 
 .flying-saucer {
 
     position: absolute;
 
-    width: 170px;
-    height: 100px;
+    width: 190px;
+    height: 115px;
 
     left: 50%;
 
-    top: -130px;
+    top: -140px;
 
     transform:
         translateX(-50%)
@@ -453,24 +452,24 @@ body {
     position: absolute;
 
     left: 50%;
-    top: 4px;
+    top: 2px;
 
     transform: translateX(-50%);
 
-    width: 68px;
-    height: 34px;
+    width: 65px;
+    height: 30px;
 
     background: #111;
 
     border-radius:
-        70px 70px 0 0;
+        65px 65px 0 0;
 
     z-index: 4;
 }
 
 
 /* =====================================================
-   CORPO PRINCIPALE
+   CORPO UFO
 ===================================================== */
 
 .saucer-body {
@@ -478,37 +477,42 @@ body {
     position: absolute;
 
     left: 50%;
-    top: 25px;
+    top: 20px;
 
     transform: translateX(-50%);
 
-    width: 170px;
-    height: 48px;
+    width: 190px;
+    height: 43px;
 
     background: #111;
 
+    /*
+       Corpo molto piatto e largo,
+       più vicino al segno grafico del logo.
+    */
+
     border-radius:
-        50% 50% 42% 42%;
+        50% 50% 45% 45%;
 
     z-index: 3;
 }
 
 
 /* =====================================================
-   PARTE INFERIORE
+   PARTE INFERIORE DEL CORPO
 ===================================================== */
 
-.saucer-bottom {
+.saucer-lower-edge {
 
     position: absolute;
 
     left: 50%;
-    top: 43px;
+    top: 39px;
 
     transform: translateX(-50%);
 
-    width: 125px;
-    height: 25px;
+    width: 145px;
+    height: 18px;
 
     background: #111;
 
@@ -520,7 +524,7 @@ body {
 
 
 /* =====================================================
-   FASCIA BIANCA DEL LOGO
+   FASCIA BIANCA
 ===================================================== */
 
 .saucer-white-line {
@@ -528,12 +532,12 @@ body {
     position: absolute;
 
     left: 50%;
-    top: 28px;
+    top: 23px;
 
     transform: translateX(-50%);
 
-    width: 170px;
-    height: 19px;
+    width: 188px;
+    height: 20px;
 
     border-top:
         4px solid white;
@@ -545,27 +549,58 @@ body {
 
 
 /* =====================================================
-   PICCOLA APERTURA CENTRALE
+   APERTURA BIANCA SOTTO IL DISCO
 ===================================================== */
+
+/*
+   Qui non c'è più una "parte inferiore chiusa".
+   L'apertura è volutamente grande e leggibile.
+*/
 
 .saucer-opening {
 
     position: absolute;
 
     left: 50%;
-    top: 55px;
+    top: 47px;
 
     transform: translateX(-50%);
 
-    width: 32px;
-    height: 17px;
+    width: 48px;
+    height: 27px;
 
     background: white;
 
     border-radius:
         0 0 50% 50%;
 
-    z-index: 6;
+    z-index: 7;
+}
+
+
+/* =====================================================
+   PICCOLO BORDO DELL'APERTURA
+===================================================== */
+
+.saucer-opening::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    transform: translateX(-50%);
+
+    width: 42px;
+    height: 8px;
+
+    background: #111;
+
+    border-radius:
+        0 0 50% 50%;
+
 }
 
 
@@ -578,18 +613,20 @@ body {
     position: absolute;
 
     left: 50%;
-    top: 67px;
 
-    transform: translateX(-50%);
+    top: 68px;
+
+    transform:
+        translateX(-50%);
 
     width: 0;
     height: 0;
 
     border-left:
-        18px solid transparent;
+        19px solid transparent;
 
     border-right:
-        18px solid transparent;
+        19px solid transparent;
 
     border-top:
         0 solid transparent;
@@ -625,31 +662,31 @@ body {
 
     55% {
 
-        opacity: 0.06;
+        opacity: 0.055;
 
         border-top:
-            42px solid rgba(0,0,0,0.18);
+            42px solid rgba(0,0,0,0.17);
     }
 
     100% {
 
-        opacity: 0.10;
+        opacity: 0.09;
 
         border-top:
-            62px solid rgba(0,0,0,0.22);
+            68px solid rgba(0,0,0,0.20);
     }
 }
 
 
 /* =====================================================
-   ARRIVO DEL DISCO
+   ARRIVO UFO
 ===================================================== */
 
 @keyframes saucerArrival {
 
     0% {
 
-        top: -130px;
+        top: -140px;
 
         opacity: 0;
 
@@ -691,11 +728,10 @@ body {
     100% {
 
         /*
-           Il disco si ferma MOLTO sopra la A.
-           Rimane uno spazio bianco evidente.
+           Molto più distante dalla A.
         */
 
-        top: calc(50% - 165px);
+        top: calc(50% - 205px);
 
         opacity: 1;
 
@@ -1113,12 +1149,12 @@ footer a {
     </div>
 
 
+
     <!-- =================================================
-         DISCO VOLANTE
+         UFO
     ================================================== -->
 
     <div class="flying-saucer">
-
 
         <div class="saucer-beam"></div>
 
@@ -1126,12 +1162,11 @@ footer a {
 
         <div class="saucer-body"></div>
 
-        <div class="saucer-bottom"></div>
+        <div class="saucer-lower-edge"></div>
 
         <div class="saucer-white-line"></div>
 
         <div class="saucer-opening"></div>
-
 
     </div>
 
@@ -1160,7 +1195,6 @@ footer a {
 
 
         <div class="event">
-
 
             <div class="event-date">
 
@@ -1194,13 +1228,11 @@ footer a {
 
             </a>
 
-
         </div>
 
 
 
         <div class="event">
-
 
             <div class="event-date">
 
@@ -1234,13 +1266,11 @@ footer a {
 
             </a>
 
-
         </div>
 
 
 
         <div class="event">
-
 
             <div class="event-date">
 
@@ -1272,7 +1302,6 @@ footer a {
                 MORE →
 
             </a>
-
 
         </div>
 
@@ -1480,14 +1509,14 @@ footer a {
 
 
 <!-- =====================================================
-     LINGUA + POSIZIONE DISCO
+     LINGUA + POSIZIONE UFO
 ===================================================== -->
 
 <script>
 
 
 /* =====================================================
-   POSIZIONA IL DISCO SOPRA LA A
+   POSIZIONE UFO
 ===================================================== */
 
 function positionSaucer() {
@@ -1525,6 +1554,7 @@ window.addEventListener(
     "resize",
     positionSaucer
 );
+
 
 
 /* =====================================================
