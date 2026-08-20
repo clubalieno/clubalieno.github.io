@@ -60,7 +60,7 @@
 
             text-decoration: none;
 
-            margin-right: 25px;
+            margin-right: 22px;
         }
 
 
@@ -126,46 +126,67 @@
 
             border-radius: 50%;
 
-            z-index: 3;
+            z-index: 4;
         }
 
-
-        /*
-        Primo pallino:
-        parte da sinistra e scorre
-        verso il centro
-        */
 
         .dot-one {
 
             left: 25%;
 
             animation:
-                moveLeftDot 7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+                firstDot 7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
         }
 
-
-        /*
-        Secondo pallino:
-        parte da destra e scorre
-        verso il centro
-        */
 
         .dot-two {
 
             left: 75%;
 
             animation:
-                moveRightDot 7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+                secondDot 7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
         }
 
 
 
         /* ========================================
-           MOVIMENTO PRIMO PALLINO
+           IL PUNTO CENTRALE
+           
+           È LUI che diventerà il cerchio.
+           Non viene creato un secondo elemento.
         ======================================== */
 
-        @keyframes moveLeftDot {
+        .core {
+
+            position: absolute;
+
+            width: 18px;
+            height: 18px;
+
+            left: calc(50% - 9px);
+            top: calc(50% - 9px);
+
+            background: black;
+
+            border: 1px solid black;
+
+            border-radius: 50%;
+
+            opacity: 0;
+
+            z-index: 3;
+
+            animation:
+                coreTransform 7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+        }
+
+
+
+        /* ========================================
+           PRIMO PALLINO
+        ======================================== */
+
+        @keyframes firstDot {
 
             0% {
 
@@ -187,10 +208,6 @@
             }
 
 
-            /*
-            I due pallini si sovrappongono.
-            */
-
             63% {
 
                 left: 50%;
@@ -201,27 +218,7 @@
             }
 
 
-            /*
-            Il punto unico comincia
-            a trasformarsi.
-            */
-
             70% {
-
-                left: 50%;
-
-                opacity: 1;
-
-                transform: scale(0.9);
-            }
-
-
-            /*
-            Il pallino scompare
-            dentro il cerchio.
-            */
-
-            78% {
 
                 left: 50%;
 
@@ -233,6 +230,8 @@
 
             100% {
 
+                left: 50%;
+
                 opacity: 0;
             }
         }
@@ -240,10 +239,10 @@
 
 
         /* ========================================
-           MOVIMENTO SECONDO PALLINO
+           SECONDO PALLINO
         ======================================== */
 
-        @keyframes moveRightDot {
+        @keyframes secondDot {
 
             0% {
 
@@ -265,11 +264,6 @@
             }
 
 
-            /*
-            I due pallini diventano
-            visivamente uno.
-            */
-
             63% {
 
                 left: 50%;
@@ -284,16 +278,6 @@
 
                 left: 50%;
 
-                opacity: 1;
-
-                transform: scale(0.9);
-            }
-
-
-            78% {
-
-                left: 50%;
-
                 opacity: 0;
 
                 transform: scale(0);
@@ -302,6 +286,8 @@
 
             100% {
 
+                left: 50%;
+
                 opacity: 0;
             }
         }
@@ -309,37 +295,13 @@
 
 
         /* ========================================
-           CERCHIO
+           IL PUNTO DIVENTA CERCHIO
         ======================================== */
 
-        .circle {
-
-            position: absolute;
-
-            width: 18px;
-            height: 18px;
-
-            left: calc(50% - 9px);
-            top: calc(50% - 9px);
-
-            border: 1px solid black;
-
-            border-radius: 50%;
-
-            opacity: 0;
-
-            z-index: 2;
-
-            animation:
-                growingCircle 7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-        }
-
-
-
-        @keyframes growingCircle {
+        @keyframes coreTransform {
 
             /*
-            Il cerchio non esiste ancora.
+            I due pallini stanno arrivando.
             */
 
             0% {
@@ -350,12 +312,18 @@
                 left: calc(50% - 9px);
                 top: calc(50% - 9px);
 
+                background: black;
+
+                border: 1px solid black;
+
                 opacity: 0;
+
+                border-radius: 50%;
             }
 
 
             /*
-            I due pallini stanno arrivando.
+            I pallini arrivano al centro.
             */
 
             55% {
@@ -366,12 +334,18 @@
                 left: calc(50% - 9px);
                 top: calc(50% - 9px);
 
+                background: black;
+
+                border: 1px solid black;
+
                 opacity: 0;
+
+                border-radius: 50%;
             }
 
 
             /*
-            I due pallini si incontrano.
+            Appare il punto unico.
             */
 
             63% {
@@ -382,28 +356,42 @@
                 left: calc(50% - 9px);
                 top: calc(50% - 9px);
 
+                background: black;
+
+                border: 1px solid black;
+
                 opacity: 1;
+
+                border-radius: 50%;
             }
 
 
             /*
             Il punto comincia ad aprirsi.
+            Il nero diventa trasparente
+            e nasce il bordo.
             */
 
             70% {
 
-                width: 18px;
-                height: 18px;
+                width: 28px;
+                height: 28px;
 
-                left: calc(50% - 9px);
-                top: calc(50% - 9px);
+                left: calc(50% - 14px);
+                top: calc(50% - 14px);
+
+                background: transparent;
+
+                border: 1px solid black;
 
                 opacity: 1;
+
+                border-radius: 50%;
             }
 
 
             /*
-            Il cerchio si espande.
+            Il cerchio cresce.
             */
 
             84% {
@@ -414,12 +402,19 @@
                 left: calc(50% - 110px);
                 top: calc(50% - 110px);
 
+                background: transparent;
+
+                border: 1px solid black;
+
                 opacity: 1;
+
+                border-radius: 50%;
             }
 
 
             /*
-            Piccola pausa.
+            Il cerchio resta sospeso
+            per un momento.
             */
 
             90% {
@@ -430,25 +425,36 @@
                 left: calc(50% - 110px);
                 top: calc(50% - 110px);
 
+                background: transparent;
+
+                border: 1px solid black;
+
                 opacity: 0.8;
+
+                border-radius: 50%;
             }
 
 
             /*
-            Dissolvenza.
+            Dissolvenza finale.
             */
 
             100% {
 
-                width: 260px;
-                height: 260px;
+                width: 250px;
+                height: 250px;
 
-                left: calc(50% - 130px);
-                top: calc(50% - 130px);
+                left: calc(50% - 125px);
+                top: calc(50% - 125px);
+
+                background: transparent;
+
+                border: 1px solid black;
 
                 opacity: 0;
-            }
 
+                border-radius: 50%;
+            }
         }
 
 
@@ -505,28 +511,23 @@
         @keyframes showTitle {
 
             0% {
-
                 opacity: 0;
             }
 
 
-            82% {
-
+            84% {
                 opacity: 0;
             }
 
 
             94% {
-
                 opacity: 1;
             }
 
 
             100% {
-
                 opacity: 1;
             }
-
         }
 
 
@@ -562,6 +563,87 @@
             line-height: 1.05;
 
             font-weight: 400;
+        }
+
+
+
+        /* ========================================
+           WHAT'S ON
+        ======================================== */
+
+        .events {
+
+            width: 100%;
+
+            max-width: 1200px;
+        }
+
+
+        .event {
+
+            display: grid;
+
+            grid-template-columns: 160px 1fr auto;
+
+            align-items: center;
+
+            gap: 40px;
+
+            padding: 35px 0;
+
+            border-top: 1px solid black;
+        }
+
+
+        .event:last-child {
+
+            border-bottom: 1px solid black;
+        }
+
+
+        .event-date {
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            line-height: 1.5;
+        }
+
+
+        .event-title h2 {
+
+            margin: 0;
+
+            font-size: clamp(28px, 4vw, 55px);
+
+            font-weight: 400;
+
+            line-height: 1;
+        }
+
+
+        .event-info {
+
+            margin-top: 12px;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+        }
+
+
+        .event-link {
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            text-decoration: none;
+
+            color: black;
+
+            white-space: nowrap;
         }
 
 
@@ -660,24 +742,44 @@
 
         @media (max-width: 700px) {
 
+
             .menu {
 
                 top: 20px;
 
                 left: 20px;
+
                 right: 20px;
+
+                font-size: 10px;
             }
 
 
             .menu a {
 
-                margin-right: 10px;
+                margin-right: 8px;
             }
 
 
             section.content {
 
                 padding: 120px 25px;
+            }
+
+
+            .event {
+
+                grid-template-columns: 1fr;
+
+                gap: 15px;
+
+                padding: 30px 0;
+            }
+
+
+            .event-link {
+
+                margin-top: 10px;
             }
 
 
@@ -722,6 +824,11 @@
 
 
         <div>
+
+            <a href="#whats-on">
+                WHAT'S ON
+            </a>
+
 
             <a href="#works">
                 WORKS
@@ -787,14 +894,20 @@
     <section class="opening">
 
 
-        <div class="dot dot-one"></div>
+        <!-- I DUE PALLINI -->
 
+        <div class="dot dot-one"></div>
 
         <div class="dot dot-two"></div>
 
 
-        <div class="circle"></div>
+        <!-- QUESTO È IL PUNTO
+             CHE DIVENTA IL CERCHIO -->
 
+        <div class="core"></div>
+
+
+        <!-- TITOLO -->
 
         <div class="opening-title">
 
@@ -804,7 +917,9 @@
 
 
             <p id="subtitle">
+
                 DANZA · PERFORMANCE · RICERCA
+
             </p>
 
         </div>
@@ -815,28 +930,147 @@
 
 
     <!-- ========================================
-         ABOUT
+         WHAT'S ON
     ======================================== -->
 
     <section
         class="content"
-        id="about">
+        id="whats-on">
 
 
         <div class="section-number">
 
-            01 / THE CLUB
+            01 / WHAT'S ON
 
         </div>
 
 
-        <div
-            class="statement"
-            id="aboutText">
+        <div class="events">
 
-            Un luogo dove corpi,
-            esperienze e immaginari
-            diversi entrano in relazione.
+
+            <!-- EVENTO 1 -->
+
+            <div class="event">
+
+
+                <div class="event-date">
+
+                    01 NOV<br>
+                    2026
+
+                </div>
+
+
+                <div class="event-title">
+
+                    <h2>
+                        Vedo il mondo girare
+                    </h2>
+
+
+                    <div class="event-info">
+
+                        SPAZIO TONDELLI · RICCIONE · ITALY
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="#"
+                    class="event-link">
+
+                    MORE →
+
+                </a>
+
+
+            </div>
+
+
+
+            <!-- EVENTO 2 -->
+
+            <div class="event">
+
+
+                <div class="event-date">
+
+                    DATE<br>
+                    TBC
+
+                </div>
+
+
+                <div class="event-title">
+
+                    <h2>
+                        Unusual Suite
+                    </h2>
+
+
+                    <div class="event-info">
+
+                        PERFORMANCE · ITALY
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="#"
+                    class="event-link">
+
+                    MORE →
+
+                </a>
+
+
+            </div>
+
+
+
+            <!-- EVENTO 3 -->
+
+            <div class="event">
+
+
+                <div class="event-date">
+
+                    2026
+
+                </div>
+
+
+                <div class="event-title">
+
+                    <h2>
+                        Club Alieno
+                    </h2>
+
+
+                    <div class="event-info">
+
+                        UPCOMING EVENTS
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="#"
+                    class="event-link">
+
+                    MORE →
+
+                </a>
+
+
+            </div>
+
 
         </div>
 
@@ -943,6 +1177,37 @@
 
 
     <!-- ========================================
+         ABOUT
+    ======================================== -->
+
+    <section
+        class="content"
+        id="about">
+
+
+        <div class="section-number">
+
+            03 / THE CLUB
+
+        </div>
+
+
+        <div
+            class="statement"
+            id="aboutText">
+
+            Un luogo dove corpi,
+            esperienze e immaginari
+            diversi entrano in relazione.
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ========================================
          PEOPLE
     ======================================== -->
 
@@ -953,7 +1218,7 @@
 
         <div class="section-number">
 
-            03 / PEOPLE
+            04 / PEOPLE
 
         </div>
 
@@ -976,8 +1241,7 @@
          CONTACT
     ======================================== -->
 
-    <footer
-        id="contact">
+    <footer id="contact">
 
 
         <div>
@@ -985,7 +1249,7 @@
 
             <div class="section-number">
 
-                04 / CONTACT
+                05 / CONTACT
 
             </div>
 
@@ -1021,6 +1285,7 @@
     ======================================== -->
 
     <script>
+
 
         function setLanguage(language) {
 
@@ -1061,10 +1326,12 @@
                     "A collective of performers, bodies and different individualities.";
 
 
-                document.documentElement.lang = "en";
+                document.documentElement.lang =
+                    "en";
 
 
                 enButton.classList.add("active");
+
 
                 itButton.classList.remove("active");
 
@@ -1084,10 +1351,12 @@
                     "Un collettivo di performer, corpi e individualità differenti.";
 
 
-                document.documentElement.lang = "it";
+                document.documentElement.lang =
+                    "it";
 
 
                 itButton.classList.add("active");
+
 
                 enButton.classList.remove("active");
 
@@ -1096,6 +1365,7 @@
         }
 
     </script>
+
 
 
 </body>
