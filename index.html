@@ -154,10 +154,7 @@ body {
 
 
 /* =====================================================
-   PALLINO SINISTRO
-
-   I due pallini arrivano esattamente nello stesso
-   punto centrale.
+   MOVIMENTO PALLINO SINISTRO
 ===================================================== */
 
 @keyframes leftDot {
@@ -183,8 +180,8 @@ body {
 
 
     /*
-       Qui i due pallini sono sovrapposti.
-       Visivamente formano UN SOLO pallino.
+       I due punti sono perfettamente sovrapposti.
+       Visivamente diventano un unico punto.
     */
 
     65% {
@@ -198,7 +195,7 @@ body {
 
 
     /*
-       Il punto unico comincia a scomparire.
+       Il punto unico scompare.
     */
 
     72% {
@@ -217,14 +214,15 @@ body {
 
         opacity: 0;
 
-        transform: scale(0);
+        transform: scale(0.3);
     }
+
 }
 
 
 
 /* =====================================================
-   PALLINO DESTRO
+   MOVIMENTO PALLINO DESTRO
 ===================================================== */
 
 @keyframes rightDot {
@@ -250,7 +248,7 @@ body {
 
 
     /*
-       I due pallini sono perfettamente sovrapposti.
+       I due punti sono perfettamente sovrapposti.
     */
 
     65% {
@@ -283,23 +281,15 @@ body {
 
         opacity: 0;
 
-        transform: scale(0);
+        transform: scale(0.3);
     }
+
 }
 
 
 
 /* =====================================================
    CERCHIO
-
-   IMPORTANTE:
-
-   Questo elemento NON è visibile mentre i punti
-   si incontrano.
-
-   Compare SOLO dopo la loro scomparsa.
-
-   Nasce esattamente dal centro.
 ===================================================== */
 
 .center-circle {
@@ -320,57 +310,57 @@ body {
 
     z-index: 3;
 
+    /*
+       IMPORTANTE:
+
+       Il cerchio non cambia posizione.
+       Non cambiano width e height.
+
+       Si espande solamente attraverso
+       transform: scale().
+
+       Questo rende il movimento molto più fluido.
+    */
+
+    transform: scale(1);
+
     animation:
-        circleOpen 5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+        circleOpen 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 
 
 /* =====================================================
-   APERTURA DEL CERCHIO
+   APERTURA FLUIDA DEL CERCHIO
 ===================================================== */
 
 @keyframes circleOpen {
 
 
     /*
-       I pallini stanno arrivando.
-       Nessun cerchio.
+       I pallini si stanno incontrando.
+       Il cerchio è completamente invisibile.
     */
 
     0% {
 
-        width: 18px;
-        height: 18px;
-
-        left: calc(50% - 9px);
-        top: calc(50% - 9px);
-
         opacity: 0;
 
         transform: scale(1);
     }
 
 
-
     /*
-       I pallini sono arrivati al centro.
-       Ancora nessun cerchio.
+       I pallini sono diventati un unico punto.
+       Il cerchio resta invisibile.
     */
 
     65% {
 
-        width: 18px;
-        height: 18px;
-
-        left: calc(50% - 9px);
-        top: calc(50% - 9px);
-
         opacity: 0;
 
         transform: scale(1);
     }
-
 
 
     /*
@@ -380,94 +370,71 @@ body {
 
     72% {
 
-        width: 18px;
-        height: 18px;
-
-        left: calc(50% - 9px);
-        top: calc(50% - 9px);
-
         opacity: 0;
 
         transform: scale(1);
     }
 
 
-
     /*
-       IL PUNTO È SPARITO.
+       Il punto è completamente scomparso.
 
-       Ora compare il cerchio nello stesso identico
-       centro.
+       ORA nasce il cerchio nello stesso identico centro.
     */
 
     76% {
 
-        width: 18px;
-        height: 18px;
-
-        left: calc(50% - 9px);
-        top: calc(50% - 9px);
-
         opacity: 1;
 
         transform: scale(1);
     }
 
 
-
     /*
-       Il cerchio comincia ad aprirsi.
+       Il cerchio comincia ad aprirsi lentamente.
     */
 
-    84% {
-
-        width: 90px;
-        height: 90px;
-
-        left: calc(50% - 45px);
-        top: calc(50% - 45px);
+    82% {
 
         opacity: 1;
 
-        transform: scale(1);
+        transform: scale(5);
     }
 
 
-
     /*
-       Il cerchio si apre completamente.
+       L'apertura continua.
     */
 
-    93% {
-
-        width: 220px;
-        height: 220px;
-
-        left: calc(50% - 110px);
-        top: calc(50% - 110px);
+    90% {
 
         opacity: 1;
 
-        transform: scale(1);
+        transform: scale(11);
     }
 
 
+    /*
+       Grande apertura.
+    */
+
+    96% {
+
+        opacity: 0.7;
+
+        transform: scale(14);
+    }
+
 
     /*
-       Dissolvenza.
+       Dissolvenza finale.
     */
 
     100% {
 
-        width: 260px;
-        height: 260px;
-
-        left: calc(50% - 130px);
-        top: calc(50% - 130px);
-
         opacity: 0;
 
-        transform: scale(1);
+        transform: scale(15);
     }
 
 }
@@ -911,7 +878,9 @@ footer a {
 <section class="opening">
 
 
-    <!-- I DUE PUNTI -->
+    <!--
+       I DUE PALLINI
+    -->
 
     <div class="dot dot-one"></div>
 
@@ -919,15 +888,19 @@ footer a {
 
 
     <!--
-        UN SOLO CERCHIO.
-        È INVISIBILE FINO A QUANDO
-        I PUNTI SONO SCOMPARSI.
+       UNICO CERCHIO
+
+       Non esiste nessun punto centrale aggiuntivo.
+       Il cerchio compare direttamente dopo
+       la scomparsa dei due pallini.
     -->
 
     <div class="center-circle"></div>
 
 
-    <!-- TITOLO -->
+    <!--
+       TITOLO
+    -->
 
     <div class="opening-title">
 
