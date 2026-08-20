@@ -362,7 +362,7 @@ body {
 
 
 /* =====================================================
-   A
+   A — RISUCCHIATA DAL DISCO
 ===================================================== */
 
 .alien-letter {
@@ -374,12 +374,12 @@ body {
     transform-origin: center bottom;
 
     /*
-       La A viene sollevata solo dopo
-       l'arrivo del disco.
+       La A rimane ferma fino all'arrivo
+       del disco volante.
     */
 
     animation:
-        alienLift 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        alienLift 2.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 
     animation-delay: 8.2s;
 }
@@ -394,36 +394,36 @@ body {
             rotate(0deg);
     }
 
-    18% {
+    20% {
 
         transform:
             translateY(-3px)
-            rotate(-1deg);
+            rotate(-0.8deg);
     }
 
-    42% {
+    45% {
 
         transform:
-            translateY(-14px)
-            rotate(1deg);
+            translateY(-10px)
+            rotate(0.7deg);
     }
 
-    68% {
+    70% {
 
         transform:
-            translateY(-27px)
-            rotate(-1deg);
+            translateY(-18px)
+            rotate(-0.5deg);
     }
 
     100% {
 
         /*
-           La A NON scompare.
-           Rimane sospesa.
+           La A viene attirata verso il disco
+           ma rimane volutamente staccata.
         */
 
         transform:
-            translateY(-34px)
+            translateY(-22px)
             rotate(0deg);
     }
 
@@ -433,11 +433,6 @@ body {
 /* =====================================================
    DISCO VOLANTE
 ===================================================== */
-
-/*
-   La posizione orizzontale viene calcolata
-   automaticamente sulla A.
-*/
 
 .flying-saucer {
 
@@ -532,11 +527,6 @@ body {
    FASCIA BIANCA DEL LOGO
 ===================================================== */
 
-/*
-   Questa crea la caratteristica
-   linea bianca curva del disco.
-*/
-
 .saucer-white-line {
 
     position: absolute;
@@ -562,11 +552,6 @@ body {
 /* =====================================================
    APERTURA CENTRALE
 ===================================================== */
-
-/*
-   Nel logo c'è una piccola apertura bianca
-   nella parte centrale inferiore.
-*/
 
 .saucer-opening {
 
@@ -605,7 +590,7 @@ body {
 
     left: 50%;
 
-    top: 73px;
+    top: 70px;
 
     transform:
         translateX(-50%);
@@ -643,17 +628,28 @@ body {
             0 solid transparent;
     }
 
-    35% {
+    30% {
 
-        opacity: 0.06;
+        opacity: 0.04;
+
+        border-top:
+            25px solid rgba(0,0,0,0.18);
+    }
+
+    65% {
+
+        opacity: 0.08;
+
+        border-top:
+            55px solid rgba(0,0,0,0.22);
     }
 
     100% {
 
-        opacity: 0.13;
+        opacity: 0.12;
 
         border-top:
-            90px solid rgba(0,0,0,0.28);
+            75px solid rgba(0,0,0,0.25);
     }
 
 }
@@ -701,10 +697,11 @@ body {
     100% {
 
         /*
-           Si ferma appena sopra la A.
+           Il disco si ferma sopra la A,
+           lasciando spazio tra disco e lettera.
         */
 
-        top: calc(50% - 135px);
+        top: calc(50% - 148px);
 
         opacity: 1;
 
