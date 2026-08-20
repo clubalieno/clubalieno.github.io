@@ -573,11 +573,6 @@ body {
 
     z-index: -1;
 
-    /*
-       Parte molto stretto dall'apertura
-       e si allarga verso il basso.
-    */
-
     clip-path: polygon(
         43% 0%,
         57% 0%,
@@ -1100,7 +1095,9 @@ footer a {
 
 
 
-    <!-- UFO -->
+    <!-- =================================================
+         UFO
+    ================================================== -->
 
     <div class="flying-saucer">
 
@@ -1130,7 +1127,9 @@ footer a {
     id="whats-on">
 
     <div class="section-number">
+
         01 / WHAT'S ON
+
     </div>
 
 
@@ -1470,8 +1469,14 @@ function positionSaucer() {
         letter.getBoundingClientRect();
 
 
+    /*
+       Centro della A.
+       Il -2px corregge il leggerissimo
+       spostamento ottico della lettera.
+    */
+
     const centerX =
-        rect.left + (rect.width / 2);
+        rect.left + (rect.width / 2) - 2;
 
 
     saucer.style.left =
@@ -1489,6 +1494,7 @@ window.addEventListener(
     "resize",
     positionSaucer
 );
+
 
 
 /* =====================================================
