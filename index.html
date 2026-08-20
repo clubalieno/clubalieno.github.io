@@ -227,7 +227,7 @@ body {
     opacity: 0;
 
     animation:
-        drawCircle 5s ease-in-out forwards;
+        drawCircle 5s linear forwards;
 }
 
 
@@ -242,40 +242,21 @@ body {
         opacity: 0;
     }
 
-    65% {
+    68% {
         stroke-dashoffset: 816;
         opacity: 0;
     }
 
     72% {
         stroke-dashoffset: 816;
-        opacity: 0;
-    }
-
-    76% {
-        stroke-dashoffset: 816;
         opacity: 1;
-    }
-
-    82% {
-        stroke-dashoffset: 600;
-        opacity: 1;
-    }
-
-    90% {
-        stroke-dashoffset: 250;
-        opacity: 1;
-    }
-
-    96% {
-        stroke-dashoffset: 40;
-        opacity: 0.7;
     }
 
     100% {
         stroke-dashoffset: 0;
         opacity: 0;
     }
+
 }
 
 
@@ -348,6 +329,7 @@ body {
     100% {
         opacity: 1;
     }
+
 }
 
 
@@ -364,7 +346,7 @@ body {
     transform-origin: center bottom;
 
     animation:
-        alienLift 2.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        alienLift 2.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
 
     animation-delay: 8.2s;
 }
@@ -375,44 +357,15 @@ body {
     0% {
 
         transform:
-            translateY(0)
-            rotate(0deg);
-    }
-
-    18% {
-
-        transform:
-            translateY(-2px)
-            rotate(-0.6deg);
-    }
-
-    38% {
-
-        transform:
-            translateY(-4px)
-            rotate(0.5deg);
-    }
-
-    60% {
-
-        transform:
-            translateY(-8px)
-            rotate(-0.4deg);
-    }
-
-    80% {
-
-        transform:
-            translateY(-11px)
-            rotate(0.2deg);
+            translateY(0);
     }
 
     100% {
 
         transform:
-            translateY(-14px)
-            rotate(0deg);
+            translateY(-14px);
     }
+
 }
 
 
@@ -628,6 +581,7 @@ body {
             translateX(-50%)
             scaleY(1);
     }
+
 }
 
 
@@ -689,6 +643,7 @@ body {
             scale(0.80)
             rotate(0deg);
     }
+
 }
 
 
