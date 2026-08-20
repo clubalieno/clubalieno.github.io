@@ -4,11 +4,9 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Club Alieno</title>
-
 
 <style>
 
@@ -107,18 +105,14 @@ body {
     z-index: 5;
 }
 
-
 .dot-one {
-
     left: 25%;
 
     animation:
         leftDot 5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
-
 .dot-two {
-
     left: 75%;
 
     animation:
@@ -211,7 +205,6 @@ body {
     pointer-events: none;
 }
 
-
 .circle-line {
 
     fill: none;
@@ -232,59 +225,50 @@ body {
 
 
 /* =====================================================
-   DISEGNO DEL CERCHIO
+   DISEGNO CERCHIO
 ===================================================== */
 
 @keyframes drawCircle {
 
     0% {
-
         stroke-dashoffset: 816;
         opacity: 0;
     }
 
     65% {
-
         stroke-dashoffset: 816;
         opacity: 0;
     }
 
     72% {
-
         stroke-dashoffset: 816;
         opacity: 0;
     }
 
     76% {
-
         stroke-dashoffset: 816;
         opacity: 1;
     }
 
     82% {
-
         stroke-dashoffset: 600;
         opacity: 1;
     }
 
     90% {
-
         stroke-dashoffset: 250;
         opacity: 1;
     }
 
     96% {
-
         stroke-dashoffset: 40;
         opacity: 0.7;
     }
 
     100% {
-
         stroke-dashoffset: 0;
         opacity: 0;
     }
-
 }
 
 
@@ -311,7 +295,6 @@ body {
         titleAppear 5s ease-in-out forwards;
 }
 
-
 .opening-title h1 {
 
     margin: 0;
@@ -324,7 +307,6 @@ body {
 
     white-space: nowrap;
 }
-
 
 .opening-title p {
 
@@ -357,12 +339,11 @@ body {
     100% {
         opacity: 1;
     }
-
 }
 
 
 /* =====================================================
-   A — RISUCCHIATA DAL DISCO
+   A — VIENE RISUCCHIATA
 ===================================================== */
 
 .alien-letter {
@@ -372,11 +353,6 @@ body {
     position: relative;
 
     transform-origin: center bottom;
-
-    /*
-       La A rimane ferma fino all'arrivo
-       del disco volante.
-    */
 
     animation:
         alienLift 2.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
@@ -394,39 +370,45 @@ body {
             rotate(0deg);
     }
 
-    20% {
+    18% {
 
         transform:
-            translateY(-3px)
-            rotate(-0.8deg);
+            translateY(-2px)
+            rotate(-0.6deg);
     }
 
-    45% {
+    38% {
 
         transform:
-            translateY(-10px)
-            rotate(0.7deg);
+            translateY(-4px)
+            rotate(0.5deg);
     }
 
-    70% {
+    60% {
 
         transform:
-            translateY(-18px)
-            rotate(-0.5deg);
+            translateY(-8px)
+            rotate(-0.4deg);
+    }
+
+    80% {
+
+        transform:
+            translateY(-11px)
+            rotate(0.2deg);
     }
 
     100% {
 
         /*
-           La A viene attirata verso il disco
-           ma rimane volutamente staccata.
+           La A sale pochissimo.
+           Rimane nettamente separata dal disco.
         */
 
         transform:
-            translateY(-22px)
+            translateY(-14px)
             rotate(0deg);
     }
-
 }
 
 
@@ -439,20 +421,15 @@ body {
     position: absolute;
 
     width: 170px;
-    height: 80px;
-
-    /*
-       left viene impostato dal JavaScript
-       esattamente al centro della A.
-    */
+    height: 100px;
 
     left: 50%;
 
-    top: -120px;
+    top: -130px;
 
     transform:
         translateX(-50%)
-        scale(0.78);
+        scale(0.80);
 
     opacity: 0;
 
@@ -461,42 +438,14 @@ body {
     pointer-events: none;
 
     animation:
-        saucerArrival 3s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        saucerArrival 3.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 
     animation-delay: 5.8s;
 }
 
 
 /* =====================================================
-   CORPO DEL DISCO
-===================================================== */
-
-.saucer-body {
-
-    position: absolute;
-
-    left: 50%;
-    top: 30px;
-
-    transform: translateX(-50%);
-
-    width: 170px;
-    height: 43px;
-
-    background: #111;
-
-    border-radius:
-        50%
-        50%
-        45%
-        45%;
-
-    z-index: 3;
-}
-
-
-/* =====================================================
-   PARTE SUPERIORE / CUPOLA
+   CUPOLA
 ===================================================== */
 
 .saucer-dome {
@@ -504,22 +453,69 @@ body {
     position: absolute;
 
     left: 50%;
-    top: 8px;
+    top: 4px;
 
     transform: translateX(-50%);
 
-    width: 78px;
+    width: 68px;
     height: 34px;
 
     background: #111;
 
     border-radius:
-        50%
-        50%
-        0
-        0;
+        70px 70px 0 0;
 
     z-index: 4;
+}
+
+
+/* =====================================================
+   CORPO PRINCIPALE
+===================================================== */
+
+.saucer-body {
+
+    position: absolute;
+
+    left: 50%;
+    top: 25px;
+
+    transform: translateX(-50%);
+
+    width: 170px;
+    height: 48px;
+
+    background: #111;
+
+    border-radius:
+        50% 50% 42% 42%;
+
+    z-index: 3;
+}
+
+
+/* =====================================================
+   PARTE INFERIORE
+===================================================== */
+
+.saucer-bottom {
+
+    position: absolute;
+
+    left: 50%;
+    top: 43px;
+
+    transform: translateX(-50%);
+
+    width: 125px;
+    height: 25px;
+
+    background: #111;
+
+    border-radius:
+        0 0 70px 70px;
+
+    z-index: 2;
 }
 
 
@@ -532,25 +528,24 @@ body {
     position: absolute;
 
     left: 50%;
-    top: 27px;
+    top: 28px;
 
     transform: translateX(-50%);
 
-    width: 172px;
-    height: 16px;
+    width: 170px;
+    height: 19px;
 
     border-top:
         4px solid white;
 
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     z-index: 5;
 }
 
 
 /* =====================================================
-   APERTURA CENTRALE
+   PICCOLA APERTURA CENTRALE
 ===================================================== */
 
 .saucer-opening {
@@ -560,21 +555,15 @@ body {
     left: 50%;
     top: 55px;
 
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
-    width: 36px;
-    height: 28px;
+    width: 32px;
+    height: 17px;
 
     background: white;
 
-    clip-path:
-        polygon(
-            25% 0%,
-            75% 0%,
-            100% 100%,
-            0% 100%
-        );
+    border-radius:
+        0 0 50% 50%;
 
     z-index: 6;
 }
@@ -589,20 +578,18 @@ body {
     position: absolute;
 
     left: 50%;
+    top: 67px;
 
-    top: 70px;
-
-    transform:
-        translateX(-50%);
+    transform: translateX(-50%);
 
     width: 0;
     height: 0;
 
     border-left:
-        25px solid transparent;
+        18px solid transparent;
 
     border-right:
-        25px solid transparent;
+        18px solid transparent;
 
     border-top:
         0 solid transparent;
@@ -612,7 +599,7 @@ body {
     z-index: -1;
 
     animation:
-        beamAppear 1.3s ease-out forwards;
+        beamAppear 1.5s ease-out forwards;
 
     animation-delay: 8s;
 }
@@ -628,30 +615,29 @@ body {
             0 solid transparent;
     }
 
-    30% {
+    25% {
 
-        opacity: 0.04;
+        opacity: 0.025;
 
         border-top:
-            25px solid rgba(0,0,0,0.18);
+            20px solid rgba(0,0,0,0.15);
     }
 
-    65% {
+    55% {
 
-        opacity: 0.08;
+        opacity: 0.06;
 
         border-top:
-            55px solid rgba(0,0,0,0.22);
+            42px solid rgba(0,0,0,0.18);
     }
 
     100% {
 
-        opacity: 0.12;
+        opacity: 0.10;
 
         border-top:
-            75px solid rgba(0,0,0,0.25);
+            62px solid rgba(0,0,0,0.22);
     }
-
 }
 
 
@@ -663,13 +649,13 @@ body {
 
     0% {
 
-        top: -120px;
+        top: -130px;
 
         opacity: 0;
 
         transform:
             translateX(-50%)
-            scale(0.65)
+            scale(0.55)
             rotate(-5deg);
     }
 
@@ -678,30 +664,38 @@ body {
         opacity: 1;
     }
 
-    48% {
+    42% {
+
+        transform:
+            translateX(-50%)
+            scale(0.78)
+            rotate(3deg);
+    }
+
+    68% {
 
         transform:
             translateX(-50%)
             scale(0.82)
-            rotate(3deg);
+            rotate(-1.5deg);
     }
 
-    72% {
+    84% {
 
         transform:
             translateX(-50%)
             scale(0.80)
-            rotate(-1deg);
+            rotate(0.5deg);
     }
 
     100% {
 
         /*
-           Il disco si ferma sopra la A,
-           lasciando spazio tra disco e lettera.
+           Il disco si ferma MOLTO sopra la A.
+           Rimane uno spazio bianco evidente.
         */
 
-        top: calc(50% - 148px);
+        top: calc(50% - 165px);
 
         opacity: 1;
 
@@ -710,7 +704,6 @@ body {
             scale(0.80)
             rotate(0deg);
     }
-
 }
 
 
@@ -1013,7 +1006,6 @@ footer a {
 
 <nav class="menu">
 
-
     <div>
 
         <a href="#whats-on">
@@ -1078,12 +1070,9 @@ footer a {
 <section class="opening">
 
 
-    <!-- PALLINI -->
-
     <div class="dot dot-one"></div>
 
     <div class="dot dot-two"></div>
-
 
 
     <!-- CERCHIO -->
@@ -1101,7 +1090,6 @@ footer a {
         </circle>
 
     </svg>
-
 
 
     <!-- TITOLO -->
@@ -1125,7 +1113,6 @@ footer a {
     </div>
 
 
-
     <!-- =================================================
          DISCO VOLANTE
     ================================================== -->
@@ -1135,15 +1122,13 @@ footer a {
 
         <div class="saucer-beam"></div>
 
-
         <div class="saucer-dome"></div>
-
 
         <div class="saucer-body"></div>
 
+        <div class="saucer-bottom"></div>
 
         <div class="saucer-white-line"></div>
-
 
         <div class="saucer-opening"></div>
 
@@ -1502,7 +1487,7 @@ footer a {
 
 
 /* =====================================================
-   POSIZIONA IL DISCO ESATTAMENTE SOPRA LA A
+   POSIZIONA IL DISCO SOPRA LA A
 ===================================================== */
 
 function positionSaucer() {
@@ -1521,10 +1506,6 @@ function positionSaucer() {
         letter.getBoundingClientRect();
 
 
-    /*
-       Centro esatto della A
-    */
-
     const centerX =
         rect.left + (rect.width / 2);
 
@@ -1533,11 +1514,6 @@ function positionSaucer() {
         centerX + "px";
 }
 
-
-/*
-   Aspettiamo che il font sia caricato
-   prima di calcolare la posizione.
-*/
 
 window.addEventListener(
     "load",
@@ -1551,37 +1527,29 @@ window.addEventListener(
 );
 
 
-
 /* =====================================================
    LINGUA
 ===================================================== */
 
 function setLanguage(language) {
 
-
     const aboutText =
         document.getElementById("aboutText");
-
 
     const peopleText =
         document.getElementById("peopleText");
 
-
     const subtitle =
         document.getElementById("subtitle");
 
-
     const itButton =
         document.getElementById("it");
-
 
     const enButton =
         document.getElementById("en");
 
 
-
     if (language === "en") {
-
 
         subtitle.innerHTML =
             "DANCE · PERFORMANCE · RESEARCH";
@@ -1602,12 +1570,10 @@ function setLanguage(language) {
 
         itButton.classList.remove("active");
 
-
     }
 
 
     else {
-
 
         subtitle.innerHTML =
             "DANZA · PERFORMANCE · RICERCA";
