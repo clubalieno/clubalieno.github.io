@@ -32,15 +32,12 @@ body {
 }
 
 
-
 /* =====================================================
    MENU
 ===================================================== */
 
 .menu {
-
     position: fixed;
-
     top: 30px;
     left: 40px;
     right: 40px;
@@ -56,38 +53,27 @@ body {
 }
 
 .menu a {
-
     color: black;
-
     text-decoration: none;
-
     margin-right: 22px;
 }
 
 .menu-right {
-
     display: flex;
     align-items: center;
 }
 
 .language button {
-
     border: none;
-
     background: none;
-
     cursor: pointer;
-
     font: inherit;
-
     padding: 0 4px;
 }
 
 .language button.active {
-
     text-decoration: underline;
 }
-
 
 
 /* =====================================================
@@ -95,24 +81,18 @@ body {
 ===================================================== */
 
 .opening {
-
     height: 100vh;
-
     position: relative;
-
     overflow: hidden;
-
     background: white;
 }
 
 
-
 /* =====================================================
-   I DUE PALLINI
+   PALLINI
 ===================================================== */
 
 .dot {
-
     position: absolute;
 
     width: 18px;
@@ -128,8 +108,7 @@ body {
 }
 
 
-
-/* PALLINO SINISTRO */
+/* SINISTRA */
 
 .dot-one {
 
@@ -140,8 +119,7 @@ body {
 }
 
 
-
-/* PALLINO DESTRO */
+/* DESTRA */
 
 .dot-two {
 
@@ -152,293 +130,236 @@ body {
 }
 
 
-
 /* =====================================================
-   MOVIMENTO PALLINO SINISTRO
+   PALLINO SINISTRO
 ===================================================== */
 
 @keyframes leftDot {
 
     0% {
-
         left: 25%;
-
         opacity: 1;
-
-        transform: scale(1);
     }
-
 
     55% {
-
         left: 50%;
-
         opacity: 1;
-
-        transform: scale(1);
     }
-
-
-    /*
-       I due punti sono perfettamente sovrapposti.
-       Visivamente diventano un unico punto.
-    */
 
     65% {
-
         left: 50%;
-
         opacity: 1;
-
-        transform: scale(1);
     }
-
-
-    /*
-       Il punto unico scompare.
-    */
 
     72% {
-
         left: 50%;
-
         opacity: 0;
-
-        transform: scale(0.3);
     }
-
 
     100% {
-
         left: 50%;
-
         opacity: 0;
-
-        transform: scale(0.3);
     }
-
 }
 
 
-
 /* =====================================================
-   MOVIMENTO PALLINO DESTRO
+   PALLINO DESTRO
 ===================================================== */
 
 @keyframes rightDot {
 
     0% {
-
         left: 75%;
-
         opacity: 1;
-
-        transform: scale(1);
     }
-
 
     55% {
-
         left: 50%;
-
         opacity: 1;
-
-        transform: scale(1);
     }
-
-
-    /*
-       I due punti sono perfettamente sovrapposti.
-    */
 
     65% {
-
         left: 50%;
-
         opacity: 1;
-
-        transform: scale(1);
     }
-
-
-    /*
-       Scompaiono insieme.
-    */
 
     72% {
-
         left: 50%;
-
         opacity: 0;
-
-        transform: scale(0.3);
     }
-
 
     100% {
-
         left: 50%;
-
         opacity: 0;
-
-        transform: scale(0.3);
     }
-
 }
 
 
-
 /* =====================================================
-   CERCHIO
+   CERCHIO SVG
 ===================================================== */
 
-.center-circle {
+.circle-svg {
 
     position: absolute;
 
-    width: 18px;
-    height: 18px;
+    width: 260px;
+    height: 260px;
 
-    left: calc(50% - 9px);
-    top: calc(50% - 9px);
-
-    border: 1px solid black;
-
-    border-radius: 50%;
-
-    opacity: 0;
+    left: calc(50% - 130px);
+    top: calc(50% - 130px);
 
     z-index: 3;
 
-    /*
-       IMPORTANTE:
+    pointer-events: none;
 
-       Il cerchio non cambia posizione.
-       Non cambiano width e height.
-
-       Si espande solamente attraverso
-       transform: scale().
-
-       Questo rende il movimento molto più fluido.
-    */
-
-    transform: scale(1);
-
-    animation:
-        circleOpen 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 
+/*
+   Questa è la linea vera del cerchio.
+
+   Stroke-width = 1
+   quindi il bordo rimane sottile.
+*/
+
+.circle-line {
+
+    fill: none;
+
+    stroke: black;
+
+    stroke-width: 1;
+
+    /*
+       Il cerchio è inizialmente completamente nascosto.
+    */
+
+    stroke-dasharray: 816;
+
+    stroke-dashoffset: 816;
+
+    opacity: 0;
+
+    /*
+       Prima compare,
+       poi viene disegnato,
+       poi scompare.
+    */
+
+    animation:
+        drawCircle 5s ease-in-out forwards;
+}
+
 
 /* =====================================================
-   APERTURA FLUIDA DEL CERCHIO
+   DISEGNO DEL CERCHIO
 ===================================================== */
 
-@keyframes circleOpen {
+@keyframes drawCircle {
 
 
     /*
-       I pallini si stanno incontrando.
-       Il cerchio è completamente invisibile.
+       I pallini stanno arrivando.
+       Il cerchio non esiste.
     */
 
     0% {
 
-        opacity: 0;
+        stroke-dashoffset: 816;
 
-        transform: scale(1);
+        opacity: 0;
     }
 
 
     /*
-       I pallini sono diventati un unico punto.
-       Il cerchio resta invisibile.
+       I pallini sono diventati uno.
+       Ancora niente cerchio.
     */
 
     65% {
 
-        opacity: 0;
+        stroke-dashoffset: 816;
 
-        transform: scale(1);
+        opacity: 0;
     }
 
 
     /*
        Il punto unico sta scomparendo.
-       Il cerchio è ancora invisibile.
     */
 
     72% {
 
-        opacity: 0;
+        stroke-dashoffset: 816;
 
-        transform: scale(1);
+        opacity: 0;
     }
 
 
     /*
-       Il punto è completamente scomparso.
+       Il punto è scomparso.
 
-       ORA nasce il cerchio nello stesso identico centro.
+       Il cerchio compare.
     */
 
     76% {
 
-        opacity: 1;
+        stroke-dashoffset: 816;
 
-        transform: scale(1);
+        opacity: 1;
     }
 
 
     /*
-       Il cerchio comincia ad aprirsi lentamente.
+       Il cerchio comincia a disegnarsi.
     */
 
     82% {
 
-        opacity: 1;
+        stroke-dashoffset: 600;
 
-        transform: scale(5);
+        opacity: 1;
     }
 
 
     /*
-       L'apertura continua.
+       Il disegno continua.
     */
 
     90% {
 
-        opacity: 1;
+        stroke-dashoffset: 250;
 
-        transform: scale(11);
+        opacity: 1;
     }
 
 
     /*
-       Grande apertura.
+       Cerchio quasi completo.
     */
 
     96% {
 
-        opacity: 0.7;
+        stroke-dashoffset: 40;
 
-        transform: scale(14);
+        opacity: 0.7;
     }
 
 
     /*
-       Dissolvenza finale.
+       Cerchio completo e dissolvenza.
     */
 
     100% {
 
-        opacity: 0;
+        stroke-dashoffset: 0;
 
-        transform: scale(15);
+        opacity: 0;
     }
 
 }
-
 
 
 /* =====================================================
@@ -489,38 +410,29 @@ body {
 }
 
 
-
 /* =====================================================
-   COMPARSA DEL TITOLO
+   TITOLO
 ===================================================== */
 
 @keyframes titleAppear {
 
     0% {
-
         opacity: 0;
     }
-
 
     88% {
-
         opacity: 0;
     }
 
-
     96% {
-
         opacity: 1;
     }
 
-
     100% {
-
         opacity: 1;
     }
 
 }
-
 
 
 /* =====================================================
@@ -555,7 +467,6 @@ section.content {
 
     font-weight: 400;
 }
-
 
 
 /* =====================================================
@@ -638,7 +549,6 @@ section.content {
 }
 
 
-
 /* =====================================================
    WORKS
 ===================================================== */
@@ -689,7 +599,6 @@ section.content {
 }
 
 
-
 /* =====================================================
    FOOTER
 ===================================================== */
@@ -726,13 +635,11 @@ footer a {
 }
 
 
-
 /* =====================================================
    MOBILE
 ===================================================== */
 
 @media (max-width: 700px) {
-
 
     .menu {
 
@@ -788,6 +695,16 @@ footer a {
         letter-spacing: 5px;
     }
 
+
+    .circle-svg {
+
+        width: 220px;
+        height: 220px;
+
+        left: calc(50% - 110px);
+        top: calc(50% - 110px);
+    }
+
 }
 
 </style>
@@ -795,9 +712,7 @@ footer a {
 </head>
 
 
-
 <body>
-
 
 
 <!-- =====================================================
@@ -813,16 +728,13 @@ footer a {
             WHAT'S ON
         </a>
 
-
         <a href="#works">
             WORKS
         </a>
 
-
         <a href="#about">
             ABOUT
         </a>
-
 
         <a href="#people">
             PEOPLE
@@ -831,9 +743,7 @@ footer a {
     </div>
 
 
-
     <div class="menu-right">
-
 
         <a href="#contact">
             CONTACT
@@ -851,9 +761,7 @@ footer a {
 
             </button>
 
-
             /
-
 
             <button
                 id="en"
@@ -878,32 +786,43 @@ footer a {
 <section class="opening">
 
 
-    <!--
-       I DUE PALLINI
-    -->
+    <!-- I DUE PUNTI -->
 
     <div class="dot dot-one"></div>
 
     <div class="dot dot-two"></div>
 
 
-    <!--
-       UNICO CERCHIO
-
-       Non esiste nessun punto centrale aggiuntivo.
-       Il cerchio compare direttamente dopo
-       la scomparsa dei due pallini.
-    -->
-
-    <div class="center-circle"></div>
-
 
     <!--
-       TITOLO
+       CERCHIO SVG
+
+       È un'unica linea.
+       Non cambia spessore.
+       Viene disegnata progressivamente.
     -->
+
+    <svg
+        class="circle-svg"
+        viewBox="0 0 260 260"
+        aria-hidden="true">
+
+
+        <circle
+            class="circle-line"
+            cx="130"
+            cy="130"
+            r="129">
+        </circle>
+
+
+    </svg>
+
+
+
+    <!-- TITOLO -->
 
     <div class="opening-title">
-
 
         <h1>
             CLUB ALIENO
@@ -915,7 +834,6 @@ footer a {
             DANZA · PERFORMANCE · RICERCA
 
         </p>
-
 
     </div>
 
@@ -943,8 +861,6 @@ footer a {
     <div class="events">
 
 
-        <!-- EVENTO 1 -->
-
         <div class="event">
 
 
@@ -958,11 +874,8 @@ footer a {
 
             <div class="event-title">
 
-
                 <h2>
-
                     Vedo il mondo girare
-
                 </h2>
 
 
@@ -971,7 +884,6 @@ footer a {
                     SPAZIO TONDELLI · RICCIONE · ITALY
 
                 </div>
-
 
             </div>
 
@@ -988,8 +900,6 @@ footer a {
         </div>
 
 
-
-        <!-- EVENTO 2 -->
 
         <div class="event">
 
@@ -1004,11 +914,8 @@ footer a {
 
             <div class="event-title">
 
-
                 <h2>
-
                     Unusual Suite
-
                 </h2>
 
 
@@ -1017,7 +924,6 @@ footer a {
                     PERFORMANCE · ITALY
 
                 </div>
-
 
             </div>
 
@@ -1035,8 +941,6 @@ footer a {
 
 
 
-        <!-- EVENTO 3 -->
-
         <div class="event">
 
 
@@ -1049,11 +953,8 @@ footer a {
 
             <div class="event-title">
 
-
                 <h2>
-
                     Club Alieno
-
                 </h2>
 
 
@@ -1062,7 +963,6 @@ footer a {
                     UPCOMING EVENTS
 
                 </div>
-
 
             </div>
 
@@ -1080,7 +980,6 @@ footer a {
 
 
     </div>
-
 
 </section>
 
@@ -1107,26 +1006,17 @@ footer a {
 
         <div class="work">
 
-
             <div>
 
-
                 <h2>
-
                     Vedo il mondo girare
-
                 </h2>
 
-
                 <span>
-
                     2026 · PERFORMANCE
-
                 </span>
 
-
             </div>
-
 
         </div>
 
@@ -1134,26 +1024,17 @@ footer a {
 
         <div class="work">
 
-
             <div>
 
-
                 <h2>
-
                     Suite
-
                 </h2>
 
-
                 <span>
-
                     2023 · PERFORMANCE
-
                 </span>
 
-
             </div>
-
 
         </div>
 
@@ -1161,26 +1042,17 @@ footer a {
 
         <div class="work">
 
-
             <div>
 
-
                 <h2>
-
                     Urban Suite
-
                 </h2>
 
-
                 <span>
-
                     PERFORMATIVE PROJECT
-
                 </span>
 
-
             </div>
-
 
         </div>
 
@@ -1188,32 +1060,22 @@ footer a {
 
         <div class="work">
 
-
             <div>
 
-
                 <h2>
-
                     Unusual Suite
-
                 </h2>
 
-
                 <span>
-
                     PERFORMANCE · MUSEUMS
-
                 </span>
 
-
             </div>
-
 
         </div>
 
 
     </div>
-
 
 </section>
 
@@ -1239,14 +1101,11 @@ footer a {
         class="statement"
         id="aboutText">
 
-
         Un luogo dove corpi,
         esperienze e immaginari
         diversi entrano in relazione.
 
-
     </div>
-
 
 </section>
 
@@ -1272,13 +1131,10 @@ footer a {
         class="statement"
         id="peopleText">
 
-
         Un collettivo di performer,
         corpi e individualità differenti.
 
-
     </div>
-
 
 </section>
 
@@ -1292,7 +1148,6 @@ footer a {
 
 
     <div>
-
 
         <div class="section-number">
 
@@ -1308,19 +1163,16 @@ footer a {
 
         </h2>
 
-
     </div>
 
 
     <div>
-
 
         <a href="mailto:info@clubalieno.it">
 
             info@clubalieno.it
 
         </a>
-
 
     </div>
 
@@ -1330,7 +1182,7 @@ footer a {
 
 
 <!-- =====================================================
-     CAMBIO LINGUA
+     LINGUA
 ===================================================== -->
 
 <script>
@@ -1375,12 +1227,10 @@ function setLanguage(language) {
             "A collective of performers, bodies and different individualities.";
 
 
-        document.documentElement.lang =
-            "en";
+        document.documentElement.lang = "en";
 
 
         enButton.classList.add("active");
-
 
         itButton.classList.remove("active");
 
@@ -1403,22 +1253,18 @@ function setLanguage(language) {
             "Un collettivo di performer, corpi e individualità differenti.";
 
 
-        document.documentElement.lang =
-            "it";
+        document.documentElement.lang = "it";
 
 
         itButton.classList.add("active");
 
-
         enButton.classList.remove("active");
-
 
     }
 
 }
 
 </script>
-
 
 
 </body>
