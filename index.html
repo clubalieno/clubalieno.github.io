@@ -2,10 +2,13 @@
 <html lang="it">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Club Alieno</title>
+
 
     <style>
 
@@ -13,24 +16,29 @@
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
             background: white;
             color: black;
+            font-family: Arial, sans-serif;
         }
 
 
-        /* =========================
+
+        /* ========================================
            MENU
-        ========================= */
+        ======================================== */
 
         .menu {
+
             position: fixed;
+
             top: 30px;
             left: 40px;
             right: 40px;
@@ -45,98 +53,412 @@
             letter-spacing: 2px;
         }
 
+
         .menu a {
+
             color: black;
+
             text-decoration: none;
+
             margin-right: 25px;
         }
 
+
         .menu-right {
+
             display: flex;
             align-items: center;
         }
 
+
         .language button {
+
             border: none;
+
             background: none;
+
             cursor: pointer;
+
             font: inherit;
+
             padding: 0 4px;
         }
 
+
         .language button.active {
+
             text-decoration: underline;
         }
 
 
-        /* =========================
+
+        /* ========================================
            OPENING
-        ========================= */
+        ======================================== */
 
         .opening {
+
             height: 100vh;
+
             position: relative;
+
             overflow: hidden;
+
+            background: white;
         }
 
 
-        /* I DUE PUNTI */
+
+        /* ========================================
+           I DUE PALLINI
+        ======================================== */
 
         .dot {
+
             position: absolute;
 
             width: 18px;
             height: 18px;
 
+            top: calc(50% - 9px);
+
             background: black;
 
             border-radius: 50%;
 
-            top: calc(50% - 9px);
+            z-index: 3;
         }
 
+
+        /*
+        Primo pallino:
+        parte da sinistra e scorre
+        verso il centro
+        */
 
         .dot-one {
-            left: 35%;
+
+            left: 25%;
 
             animation:
-                firstDot 6s ease-in-out forwards;
+                moveLeftDot 7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
         }
 
+
+        /*
+        Secondo pallino:
+        parte da destra e scorre
+        verso il centro
+        */
 
         .dot-two {
-            left: 65%;
+
+            left: 75%;
 
             animation:
-                secondDot 6s ease-in-out forwards;
+                moveRightDot 7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
         }
 
 
-        /* IL CERCHIO */
+
+        /* ========================================
+           MOVIMENTO PRIMO PALLINO
+        ======================================== */
+
+        @keyframes moveLeftDot {
+
+            0% {
+
+                left: 25%;
+
+                opacity: 1;
+
+                transform: scale(1);
+            }
+
+
+            55% {
+
+                left: 50%;
+
+                opacity: 1;
+
+                transform: scale(1);
+            }
+
+
+            /*
+            I due pallini si sovrappongono.
+            */
+
+            63% {
+
+                left: 50%;
+
+                opacity: 1;
+
+                transform: scale(1);
+            }
+
+
+            /*
+            Il punto unico comincia
+            a trasformarsi.
+            */
+
+            70% {
+
+                left: 50%;
+
+                opacity: 1;
+
+                transform: scale(0.9);
+            }
+
+
+            /*
+            Il pallino scompare
+            dentro il cerchio.
+            */
+
+            78% {
+
+                left: 50%;
+
+                opacity: 0;
+
+                transform: scale(0);
+            }
+
+
+            100% {
+
+                opacity: 0;
+            }
+        }
+
+
+
+        /* ========================================
+           MOVIMENTO SECONDO PALLINO
+        ======================================== */
+
+        @keyframes moveRightDot {
+
+            0% {
+
+                left: 75%;
+
+                opacity: 1;
+
+                transform: scale(1);
+            }
+
+
+            55% {
+
+                left: 50%;
+
+                opacity: 1;
+
+                transform: scale(1);
+            }
+
+
+            /*
+            I due pallini diventano
+            visivamente uno.
+            */
+
+            63% {
+
+                left: 50%;
+
+                opacity: 1;
+
+                transform: scale(1);
+            }
+
+
+            70% {
+
+                left: 50%;
+
+                opacity: 1;
+
+                transform: scale(0.9);
+            }
+
+
+            78% {
+
+                left: 50%;
+
+                opacity: 0;
+
+                transform: scale(0);
+            }
+
+
+            100% {
+
+                opacity: 0;
+            }
+        }
+
+
+
+        /* ========================================
+           CERCHIO
+        ======================================== */
 
         .circle {
+
             position: absolute;
 
-            width: 220px;
-            height: 220px;
+            width: 18px;
+            height: 18px;
+
+            left: calc(50% - 9px);
+            top: calc(50% - 9px);
 
             border: 1px solid black;
 
             border-radius: 50%;
 
-            top: calc(50% - 110px);
-            left: calc(50% - 110px);
-
             opacity: 0;
 
+            z-index: 2;
+
             animation:
-                circleAppear 6s ease-in-out forwards;
+                growingCircle 7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
         }
 
 
-        /* TITOLO */
+
+        @keyframes growingCircle {
+
+            /*
+            Il cerchio non esiste ancora.
+            */
+
+            0% {
+
+                width: 18px;
+                height: 18px;
+
+                left: calc(50% - 9px);
+                top: calc(50% - 9px);
+
+                opacity: 0;
+            }
+
+
+            /*
+            I due pallini stanno arrivando.
+            */
+
+            55% {
+
+                width: 18px;
+                height: 18px;
+
+                left: calc(50% - 9px);
+                top: calc(50% - 9px);
+
+                opacity: 0;
+            }
+
+
+            /*
+            I due pallini si incontrano.
+            */
+
+            63% {
+
+                width: 18px;
+                height: 18px;
+
+                left: calc(50% - 9px);
+                top: calc(50% - 9px);
+
+                opacity: 1;
+            }
+
+
+            /*
+            Il punto comincia ad aprirsi.
+            */
+
+            70% {
+
+                width: 18px;
+                height: 18px;
+
+                left: calc(50% - 9px);
+                top: calc(50% - 9px);
+
+                opacity: 1;
+            }
+
+
+            /*
+            Il cerchio si espande.
+            */
+
+            84% {
+
+                width: 220px;
+                height: 220px;
+
+                left: calc(50% - 110px);
+                top: calc(50% - 110px);
+
+                opacity: 1;
+            }
+
+
+            /*
+            Piccola pausa.
+            */
+
+            90% {
+
+                width: 220px;
+                height: 220px;
+
+                left: calc(50% - 110px);
+                top: calc(50% - 110px);
+
+                opacity: 0.8;
+            }
+
+
+            /*
+            Dissolvenza.
+            */
+
+            100% {
+
+                width: 260px;
+                height: 260px;
+
+                left: calc(50% - 130px);
+                top: calc(50% - 130px);
+
+                opacity: 0;
+            }
+
+        }
+
+
+
+        /* ========================================
+           CLUB ALIENO
+        ======================================== */
 
         .opening-title {
+
             position: absolute;
 
             top: 50%;
@@ -148,166 +470,73 @@
 
             opacity: 0;
 
+            z-index: 10;
+
             animation:
-                titleAppear 6s ease-in-out forwards;
+                showTitle 7s ease-in-out forwards;
         }
 
 
         .opening-title h1 {
+
+            margin: 0;
+
             font-size: clamp(50px, 9vw, 130px);
 
             font-weight: 400;
 
             letter-spacing: 10px;
 
-            margin: 0;
-
             white-space: nowrap;
         }
 
 
         .opening-title p {
+
+            margin-top: 25px;
+
             font-size: 12px;
 
             letter-spacing: 4px;
-
-            margin-top: 25px;
         }
 
 
-        /* =========================
-           ANIMAZIONE PUNTO 1
-        ========================= */
 
-        @keyframes firstDot {
+        @keyframes showTitle {
 
             0% {
-                transform: translateX(-80px);
-                opacity: 1;
-            }
 
-            35% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-
-            55% {
-                transform: translateX(80px);
-                opacity: 1;
-            }
-
-            72% {
-                transform: translateX(80px);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateX(80px);
-                opacity: 0;
-            }
-        }
-
-
-        /* =========================
-           ANIMAZIONE PUNTO 2
-        ========================= */
-
-        @keyframes secondDot {
-
-            0% {
-                transform: translateX(80px);
-                opacity: 1;
-            }
-
-            35% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-
-            55% {
-                transform: translateX(-80px);
-                opacity: 1;
-            }
-
-            72% {
-                transform: translateX(-80px);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateX(-80px);
-                opacity: 0;
-            }
-        }
-
-
-        /* =========================
-           ANIMAZIONE CERCHIO
-        ========================= */
-
-        @keyframes circleAppear {
-
-            0% {
-                opacity: 0;
-                transform: scale(0.3);
-            }
-
-            35% {
-                opacity: 0;
-                transform: scale(0.3);
-            }
-
-            55% {
-                opacity: 0;
-                transform: scale(0.3);
-            }
-
-            68% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            80% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            100% {
-                opacity: 0;
-                transform: scale(1.05);
-            }
-        }
-
-
-        /* =========================
-           ANIMAZIONE TITOLO
-        ========================= */
-
-        @keyframes titleAppear {
-
-            0% {
                 opacity: 0;
             }
 
-            72% {
-                opacity: 0;
-            }
 
             82% {
+
+                opacity: 0;
+            }
+
+
+            94% {
+
                 opacity: 1;
             }
 
+
             100% {
+
                 opacity: 1;
             }
+
         }
 
 
-        /* =========================
+
+        /* ========================================
            SEZIONI
-        ========================= */
+        ======================================== */
 
         section.content {
+
             min-height: 100vh;
 
             padding: 160px 7vw;
@@ -315,6 +544,7 @@
 
 
         .section-number {
+
             font-size: 11px;
 
             letter-spacing: 3px;
@@ -324,21 +554,24 @@
 
 
         .statement {
+
+            max-width: 1100px;
+
             font-size: clamp(35px, 6vw, 85px);
 
             line-height: 1.05;
-
-            max-width: 1100px;
 
             font-weight: 400;
         }
 
 
-        /* =========================
+
+        /* ========================================
            WORKS
-        ========================= */
+        ======================================== */
 
         .works {
+
             display: grid;
 
             grid-template-columns: repeat(2, 1fr);
@@ -348,6 +581,7 @@
 
 
         .work {
+
             min-height: 400px;
 
             border: 1px solid black;
@@ -361,30 +595,34 @@
 
 
         .work h2 {
+
+            margin: 0;
+
             font-size: 35px;
 
             font-weight: 400;
-
-            margin: 0;
         }
 
 
         .work span {
+
             display: block;
+
+            margin-top: 12px;
 
             font-size: 11px;
 
             letter-spacing: 2px;
-
-            margin-top: 12px;
         }
 
 
-        /* =========================
+
+        /* ========================================
            FOOTER
-        ========================= */
+        ======================================== */
 
         footer {
+
             min-height: 60vh;
 
             padding: 120px 7vw;
@@ -398,45 +636,53 @@
 
 
         footer h2 {
+
+            margin: 0;
+
             font-size: clamp(45px, 8vw, 100px);
 
             font-weight: 400;
-
-            margin: 0;
         }
 
 
         footer a {
+
             color: black;
 
             text-decoration: none;
         }
 
 
-        /* =========================
+
+        /* ========================================
            MOBILE
-        ========================= */
+        ======================================== */
 
         @media (max-width: 700px) {
 
             .menu {
+
+                top: 20px;
+
                 left: 20px;
                 right: 20px;
-                top: 20px;
             }
 
 
             .menu a {
+
                 margin-right: 10px;
             }
 
 
             section.content {
+
                 padding: 120px 25px;
             }
 
 
             .works {
+
                 grid-template-columns: 1fr;
 
                 gap: 25px;
@@ -444,11 +690,15 @@
 
 
             .work {
+
                 min-height: 300px;
             }
 
 
             .opening-title h1 {
+
+                font-size: 45px;
+
                 letter-spacing: 5px;
             }
 
@@ -459,29 +709,44 @@
 </head>
 
 
+
 <body>
 
 
-    <!-- =========================
+
+    <!-- ========================================
          MENU
-    ========================= -->
+    ======================================== -->
 
     <nav class="menu">
 
+
         <div>
 
-            <a href="#works">WORKS</a>
+            <a href="#works">
+                WORKS
+            </a>
 
-            <a href="#about">ABOUT</a>
 
-            <a href="#people">PEOPLE</a>
+            <a href="#about">
+                ABOUT
+            </a>
+
+
+            <a href="#people">
+                PEOPLE
+            </a>
 
         </div>
 
 
+
         <div class="menu-right">
 
-            <a href="#contact">CONTACT</a>
+
+            <a href="#contact">
+                CONTACT
+            </a>
 
 
             <div class="language">
@@ -490,15 +755,21 @@
                     id="it"
                     class="active"
                     onclick="setLanguage('it')">
+
                     IT
+
                 </button>
 
+
                 /
+
 
                 <button
                     id="en"
                     onclick="setLanguage('en')">
+
                     EN
+
                 </button>
 
             </div>
@@ -509,29 +780,21 @@
 
 
 
-    <!-- =========================
+    <!-- ========================================
          OPENING
-    ========================= -->
+    ======================================== -->
 
     <section class="opening">
 
 
-        <!-- PRIMO PUNTO -->
-
         <div class="dot dot-one"></div>
 
-
-        <!-- SECONDO PUNTO -->
 
         <div class="dot dot-two"></div>
 
 
-        <!-- CERCHIO -->
-
         <div class="circle"></div>
 
-
-        <!-- TITOLO -->
 
         <div class="opening-title">
 
@@ -546,20 +809,24 @@
 
         </div>
 
+
     </section>
 
 
 
-    <!-- =========================
+    <!-- ========================================
          ABOUT
-    ========================= -->
+    ======================================== -->
 
     <section
         class="content"
         id="about">
 
+
         <div class="section-number">
+
             01 / THE CLUB
+
         </div>
 
 
@@ -573,13 +840,14 @@
 
         </div>
 
+
     </section>
 
 
 
-    <!-- =========================
+    <!-- ========================================
          WORKS
-    ========================= -->
+    ======================================== -->
 
     <section
         class="content"
@@ -587,7 +855,9 @@
 
 
         <div class="section-number">
+
             02 / WORKS
+
         </div>
 
 
@@ -667,13 +937,14 @@
 
         </div>
 
+
     </section>
 
 
 
-    <!-- =========================
+    <!-- ========================================
          PEOPLE
-    ========================= -->
+    ======================================== -->
 
     <section
         class="content"
@@ -681,7 +952,9 @@
 
 
         <div class="section-number">
+
             03 / PEOPLE
+
         </div>
 
 
@@ -694,28 +967,36 @@
 
         </div>
 
+
     </section>
 
 
 
-    <!-- =========================
+    <!-- ========================================
          CONTACT
-    ========================= -->
+    ======================================== -->
 
-    <footer id="contact">
+    <footer
+        id="contact">
 
 
         <div>
 
+
             <div class="section-number">
+
                 04 / CONTACT
+
             </div>
 
 
             <h2>
+
                 ENTER<br>
                 THE CLUB
+
             </h2>
+
 
         </div>
 
@@ -723,18 +1004,21 @@
         <div>
 
             <a href="mailto:info@clubalieno.it">
+
                 info@clubalieno.it
+
             </a>
 
         </div>
+
 
     </footer>
 
 
 
-    <!-- =========================
-         LANGUAGE
-    ========================= -->
+    <!-- ========================================
+         CAMBIO LINGUA
+    ======================================== -->
 
     <script>
 
@@ -777,8 +1061,7 @@
                     "A collective of performers, bodies and different individualities.";
 
 
-                document.documentElement.lang =
-                    "en";
+                document.documentElement.lang = "en";
 
 
                 enButton.classList.add("active");
@@ -790,7 +1073,7 @@
 
 
                 subtitle.innerHTML =
-                    "DANZA · PERFORMANCE";
+                    "DANZA · PERFORMANCE · RICERCA";
 
 
                 aboutText.innerHTML =
@@ -801,8 +1084,7 @@
                     "Un collettivo di performer, corpi e individualità differenti.";
 
 
-                document.documentElement.lang =
-                    "it";
+                document.documentElement.lang = "it";
 
 
                 itButton.classList.add("active");
