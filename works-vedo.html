@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vedo il mondo girare · Club Alieno</title>
+
+
+<style>
+
+/* =====================================================
+   BASE
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background: white;
+
+    color: black;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu {
+
+    position: fixed;
+
+    top: 30px;
+
+    left: 40px;
+
+    right: 40px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    z-index: 100;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+
+.menu a {
+
+    color: black;
+
+    text-decoration: none;
+
+    margin-right: 22px;
+}
+
+
+/* =====================================================
+   CONTENUTO
+===================================================== */
+
+.work-page {
+
+    padding: 160px 7vw 120px;
+
+    max-width: 1500px;
+
+    margin: auto;
+}
+
+
+/* =====================================================
+   NUMERO SEZIONE
+===================================================== */
+
+.section-number {
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 100px;
+}
+
+
+/* =====================================================
+   TITOLO
+===================================================== */
+
+.work-header {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    align-items: end;
+
+    margin-bottom: 150px;
+}
+
+
+.work-title {
+
+    margin: 0;
+
+    font-size: clamp(60px, 10vw, 150px);
+
+    line-height: 0.88;
+
+    font-weight: 400;
+
+    letter-spacing: -5px;
+}
+
+
+.work-meta {
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   FRASE
+===================================================== */
+
+.work-intro {
+
+    min-height: 55vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    margin-bottom: 150px;
+}
+
+
+.work-intro p {
+
+    max-width: 900px;
+
+    margin: 0;
+
+    font-size: clamp(35px, 5vw, 75px);
+
+    line-height: 1.05;
+
+    font-weight: 400;
+}
+
+
+/* =====================================================
+   MACCHIA
+===================================================== */
+
+.ink {
+
+    position: absolute;
+
+    width: 18px;
+
+    height: 18px;
+
+    background: black;
+
+    border-radius: 50%;
+
+    left: 50%;
+
+    top: 15%;
+
+    transform: translateX(-50%);
+
+    animation: inkMovement 6s ease-in-out infinite;
+}
+
+
+@keyframes inkMovement {
+
+    0% {
+
+        transform:
+            translateX(-50%)
+            translateY(0)
+            scale(1);
+    }
+
+    35% {
+
+        transform:
+            translateX(-50%)
+            translateY(35px)
+            scale(1.25);
+    }
+
+    65% {
+
+        transform:
+            translateX(-50%)
+            translateY(70px)
+            scale(0.9);
+    }
+
+    100% {
+
+        transform:
+            translateX(-50%)
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   CREDITI
+===================================================== */
+
+.credits {
+
+    border-top: 1px solid black;
+
+    padding-top: 40px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 50px 80px;
+
+    margin-bottom: 150px;
+}
+
+
+.credit {
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    letter-spacing: 1px;
+}
+
+
+.credit strong {
+
+    display: block;
+
+    font-weight: 400;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 6px;
+}
+
+
+/* =====================================================
+   DESCRIZIONE
+===================================================== */
+
+.description {
+
+    max-width: 1000px;
+
+    font-size: clamp(25px, 3.5vw, 50px);
+
+    line-height: 1.1;
+
+    margin-bottom: 180px;
+}
+
+
+/* =====================================================
+   RITORNO
+===================================================== */
+
+.back {
+
+    border-top: 1px solid black;
+
+    padding-top: 30px;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+.back a {
+
+    color: black;
+
+    text-decoration: none;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .menu {
+
+        top: 20px;
+
+        left: 20px;
+
+        right: 20px;
+
+        font-size: 10px;
+    }
+
+
+    .work-page {
+
+        padding:
+            120px
+            25px
+            80px;
+    }
+
+
+    .section-number {
+
+        margin-bottom: 70px;
+    }
+
+
+    .work-header {
+
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        margin-bottom: 100px;
+    }
+
+
+    .work-title {
+
+        font-size: 65px;
+
+        letter-spacing: -3px;
+    }
+
+
+    .work-intro {
+
+        min-height: 60vh;
+
+        margin-bottom: 100px;
+    }
+
+
+    .work-intro p {
+
+        font-size: 38px;
+    }
+
+
+    .credits {
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        margin-bottom: 100px;
+    }
+
+
+    .description {
+
+        font-size: 30px;
+
+        margin-bottom: 120px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     MENU
+===================================================== -->
+
+<nav class="menu">
+
+    <div>
+
+        <a href="index.html#whats-on">
+            WHAT'S ON
+        </a>
+
+        <a href="index.html#works">
+            WORKS
+        </a>
+
+        <a href="index.html#about">
+            ABOUT
+        </a>
+
+        <a href="index.html#people">
+            PEOPLE
+        </a>
+
+    </div>
+
+
+    <div>
+
+        <a href="index.html#contact">
+            CONTACT
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     PAGINA
+===================================================== -->
+
+<main class="work-page">
+
+
+    <div class="section-number">
+
+        WORK / 01
+
+    </div>
+
+
+
+    <!-- =================================================
+         TITOLO
+    ================================================== -->
+
+    <header class="work-header">
+
+
+        <h1 class="work-title">
+
+            VEDO IL MONDO<br>
+            GIRARE
+
+        </h1>
+
+
+        <div class="work-meta">
+
+            2026<br>
+
+            PERFORMANCE<br>
+
+            0—99
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- =================================================
+         FRASE
+    ================================================== -->
+
+    <section class="work-intro">
+
+
+        <div class="ink"></div>
+
+
+        <p>
+
+            Un'astronauta, una macchia di
+            inchiostro, un mondo ancora da
+            inventare.
+
+        </p>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         CREDITI
+    ================================================== -->
+
+    <section class="credits">
+
+
+        <div class="credit">
+
+            <strong>
+                IDEAZIONE · COREOGRAFIA
+            </strong>
+
+            Valeria Fiorini, Eleonora Gennari
+
+        </div>
+
+
+        <div class="credit">
+
+            <strong>
+                IN SCENA
+            </strong>
+
+            Luca Leardini, Elisa Tamagnini
+
+        </div>
+
+
+        <div class="credit">
+
+            <strong>
+                MUSICHE
+            </strong>
+
+            Kino
+
+        </div>
+
+
+        <div class="credit">
+
+            <strong>
+                LUCI · CONTRIBUTO DRAMMATURGICO
+            </strong>
+
+            Antonio Rinaldi
+
+        </div>
+
+
+        <div class="credit">
+
+            <strong>
+                SEGNI · VISIONI
+            </strong>
+
+            Hervé Tullet
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         DESCRIZIONE
+    ================================================== -->
+
+    <section class="description">
+
+        Un viaggio nella nascita dei linguaggi,
+        dove il gesto diventa segno, il segno
+        diventa relazione e un mondo prende forma.
+
+    </section>
+
+
+
+    <!-- =================================================
+         RITORNO
+    ================================================== -->
+
+    <div class="back">
+
+        <a href="index.html#works">
+
+            ← BACK TO WORKS
+
+        </a>
+
+    </div>
+
+
+</main>
+
+
+</body>
+
+</html>
