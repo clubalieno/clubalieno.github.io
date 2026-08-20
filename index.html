@@ -1,335 +1,574 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Club Alieno</title>
 
+
 <style>
 
+/* =====================================================
+   BASE
+===================================================== */
+
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: #ffffff;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: white;
+    color: black;
+    font-family: Arial, sans-serif;
 }
 
 
 /* =====================================================
-   PAGINA
+   MENU
 ===================================================== */
 
-#intro {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
+.menu {
+    position: fixed;
+    top: 30px;
+    left: 40px;
+    right: 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 100;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.menu a {
+    color: black;
+    text-decoration: none;
+    margin-right: 22px;
+}
+
+.menu-right {
     display: flex;
     align-items: center;
-    justify-content: center;
+}
+
+.language button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font: inherit;
+    padding: 0 4px;
+}
+
+.language button.active {
+    text-decoration: underline;
 }
 
 
 /* =====================================================
-   CERCHIO
+   OPENING
 ===================================================== */
 
-.circle-container {
+.opening {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: white;
+}
+
+
+/* =====================================================
+   PALLINI
+===================================================== */
+
+.dot {
     position: absolute;
-    width: 360px;
-    height: 360px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+
+    width: 18px;
+    height: 18px;
+
+    top: calc(50% - 9px);
+
+    background: black;
+
+    border-radius: 50%;
+
+    z-index: 5;
 }
 
-.circle {
-    width: 100%;
-    height: 100%;
+
+/* SINISTRA */
+
+.dot-one {
+
+    left: 25%;
+
+    animation:
+        leftDot 5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
-.circle circle {
+
+/* DESTRA */
+
+.dot-two {
+
+    left: 75%;
+
+    animation:
+        rightDot 5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+
+/* =====================================================
+   PALLINO SINISTRO
+===================================================== */
+
+@keyframes leftDot {
+
+    0% {
+        left: 25%;
+        opacity: 1;
+    }
+
+    55% {
+        left: 50%;
+        opacity: 1;
+    }
+
+    65% {
+        left: 50%;
+        opacity: 1;
+    }
+
+    72% {
+        left: 50%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 50%;
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   PALLINO DESTRO
+===================================================== */
+
+@keyframes rightDot {
+
+    0% {
+        left: 75%;
+        opacity: 1;
+    }
+
+    55% {
+        left: 50%;
+        opacity: 1;
+    }
+
+    65% {
+        left: 50%;
+        opacity: 1;
+    }
+
+    72% {
+        left: 50%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 50%;
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   CERCHIO SVG
+===================================================== */
+
+.circle-svg {
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    left: calc(50% - 130px);
+    top: calc(50% - 130px);
+
+    z-index: 3;
+
+    pointer-events: none;
+
+}
+
+
+.circle-line {
+
     fill: none;
-    stroke: #000;
-    stroke-width: 1.5;
-    stroke-linecap: round;
 
-    stroke-dasharray: 1131;
-    stroke-dashoffset: 1131;
+    stroke: black;
 
-    animation: drawCircle 2.8s ease-out forwards;
+    stroke-width: 1;
+
+    stroke-dasharray: 816;
+
+    stroke-dashoffset: 816;
+
+    opacity: 0;
+
+    animation:
+        drawCircle 5s ease-in-out forwards;
 }
+
+
+/* =====================================================
+   DISEGNO DEL CERCHIO
+===================================================== */
 
 @keyframes drawCircle {
 
-    to {
+    0% {
+
+        stroke-dashoffset: 816;
+
+        opacity: 0;
+    }
+
+    65% {
+
+        stroke-dashoffset: 816;
+
+        opacity: 0;
+    }
+
+    72% {
+
+        stroke-dashoffset: 816;
+
+        opacity: 0;
+    }
+
+    76% {
+
+        stroke-dashoffset: 816;
+
+        opacity: 1;
+    }
+
+    82% {
+
+        stroke-dashoffset: 600;
+
+        opacity: 1;
+    }
+
+    90% {
+
+        stroke-dashoffset: 250;
+
+        opacity: 1;
+    }
+
+    96% {
+
+        stroke-dashoffset: 40;
+
+        opacity: 0.7;
+    }
+
+    100% {
+
         stroke-dashoffset: 0;
+
+        opacity: 0;
     }
 
 }
 
 
 /* =====================================================
-   SCRITTA CLUB ALIENO
+   TITOLO
 ===================================================== */
 
-.title {
+.opening-title {
 
     position: absolute;
 
-    left: 50%;
     top: 50%;
+    left: 50%;
 
     transform: translate(-50%, -50%);
 
-    font-size: clamp(32px, 5vw, 76px);
-
-    font-weight: 400;
-
-    letter-spacing: 0.08em;
-
-    white-space: nowrap;
+    text-align: center;
 
     opacity: 0;
 
+    z-index: 10;
+
     animation:
-        titleAppear 1.2s ease-out forwards;
-
-    /*
-       IMPORTANTE:
-       la scritta parte praticamente insieme
-       al disegno del cerchio
-    */
-
-    animation-delay: 0.25s;
+        titleAppear 5s ease-in-out forwards;
 }
 
 
-/* La A che verrà rapita */
+.opening-title h1 {
 
-.alien-a {
-    display: inline-block;
-    position: relative;
+    margin: 0;
+
+    font-size: clamp(50px, 9vw, 130px);
+
+    font-weight: 400;
+
+    letter-spacing: 10px;
+
+    white-space: nowrap;
+}
+
+
+.opening-title p {
+
+    margin-top: 25px;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
 }
 
 
 /* =====================================================
-   APPARIZIONE SCRITTA
+   TITOLO
 ===================================================== */
 
 @keyframes titleAppear {
 
     0% {
         opacity: 0;
-        transform:
-            translate(-50%, -50%)
-            scale(0.96);
+    }
+
+    88% {
+        opacity: 0;
+    }
+
+    96% {
+        opacity: 1;
     }
 
     100% {
         opacity: 1;
-        transform:
-            translate(-50%, -50%)
-            scale(1);
     }
 
 }
 
 
 /* =====================================================
-   UFO
+   DISCO VOLANTE
 ===================================================== */
 
-.ufo {
+/*
+   Il disco è separato dal titolo.
+   Non interferisce con il cerchio.
+*/
+
+.flying-saucer {
 
     position: absolute;
 
-    width: 180px;
-    height: 90px;
+    width: 150px;
+    height: 70px;
 
     left: 50%;
 
     /*
-       parte fuori dallo schermo
+       Parte fuori dalla parte superiore
+       dello schermo.
     */
 
-    top: -180px;
+    top: -120px;
 
-    transform:
-        translateX(-50%)
-        scale(0.75);
+    transform: translateX(-50%) scale(0.75);
 
     opacity: 0;
 
     z-index: 20;
 
+    pointer-events: none;
+
     animation:
-        ufoArrives 2.2s cubic-bezier(.22,.61,.36,1) forwards;
+        saucerArrival 2.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 
     /*
-       L'UFO arriva DOPO la comparsa
-       della scritta
+       Il titolo è già comparso.
+       Poi arriva il disco.
     */
 
-    animation-delay: 4.2s;
+    animation-delay: 5.8s;
 }
 
 
 /* =====================================================
-   CORPO UFO
+   CORPO PRINCIPALE DEL DISCO
 ===================================================== */
 
-.ufo-body {
-
-    position: absolute;
-
-    width: 180px;
-    height: 55px;
-
-    left: 0;
-    bottom: 0;
-
-    background: #000;
-
-    border-radius:
-        50%
-        50%
-        45%
-        45%;
-
-}
-
-
-/* =====================================================
-   CUPOLA
-===================================================== */
-
-.ufo-dome {
-
-    position: absolute;
-
-    width: 72px;
-    height: 38px;
-
-    left: 54px;
-    top: 0;
-
-    background: #000;
-
-    border-radius:
-        70px
-        70px
-        0
-        0;
-
-}
-
-
-/* =====================================================
-   LINEA CENTRALE
-===================================================== */
-
-.ufo-line {
-
-    position: absolute;
-
-    width: 145px;
-    height: 2px;
-
-    left: 17px;
-    top: 28px;
-
-    background: #fff;
-
-    opacity: 0.7;
-}
-
-
-/* =====================================================
-   LUCE / FASCIO
-===================================================== */
-
-.beam {
+.saucer-body {
 
     position: absolute;
 
     left: 50%;
-    top: 78px;
+    bottom: 8px;
 
-    transform:
-        translateX(-50%)
-        perspective(300px)
-        rotateX(0deg);
+    transform: translateX(-50%);
 
-    width: 0;
-    height: 0;
+    width: 150px;
+    height: 38px;
 
-    border-left: 45px solid transparent;
-    border-right: 45px solid transparent;
-    border-top: 0 solid transparent;
+    background: black;
 
-    opacity: 0;
+    /*
+       Forma larga e schiacciata,
+       più simile al logo.
+    */
 
-    z-index: -1;
+    border-radius: 50%;
 
-    animation:
-        beamAppear 0.8s ease-out forwards;
-
-    animation-delay: 6.4s;
 }
 
 
 /* =====================================================
-   ARRIVO UFO
+   PARTE SUPERIORE DEL DISCO
 ===================================================== */
 
-@keyframes ufoArrives {
+.saucer-top {
+
+    position: absolute;
+
+    left: 50%;
+    top: 18px;
+
+    transform: translateX(-50%);
+
+    width: 78px;
+    height: 28px;
+
+    background: black;
+
+    border-radius: 50% 50% 40% 40%;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   TAGLIO BIANCO
+===================================================== */
+
+.saucer-line {
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 27px;
+
+    transform: translateX(-50%);
+
+    width: 118px;
+    height: 2px;
+
+    background: white;
+
+    z-index: 4;
+}
+
+
+/* =====================================================
+   PICCOLA LUCE CENTRALE
+===================================================== */
+
+.saucer-light {
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 16px;
+
+    transform: translateX(-50%);
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    z-index: 5;
+}
+
+
+/* =====================================================
+   ARRIVO DEL DISCO
+===================================================== */
+
+@keyframes saucerArrival {
 
     0% {
 
-        top: -180px;
+        top: -120px;
 
         opacity: 0;
 
         transform:
             translateX(-50%)
-            scale(0.75)
-            rotate(-4deg);
+            scale(0.72)
+            rotate(-5deg);
     }
 
-    30% {
+    20% {
 
         opacity: 1;
     }
 
-    75% {
+    55% {
 
         transform:
             translateX(-50%)
             scale(0.82)
-            rotate(2deg);
+            rotate(3deg);
+    }
+
+    78% {
+
+        transform:
+            translateX(-50%)
+            scale(0.80)
+            rotate(-1deg);
     }
 
     100% {
 
-        top: calc(50% - 145px);
+        /*
+           Si ferma sopra la A
+        */
+
+        top: calc(50% - 130px);
 
         opacity: 1;
 
         transform:
             translateX(-50%)
-            scale(0.82)
+            scale(0.80)
             rotate(0deg);
     }
 
@@ -337,10 +576,43 @@ body {
 
 
 /* =====================================================
-   COMPARSA FASCIO
+   FASCIO DEL DISCO
 ===================================================== */
 
-@keyframes beamAppear {
+.saucer-beam {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 63px;
+
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    /*
+       Triangolo molto sottile.
+       Non deve sembrare un riflettore.
+    */
+
+    border-left: 24px solid transparent;
+    border-right: 24px solid transparent;
+    border-top: 0 solid transparent;
+
+    opacity: 0;
+
+    z-index: -1;
+
+    animation:
+        beamOpen 1.4s ease-out forwards;
+
+    animation-delay: 8.1s;
+}
+
+
+@keyframes beamOpen {
 
     0% {
 
@@ -350,190 +622,967 @@ body {
             0 solid transparent;
     }
 
+    35% {
+
+        opacity: 0.08;
+    }
+
     100% {
 
-        opacity: 0.15;
+        opacity: 0.12;
 
         border-top:
-            170px solid #000;
+            105px solid rgba(0,0,0,0.35);
     }
 
 }
 
 
 /* =====================================================
-   RAPIMENTO DELLA A
+   A DEL TITOLO
 ===================================================== */
 
-.alien-a {
+/*
+   La A viene isolata solo per poterla
+   sollevare con il disco.
 
-    animation:
-        abductA 2.2s cubic-bezier(.4,0,.2,1) forwards;
+   Il resto della scritta non si muove.
+*/
 
-    animation-delay: 7.1s;
+.opening-title h1 {
+
+    /* manteniamo tutto esattamente come prima */
 }
 
 
-@keyframes abductA {
+.alien-letter {
+
+    display: inline-block;
+
+    position: relative;
+
+    /*
+       Il movimento arriva molto dopo
+       la comparsa della scritta.
+    */
+
+    animation:
+        alienLift 2.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+
+    animation-delay: 8.4s;
+}
+
+
+@keyframes alienLift {
 
     0% {
 
         transform:
             translateY(0)
             rotate(0deg);
-
-        opacity: 1;
     }
 
-    20% {
+    25% {
 
         transform:
-            translateY(-8px)
-            rotate(-3deg);
-
-        opacity: 1;
+            translateY(-4px)
+            rotate(-1deg);
     }
 
-    60% {
+    55% {
 
         transform:
-            translateY(-65px)
-            rotate(5deg);
+            translateY(-22px)
+            rotate(1deg);
+    }
 
-        opacity: 1;
+    80% {
+
+        transform:
+            translateY(-37px)
+            rotate(-1deg);
     }
 
     100% {
 
+        /*
+           La A rimane sospesa.
+        */
+
         transform:
-            translateY(-180px)
-            rotate(12deg);
-
-        opacity: 0;
+            translateY(-42px)
+            rotate(0deg);
     }
 
 }
 
 
 /* =====================================================
-   RESPONSIVE
+   SEZIONI
 ===================================================== */
 
-@media (max-width: 600px) {
+section.content {
 
-    .circle-container {
+    min-height: 100vh;
 
-        width: 280px;
-        height: 280px;
+    padding: 160px 7vw;
+}
+
+
+.section-number {
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 60px;
+}
+
+
+.statement {
+
+    max-width: 1100px;
+
+    font-size: clamp(35px, 6vw, 85px);
+
+    line-height: 1.05;
+
+    font-weight: 400;
+}
+
+
+/* =====================================================
+   WHAT'S ON
+===================================================== */
+
+.events {
+
+    width: 100%;
+
+    max-width: 1200px;
+}
+
+
+.event {
+
+    display: grid;
+
+    grid-template-columns: 160px 1fr auto;
+
+    align-items: center;
+
+    gap: 40px;
+
+    padding: 35px 0;
+
+    border-top: 1px solid black;
+}
+
+
+.event:last-child {
+
+    border-bottom: 1px solid black;
+}
+
+
+.event-date {
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    line-height: 1.5;
+}
+
+
+.event-title h2 {
+
+    margin: 0;
+
+    font-size: clamp(28px, 4vw, 55px);
+
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+
+.event-info {
+
+    margin-top: 12px;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+.event-link {
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-decoration: none;
+
+    color: black;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   WORKS
+===================================================== */
+
+.works {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 80px 40px;
+}
+
+
+.work {
+
+    min-height: 400px;
+
+    border: 1px solid black;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    padding: 30px;
+}
+
+
+.work h2 {
+
+    margin: 0;
+
+    font-size: 35px;
+
+    font-weight: 400;
+}
+
+
+.work span {
+
+    display: block;
+
+    margin-top: 12px;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    min-height: 60vh;
+
+    padding: 120px 7vw;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+
+footer h2 {
+
+    margin: 0;
+
+    font-size: clamp(45px, 8vw, 100px);
+
+    font-weight: 400;
+}
+
+
+footer a {
+
+    color: black;
+
+    text-decoration: none;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .menu {
+
+        top: 20px;
+
+        left: 20px;
+        right: 20px;
+
+        font-size: 10px;
     }
 
-    .title {
 
-        font-size: 30px;
+    .menu a {
 
-        letter-spacing:
-            0.06em;
+        margin-right: 8px;
     }
 
-    .ufo {
 
-        width: 140px;
-        height: 70px;
+    section.content {
+
+        padding: 120px 25px;
     }
 
-    .ufo-body {
 
-        width: 140px;
-        height: 43px;
+    .event {
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+
+        padding: 30px 0;
     }
 
-    .ufo-dome {
 
-        width: 56px;
-        height: 30px;
+    .works {
 
-        left: 42px;
+        grid-template-columns: 1fr;
+
+        gap: 25px;
     }
 
-    .ufo-line {
 
-        width: 110px;
-        left: 15px;
-        top: 22px;
+    .work {
+
+        min-height: 300px;
+    }
+
+
+    .opening-title h1 {
+
+        font-size: 45px;
+
+        letter-spacing: 5px;
+    }
+
+
+    .circle-svg {
+
+        width: 220px;
+        height: 220px;
+
+        left: calc(50% - 110px);
+        top: calc(50% - 110px);
+    }
+
+
+    .flying-saucer {
+
+        transform: translateX(-50%) scale(0.62);
     }
 
 }
 
 
 /* =====================================================
-   NASCONDE L'OVERFLOW DELL'ANIMAZIONE
+   MOBILE
 ===================================================== */
-
-#intro {
-    overflow: hidden;
-}
 
 </style>
+
 </head>
 
 
 <body>
 
-<div id="intro">
+
+<!-- =====================================================
+     MENU
+===================================================== -->
+
+<nav class="menu">
 
 
-    <!-- =================================================
-         CERCHIO
-    ================================================== -->
+    <div>
 
-    <div class="circle-container">
+        <a href="#whats-on">
+            WHAT'S ON
+        </a>
 
-        <svg
-            class="circle"
-            viewBox="0 0 360 360"
-            xmlns="http://www.w3.org/2000/svg"
-        >
+        <a href="#works">
+            WORKS
+        </a>
 
-            <circle
-                cx="180"
-                cy="180"
-                r="180"
-            />
+        <a href="#about">
+            ABOUT
+        </a>
 
-        </svg>
-
-    </div>
-
-
-    <!-- =================================================
-         SCRITTA
-    ================================================== -->
-
-    <div class="title">
-
-        CLUB <span class="alien-a">A</span>LIENO
+        <a href="#people">
+            PEOPLE
+        </a>
 
     </div>
 
 
-    <!-- =================================================
-         UFO
-    ================================================== -->
+    <div class="menu-right">
 
-    <div class="ufo">
+        <a href="#contact">
+            CONTACT
+        </a>
 
-        <div class="ufo-dome"></div>
 
-        <div class="ufo-body"></div>
+        <div class="language">
 
-        <div class="ufo-line"></div>
+            <button
+                id="it"
+                class="active"
+                onclick="setLanguage('it')">
 
-        <div class="beam"></div>
+                IT
+
+            </button>
+
+            /
+
+            <button
+                id="en"
+                onclick="setLanguage('en')">
+
+                EN
+
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     OPENING
+===================================================== -->
+
+<section class="opening">
+
+
+    <!-- I DUE PUNTI -->
+
+    <div class="dot dot-one"></div>
+
+    <div class="dot dot-two"></div>
+
+
+
+    <!-- CERCHIO SVG -->
+
+    <svg
+        class="circle-svg"
+        viewBox="0 0 260 260"
+        aria-hidden="true">
+
+
+        <circle
+            class="circle-line"
+            cx="130"
+            cy="130"
+            r="129">
+        </circle>
+
+
+    </svg>
+
+
+
+    <!-- TITOLO -->
+
+    <div class="opening-title">
+
+        <h1>
+
+            CLUB
+            <span class="alien-letter">A</span>LIENO
+
+        </h1>
+
+
+        <p id="subtitle">
+
+            DANZA · PERFORMANCE · RICERCA
+
+        </p>
 
     </div>
 
 
-</div>
+
+    <!-- =================================================
+         DISCO VOLANTE
+    ================================================== -->
+
+    <div class="flying-saucer">
+
+
+        <div class="saucer-beam"></div>
+
+
+        <div class="saucer-top"></div>
+
+
+        <div class="saucer-body"></div>
+
+
+        <div class="saucer-line"></div>
+
+
+        <div class="saucer-light"></div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     WHAT'S ON
+===================================================== -->
+
+<section
+    class="content"
+    id="whats-on">
+
+
+    <div class="section-number">
+
+        01 / WHAT'S ON
+
+    </div>
+
+
+    <div class="events">
+
+
+        <div class="event">
+
+
+            <div class="event-date">
+
+                01 NOV<br>
+                2026
+
+            </div>
+
+
+            <div class="event-title">
+
+                <h2>
+                    Vedo il mondo girare
+                </h2>
+
+
+                <div class="event-info">
+
+                    SPAZIO TONDELLI · RICCIONE · ITALY
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="#"
+                class="event-link">
+
+                MORE →
+
+            </a>
+
+
+        </div>
+
+
+
+        <div class="event">
+
+
+            <div class="event-date">
+
+                DATE<br>
+                TBC
+
+            </div>
+
+
+            <div class="event-title">
+
+                <h2>
+                    Unusual Suite
+                </h2>
+
+
+                <div class="event-info">
+
+                    PERFORMANCE · ITALY
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="#"
+                class="event-link">
+
+                MORE →
+
+            </a>
+
+
+        </div>
+
+
+
+        <div class="event">
+
+
+            <div class="event-date">
+
+                2026
+
+            </div>
+
+
+            <div class="event-title">
+
+                <h2>
+                    Club Alieno
+                </h2>
+
+
+                <div class="event-info">
+
+                    UPCOMING EVENTS
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="#"
+                class="event-link">
+
+                MORE →
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WORKS
+===================================================== -->
+
+<section
+    class="content"
+    id="works">
+
+
+    <div class="section-number">
+
+        02 / WORKS
+
+    </div>
+
+
+    <div class="works">
+
+
+        <div class="work">
+
+            <div>
+
+                <h2>
+                    Vedo il mondo girare
+                </h2>
+
+                <span>
+                    2026 · PERFORMANCE
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="work">
+
+            <div>
+
+                <h2>
+                    Suite
+                </h2>
+
+                <span>
+                    2023 · PERFORMANCE
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="work">
+
+            <div>
+
+                <h2>
+                    Urban Suite
+                </h2>
+
+                <span>
+                    PERFORMATIVE PROJECT
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="work">
+
+            <div>
+
+                <h2>
+                    Unusual Suite
+                </h2>
+
+                <span>
+                    PERFORMANCE · MUSEUMS
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+    class="content"
+    id="about">
+
+
+    <div class="section-number">
+
+        03 / THE CLUB
+
+    </div>
+
+
+    <div
+        class="statement"
+        id="aboutText">
+
+        Un luogo dove corpi,
+        esperienze e immaginari
+        diversi entrano in relazione.
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PEOPLE
+===================================================== -->
+
+<section
+    class="content"
+    id="people">
+
+
+    <div class="section-number">
+
+        04 / PEOPLE
+
+    </div>
+
+
+    <div
+        class="statement"
+        id="peopleText">
+
+        Un collettivo di performer,
+        corpi e individualità differenti.
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<footer id="contact">
+
+
+    <div>
+
+        <div class="section-number">
+
+            05 / CONTACT
+
+        </div>
+
+
+        <h2>
+
+            ENTER<br>
+            THE CLUB
+
+        </h2>
+
+    </div>
+
+
+    <div>
+
+        <a href="mailto:info@clubalieno.it">
+
+            info@clubalieno.it
+
+        </a>
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     LINGUA
+===================================================== -->
+
+<script>
+
+
+function setLanguage(language) {
+
+
+    const aboutText =
+        document.getElementById("aboutText");
+
+
+    const peopleText =
+        document.getElementById("peopleText");
+
+
+    const subtitle =
+        document.getElementById("subtitle");
+
+
+    const itButton =
+        document.getElementById("it");
+
+
+    const enButton =
+        document.getElementById("en");
+
+
+
+    if (language === "en") {
+
+
+        subtitle.innerHTML =
+            "DANCE · PERFORMANCE · RESEARCH";
+
+
+        aboutText.innerHTML =
+            "A space where different bodies, experiences and imaginations meet.";
+
+
+        peopleText.innerHTML =
+            "A collective of performers, bodies and different individualities.";
+
+
+        document.documentElement.lang = "en";
+
+
+        enButton.classList.add("active");
+
+        itButton.classList.remove("active");
+
+
+    }
+
+
+    else {
+
+
+        subtitle.innerHTML =
+            "DANZA · PERFORMANCE · RICERCA";
+
+
+        aboutText.innerHTML =
+            "Un luogo dove corpi, esperienze e immaginari diversi entrano in relazione.";
+
+
+        peopleText.innerHTML =
+            "Un collettivo di performer, corpi e individualità differenti.";
+
+
+        document.documentElement.lang = "it";
+
+
+        itButton.classList.add("active");
+
+        enButton.classList.remove("active");
+
+    }
+
+}
+
+</script>
+
 
 </body>
+
 </html>
