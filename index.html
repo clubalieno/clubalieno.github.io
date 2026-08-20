@@ -108,8 +108,6 @@ body {
 }
 
 
-/* SINISTRA */
-
 .dot-one {
 
     left: 25%;
@@ -118,8 +116,6 @@ body {
         leftDot 5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
-
-/* DESTRA */
 
 .dot-two {
 
@@ -197,7 +193,7 @@ body {
 
 
 /* =====================================================
-   CERCHIO SVG
+   CERCHIO
 ===================================================== */
 
 .circle-svg {
@@ -213,7 +209,6 @@ body {
     z-index: 3;
 
     pointer-events: none;
-
 }
 
 
@@ -245,56 +240,48 @@ body {
     0% {
 
         stroke-dashoffset: 816;
-
         opacity: 0;
     }
 
     65% {
 
         stroke-dashoffset: 816;
-
         opacity: 0;
     }
 
     72% {
 
         stroke-dashoffset: 816;
-
         opacity: 0;
     }
 
     76% {
 
         stroke-dashoffset: 816;
-
         opacity: 1;
     }
 
     82% {
 
         stroke-dashoffset: 600;
-
         opacity: 1;
     }
 
     90% {
 
         stroke-dashoffset: 250;
-
         opacity: 1;
     }
 
     96% {
 
         stroke-dashoffset: 40;
-
         opacity: 0.7;
     }
 
     100% {
 
         stroke-dashoffset: 0;
-
         opacity: 0;
     }
 
@@ -350,7 +337,7 @@ body {
 
 
 /* =====================================================
-   TITOLO
+   COMPARSA TITOLO
 ===================================================== */
 
 @keyframes titleAppear {
@@ -375,52 +362,118 @@ body {
 
 
 /* =====================================================
+   A
+===================================================== */
+
+.alien-letter {
+
+    display: inline-block;
+
+    position: relative;
+
+    transform-origin: center bottom;
+
+    /*
+       La A viene sollevata solo dopo
+       l'arrivo del disco.
+    */
+
+    animation:
+        alienLift 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+
+    animation-delay: 8.2s;
+}
+
+
+@keyframes alienLift {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    18% {
+
+        transform:
+            translateY(-3px)
+            rotate(-1deg);
+    }
+
+    42% {
+
+        transform:
+            translateY(-14px)
+            rotate(1deg);
+    }
+
+    68% {
+
+        transform:
+            translateY(-27px)
+            rotate(-1deg);
+    }
+
+    100% {
+
+        /*
+           La A NON scompare.
+           Rimane sospesa.
+        */
+
+        transform:
+            translateY(-34px)
+            rotate(0deg);
+    }
+
+}
+
+
+/* =====================================================
    DISCO VOLANTE
 ===================================================== */
 
 /*
-   Il disco è separato dal titolo.
-   Non interferisce con il cerchio.
+   La posizione orizzontale viene calcolata
+   automaticamente sulla A.
 */
 
 .flying-saucer {
 
     position: absolute;
 
-    width: 150px;
-    height: 70px;
+    width: 170px;
+    height: 80px;
+
+    /*
+       left viene impostato dal JavaScript
+       esattamente al centro della A.
+    */
 
     left: 50%;
 
-    /*
-       Parte fuori dalla parte superiore
-       dello schermo.
-    */
-
     top: -120px;
 
-    transform: translateX(-50%) scale(0.75);
+    transform:
+        translateX(-50%)
+        scale(0.78);
 
     opacity: 0;
 
-    z-index: 20;
+    z-index: 25;
 
     pointer-events: none;
 
     animation:
-        saucerArrival 2.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-
-    /*
-       Il titolo è già comparso.
-       Poi arriva il disco.
-    */
+        saucerArrival 3s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 
     animation-delay: 5.8s;
 }
 
 
 /* =====================================================
-   CORPO PRINCIPALE DEL DISCO
+   CORPO DEL DISCO
 ===================================================== */
 
 .saucer-body {
@@ -428,92 +481,181 @@ body {
     position: absolute;
 
     left: 50%;
-    bottom: 8px;
+    top: 30px;
 
     transform: translateX(-50%);
 
-    width: 150px;
-    height: 38px;
+    width: 170px;
+    height: 43px;
 
-    background: black;
+    background: #111;
 
-    /*
-       Forma larga e schiacciata,
-       più simile al logo.
-    */
+    border-radius:
+        50%
+        50%
+        45%
+        45%;
 
-    border-radius: 50%;
-
+    z-index: 3;
 }
 
 
 /* =====================================================
-   PARTE SUPERIORE DEL DISCO
+   PARTE SUPERIORE / CUPOLA
 ===================================================== */
 
-.saucer-top {
+.saucer-dome {
 
     position: absolute;
 
     left: 50%;
-    top: 18px;
+    top: 8px;
 
     transform: translateX(-50%);
 
     width: 78px;
-    height: 28px;
+    height: 34px;
 
-    background: black;
+    background: #111;
 
-    border-radius: 50% 50% 40% 40%;
-
-    z-index: 2;
-}
-
-
-/* =====================================================
-   TAGLIO BIANCO
-===================================================== */
-
-.saucer-line {
-
-    position: absolute;
-
-    left: 50%;
-    bottom: 27px;
-
-    transform: translateX(-50%);
-
-    width: 118px;
-    height: 2px;
-
-    background: white;
+    border-radius:
+        50%
+        50%
+        0
+        0;
 
     z-index: 4;
 }
 
 
 /* =====================================================
-   PICCOLA LUCE CENTRALE
+   FASCIA BIANCA DEL LOGO
 ===================================================== */
 
-.saucer-light {
+/*
+   Questa crea la caratteristica
+   linea bianca curva del disco.
+*/
+
+.saucer-white-line {
 
     position: absolute;
 
     left: 50%;
-    bottom: 16px;
+    top: 27px;
 
     transform: translateX(-50%);
 
-    width: 7px;
-    height: 7px;
+    width: 172px;
+    height: 16px;
 
-    border-radius: 50%;
+    border-top:
+        4px solid white;
+
+    border-radius:
+        50%;
+
+    z-index: 5;
+}
+
+
+/* =====================================================
+   APERTURA CENTRALE
+===================================================== */
+
+/*
+   Nel logo c'è una piccola apertura bianca
+   nella parte centrale inferiore.
+*/
+
+.saucer-opening {
+
+    position: absolute;
+
+    left: 50%;
+    top: 55px;
+
+    transform:
+        translateX(-50%);
+
+    width: 36px;
+    height: 28px;
 
     background: white;
 
-    z-index: 5;
+    clip-path:
+        polygon(
+            25% 0%,
+            75% 0%,
+            100% 100%,
+            0% 100%
+        );
+
+    z-index: 6;
+}
+
+
+/* =====================================================
+   FASCIO DI RISUCCHIO
+===================================================== */
+
+.saucer-beam {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 73px;
+
+    transform:
+        translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-left:
+        25px solid transparent;
+
+    border-right:
+        25px solid transparent;
+
+    border-top:
+        0 solid transparent;
+
+    opacity: 0;
+
+    z-index: -1;
+
+    animation:
+        beamAppear 1.3s ease-out forwards;
+
+    animation-delay: 8s;
+}
+
+
+@keyframes beamAppear {
+
+    0% {
+
+        opacity: 0;
+
+        border-top:
+            0 solid transparent;
+    }
+
+    35% {
+
+        opacity: 0.06;
+    }
+
+    100% {
+
+        opacity: 0.13;
+
+        border-top:
+            90px solid rgba(0,0,0,0.28);
+    }
+
 }
 
 
@@ -531,16 +673,16 @@ body {
 
         transform:
             translateX(-50%)
-            scale(0.72)
+            scale(0.65)
             rotate(-5deg);
     }
 
-    20% {
+    18% {
 
         opacity: 1;
     }
 
-    55% {
+    48% {
 
         transform:
             translateX(-50%)
@@ -548,7 +690,7 @@ body {
             rotate(3deg);
     }
 
-    78% {
+    72% {
 
         transform:
             translateX(-50%)
@@ -559,158 +701,16 @@ body {
     100% {
 
         /*
-           Si ferma sopra la A
+           Si ferma appena sopra la A.
         */
 
-        top: calc(50% - 130px);
+        top: calc(50% - 135px);
 
         opacity: 1;
 
         transform:
             translateX(-50%)
             scale(0.80)
-            rotate(0deg);
-    }
-
-}
-
-
-/* =====================================================
-   FASCIO DEL DISCO
-===================================================== */
-
-.saucer-beam {
-
-    position: absolute;
-
-    left: 50%;
-
-    top: 63px;
-
-    transform: translateX(-50%);
-
-    width: 0;
-    height: 0;
-
-    /*
-       Triangolo molto sottile.
-       Non deve sembrare un riflettore.
-    */
-
-    border-left: 24px solid transparent;
-    border-right: 24px solid transparent;
-    border-top: 0 solid transparent;
-
-    opacity: 0;
-
-    z-index: -1;
-
-    animation:
-        beamOpen 1.4s ease-out forwards;
-
-    animation-delay: 8.1s;
-}
-
-
-@keyframes beamOpen {
-
-    0% {
-
-        opacity: 0;
-
-        border-top:
-            0 solid transparent;
-    }
-
-    35% {
-
-        opacity: 0.08;
-    }
-
-    100% {
-
-        opacity: 0.12;
-
-        border-top:
-            105px solid rgba(0,0,0,0.35);
-    }
-
-}
-
-
-/* =====================================================
-   A DEL TITOLO
-===================================================== */
-
-/*
-   La A viene isolata solo per poterla
-   sollevare con il disco.
-
-   Il resto della scritta non si muove.
-*/
-
-.opening-title h1 {
-
-    /* manteniamo tutto esattamente come prima */
-}
-
-
-.alien-letter {
-
-    display: inline-block;
-
-    position: relative;
-
-    /*
-       Il movimento arriva molto dopo
-       la comparsa della scritta.
-    */
-
-    animation:
-        alienLift 2.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-
-    animation-delay: 8.4s;
-}
-
-
-@keyframes alienLift {
-
-    0% {
-
-        transform:
-            translateY(0)
-            rotate(0deg);
-    }
-
-    25% {
-
-        transform:
-            translateY(-4px)
-            rotate(-1deg);
-    }
-
-    55% {
-
-        transform:
-            translateY(-22px)
-            rotate(1deg);
-    }
-
-    80% {
-
-        transform:
-            translateY(-37px)
-            rotate(-1deg);
-    }
-
-    100% {
-
-        /*
-           La A rimane sospesa.
-        */
-
-        transform:
-            translateY(-42px)
             rotate(0deg);
     }
 
@@ -990,14 +990,16 @@ footer a {
 
     .flying-saucer {
 
-        transform: translateX(-50%) scale(0.62);
+        transform:
+            translateX(-50%)
+            scale(0.65);
     }
 
 }
 
 
 /* =====================================================
-   MOBILE
+   FINE
 ===================================================== */
 
 </style>
@@ -1079,7 +1081,7 @@ footer a {
 <section class="opening">
 
 
-    <!-- I DUE PUNTI -->
+    <!-- PALLINI -->
 
     <div class="dot dot-one"></div>
 
@@ -1087,13 +1089,12 @@ footer a {
 
 
 
-    <!-- CERCHIO SVG -->
+    <!-- CERCHIO -->
 
     <svg
         class="circle-svg"
         viewBox="0 0 260 260"
         aria-hidden="true">
-
 
         <circle
             class="circle-line"
@@ -1101,7 +1102,6 @@ footer a {
             cy="130"
             r="129">
         </circle>
-
 
     </svg>
 
@@ -1139,16 +1139,16 @@ footer a {
         <div class="saucer-beam"></div>
 
 
-        <div class="saucer-top"></div>
+        <div class="saucer-dome"></div>
 
 
         <div class="saucer-body"></div>
 
 
-        <div class="saucer-line"></div>
+        <div class="saucer-white-line"></div>
 
 
-        <div class="saucer-light"></div>
+        <div class="saucer-opening"></div>
 
 
     </div>
@@ -1498,11 +1498,66 @@ footer a {
 
 
 <!-- =====================================================
-     LINGUA
+     LINGUA + POSIZIONE DISCO
 ===================================================== -->
 
 <script>
 
+
+/* =====================================================
+   POSIZIONA IL DISCO ESATTAMENTE SOPRA LA A
+===================================================== */
+
+function positionSaucer() {
+
+    const letter =
+        document.querySelector(".alien-letter");
+
+    const saucer =
+        document.querySelector(".flying-saucer");
+
+
+    if (!letter || !saucer) return;
+
+
+    const rect =
+        letter.getBoundingClientRect();
+
+
+    /*
+       Centro esatto della A
+    */
+
+    const centerX =
+        rect.left + (rect.width / 2);
+
+
+    saucer.style.left =
+        centerX + "px";
+}
+
+
+/*
+   Aspettiamo che il font sia caricato
+   prima di calcolare la posizione.
+*/
+
+window.addEventListener(
+    "load",
+    positionSaucer
+);
+
+
+window.addEventListener(
+    "resize",
+    positionSaucer
+);
+
+
+
+/* =====================================================
+   LINGUA
+===================================================== */
 
 function setLanguage(language) {
 
