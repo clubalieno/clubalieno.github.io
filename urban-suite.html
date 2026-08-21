@@ -96,7 +96,7 @@ body {
 .back-link {
     display: inline-block;
 
-    margin-bottom: 75px;
+    margin-bottom: 70px;
 
     color: black;
     text-decoration: none;
@@ -111,19 +111,19 @@ body {
 ===================================================== */
 
 .hero {
-    margin-bottom: 130px;
+    margin-bottom: 120px;
 }
 
 .hero h1 {
-    margin: 0 0 50px;
+    margin: 0 0 40px;
 
-    font-size: clamp(60px, 10vw, 150px);
+    font-size: clamp(48px, 7vw, 105px);
 
     font-weight: 400;
 
-    line-height: 0.9;
+    line-height: 0.95;
 
-    letter-spacing: -4px;
+    letter-spacing: -3px;
 }
 
 
@@ -135,8 +135,8 @@ body {
     display: block;
     position: relative;
 
-    width: 88%;
-    height: min(60vh, 650px);
+    width: 82%;
+    height: min(56vh, 600px);
 
     margin: 0 auto;
 
@@ -185,8 +185,8 @@ body {
 .trailer-label {
     position: absolute;
 
-    right: 30px;
-    bottom: 28px;
+    right: 28px;
+    bottom: 25px;
 
     z-index: 3;
 
@@ -200,17 +200,17 @@ body {
 ===================================================== */
 
 .intro {
-    max-width: 1050px;
+    max-width: 900px;
 
-    margin: 0 auto 150px;
+    margin: 0 auto 140px;
 }
 
 .intro p {
     margin: 0;
 
-    font-size: clamp(30px, 4.2vw, 58px);
+    font-size: clamp(24px, 3vw, 42px);
 
-    line-height: 1.08;
+    line-height: 1.15;
 
     font-weight: 400;
 }
@@ -224,7 +224,7 @@ body {
     font-size: 11px;
     letter-spacing: 3px;
 
-    margin-bottom: 50px;
+    margin-bottom: 48px;
 }
 
 
@@ -237,31 +237,31 @@ body {
 
     grid-template-columns: 1fr 1.4fr;
 
-    gap: 80px;
+    gap: 75px;
 
-    margin-bottom: 110px;
+    margin-bottom: 100px;
 
-    padding-top: 40px;
+    padding-top: 38px;
 
     border-top: 1px solid black;
 }
 
 .work-text-title {
-    font-size: clamp(30px, 3.5vw, 50px);
+    font-size: clamp(28px, 3vw, 44px);
 
-    line-height: 1.02;
+    line-height: 1.04;
 
     font-weight: 400;
 }
 
 .work-text-body {
-    max-width: 760px;
+    max-width: 740px;
 }
 
 .work-text-body p {
-    margin: 0 0 26px;
+    margin: 0 0 24px;
 
-    font-size: 18px;
+    font-size: 17px;
 
     line-height: 1.55;
 }
@@ -272,9 +272,9 @@ body {
 ===================================================== */
 
 .full-image {
-    width: 88%;
+    width: 80%;
 
-    margin: 0 auto 110px;
+    margin: 0 auto 100px;
 
     overflow: hidden;
 }
@@ -288,30 +288,38 @@ body {
 
 
 /* =====================================================
-   DOUBLE IMAGE
+   DOUBLE IMAGE — FOTO INTERE
 ===================================================== */
 
 .double-image {
-    width: 88%;
+    width: 76%;
 
-    margin: 0 auto 140px;
+    margin: 0 auto 130px;
 
     display: grid;
 
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 28px;
+    gap: 40px;
+
+    align-items: start;
 }
 
 .double-image div {
-    overflow: hidden;
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
 }
 
 .double-image img {
     width: 100%;
-    height: 620px;
+    height: auto;
 
-    object-fit: cover;
+    max-height: 650px;
+
+    object-fit: contain;
 
     display: block;
 }
@@ -322,9 +330,9 @@ body {
 ===================================================== */
 
 .city {
-    margin-bottom: 110px;
+    margin-bottom: 100px;
 
-    padding-top: 40px;
+    padding-top: 38px;
 
     border-top: 1px solid black;
 
@@ -332,25 +340,25 @@ body {
 
     grid-template-columns: 1fr 1.4fr;
 
-    gap: 80px;
+    gap: 75px;
 }
 
 .city-title {
-    font-size: clamp(30px, 3.5vw, 50px);
+    font-size: clamp(28px, 3vw, 44px);
 
-    line-height: 1.02;
+    line-height: 1.04;
 
     font-weight: 400;
 }
 
 .city-text {
-    max-width: 760px;
+    max-width: 740px;
 }
 
 .city-text p {
-    margin: 0 0 26px;
+    margin: 0 0 24px;
 
-    font-size: 18px;
+    font-size: 17px;
 
     line-height: 1.55;
 }
@@ -361,11 +369,11 @@ body {
 ===================================================== */
 
 .credits {
-    padding-top: 40px;
+    padding-top: 38px;
 
     border-top: 1px solid black;
 
-    margin-bottom: 110px;
+    margin-bottom: 100px;
 }
 
 .credits-grid {
@@ -373,7 +381,7 @@ body {
 
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 45px 70px;
+    gap: 42px 65px;
 }
 
 .credit-label {
@@ -385,7 +393,7 @@ body {
 }
 
 .credit-text {
-    font-size: 17px;
+    font-size: 16px;
 
     line-height: 1.5;
 }
@@ -396,7 +404,7 @@ body {
 ===================================================== */
 
 .end {
-    padding-top: 55px;
+    padding-top: 50px;
     padding-bottom: 25px;
 
     border-top: 1px solid black;
@@ -436,24 +444,25 @@ body {
     }
 
     .back-link {
-        margin-bottom: 55px;
+        margin-bottom: 50px;
     }
 
     .hero {
-        margin-bottom: 90px;
+        margin-bottom: 85px;
     }
 
     .hero h1 {
-        font-size: 62px;
+        font-size: 52px;
 
-        letter-spacing: -3px;
+        letter-spacing: -2px;
 
-        margin-bottom: 35px;
+        margin-bottom: 30px;
     }
 
     .trailer {
         width: 100%;
-        height: 46vh;
+
+        height: 42vh;
     }
 
     .trailer-label {
@@ -462,18 +471,18 @@ body {
     }
 
     .intro {
-        margin-bottom: 100px;
+        margin-bottom: 90px;
     }
 
     .intro p {
-        font-size: 32px;
+        font-size: 26px;
     }
 
     .work-text,
     .city {
         grid-template-columns: 1fr;
 
-        gap: 40px;
+        gap: 35px;
     }
 
     .work-text-body p,
@@ -484,7 +493,7 @@ body {
     .full-image {
         width: 100%;
 
-        margin-bottom: 80px;
+        margin-bottom: 75px;
     }
 
     .double-image {
@@ -492,19 +501,25 @@ body {
 
         grid-template-columns: 1fr;
 
-        gap: 20px;
+        gap: 30px;
 
-        margin-bottom: 100px;
+        margin-bottom: 90px;
     }
 
     .double-image img {
+        width: 100%;
+
         height: auto;
+
+        max-height: none;
+
+        object-fit: contain;
     }
 
     .credits-grid {
         grid-template-columns: 1fr;
 
-        gap: 30px;
+        gap: 28px;
     }
 
 }
@@ -744,7 +759,7 @@ body {
 
 
 <!-- =====================================================
-     DOUBLE IMAGE
+     DOUBLE IMAGE — FOTO INTERE
 ===================================================== -->
 
 <div class="double-image">
