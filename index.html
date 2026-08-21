@@ -958,11 +958,11 @@ section.content {
 
 
 /* =====================================================
-   FOOTER
+   CONTACT
 ===================================================== */
 
 footer {
-    min-height: 60vh;
+    min-height: 75vh;
 
     padding: 120px 7vw;
 
@@ -980,13 +980,53 @@ footer h2 {
     font-size: clamp(45px, 8vw, 100px);
 
     font-weight: 400;
+
+    line-height: 0.95;
 }
 
 
-footer a {
+.contact-bottom {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 80px;
+
+    max-width: 900px;
+
+    margin-left: auto;
+
+    width: 100%;
+}
+
+
+.contact-label {
+    margin-bottom: 22px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+.contact-line {
+    margin-bottom: 8px;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+
+.contact-line a {
     color: black;
 
     text-decoration: none;
+}
+
+
+.contact-line a:hover {
+    text-decoration: underline;
 }
 
 
@@ -1102,6 +1142,27 @@ footer a {
         font-size: 8px;
 
         letter-spacing: 1.3px;
+    }
+
+
+    footer {
+        min-height: 80vh;
+
+        padding: 100px 25px 70px;
+    }
+
+
+    .contact-bottom {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        margin-left: 0;
+    }
+
+
+    .contact-line {
+        font-size: 15px;
     }
 
 }
@@ -1775,13 +1836,101 @@ footer a {
     </div>
 
 
-    <div>
 
-        <a href="mailto:info@clubalieno.it">
+    <div class="contact-bottom">
 
-            info@clubalieno.it
 
-        </a>
+        <!-- GENERAL CONTACT -->
+
+        <div>
+
+            <div class="contact-label">
+
+                GENERAL CONTACT
+
+            </div>
+
+
+            <div class="contact-line">
+
+                <a href="mailto:club.alieno.info@gmail.com">
+
+                    club.alieno.info@gmail.com
+
+                </a>
+
+            </div>
+
+
+            <div class="contact-line">
+
+                <a href="tel:+393892707022">
+
+                    +39 389 270 7022
+
+                </a>
+
+            </div>
+
+
+            <div class="contact-line">
+
+                <a
+                    href="https://www.instagram.com/club_alieno/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    Instagram · @club_alieno
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- DISTRIBUTION -->
+
+        <div>
+
+            <div class="contact-label">
+
+                DISTRIBUTION
+
+            </div>
+
+
+            <div class="contact-line">
+
+                Elena Marinelli
+
+            </div>
+
+
+            <div class="contact-line">
+
+                <a href="mailto:marin_elena@hotmail.it">
+
+                    marin_elena@hotmail.it
+
+                </a>
+
+            </div>
+
+
+            <div class="contact-line">
+
+                <a href="tel:+393319104528">
+
+                    +39 331 910 4528
+
+                </a>
+
+            </div>
+
+        </div>
+
 
     </div>
 
