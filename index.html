@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Club Alieno</title>
@@ -101,7 +100,6 @@ body {
     top: calc(50% - 9px);
 
     background: black;
-
     border-radius: 50%;
 
     z-index: 5;
@@ -123,10 +121,6 @@ body {
         rightDot 5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
-
-/* =====================================================
-   PALLINO SINISTRO
-===================================================== */
 
 @keyframes leftDot {
 
@@ -156,10 +150,6 @@ body {
     }
 }
 
-
-/* =====================================================
-   PALLINO DESTRO
-===================================================== */
 
 @keyframes rightDot {
 
@@ -217,7 +207,6 @@ body {
     stroke-width: 1;
 
     stroke-dasharray: 816;
-
     stroke-dashoffset: 816;
 
     opacity: 0;
@@ -226,10 +215,6 @@ body {
         drawCircle 5s linear forwards;
 }
 
-
-/* =====================================================
-   DISEGNO DEL CERCHIO
-===================================================== */
 
 @keyframes drawCircle {
 
@@ -256,7 +241,7 @@ body {
 
 
 /* =====================================================
-   TITOLO
+   TITOLO OPENING
 ===================================================== */
 
 .opening-title {
@@ -300,10 +285,6 @@ body {
 }
 
 
-/* =====================================================
-   COMPARSA TITOLO
-===================================================== */
-
 @keyframes titleAppear {
 
     0% {
@@ -325,7 +306,7 @@ body {
 
 
 /* =====================================================
-   A — VIENE RISUCCHIATA
+   A — RISUCCHIO
 ===================================================== */
 
 .alien-letter {
@@ -345,13 +326,11 @@ body {
 @keyframes alienLift {
 
     0% {
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
 
     100% {
-        transform:
-            translateY(-14px);
+        transform: translateY(-14px);
     }
 }
 
@@ -387,10 +366,6 @@ body {
 }
 
 
-/* =====================================================
-   CUPOLA
-===================================================== */
-
 .saucer-dome {
     position: absolute;
 
@@ -410,10 +385,6 @@ body {
     z-index: 4;
 }
 
-
-/* =====================================================
-   CORPO UFO
-===================================================== */
 
 .saucer-body {
     position: absolute;
@@ -435,10 +406,6 @@ body {
 }
 
 
-/* =====================================================
-   FASCIA BIANCA
-===================================================== */
-
 .saucer-white-line {
     position: absolute;
 
@@ -458,10 +425,6 @@ body {
     z-index: 5;
 }
 
-
-/* =====================================================
-   APERTURA BIANCA
-===================================================== */
 
 .saucer-opening {
     position: absolute;
@@ -484,14 +447,13 @@ body {
 
 
 /* =====================================================
-   FASCIO DI RISUCCHIO
+   FASCIO
 ===================================================== */
 
 .saucer-beam {
     position: absolute;
 
     left: 50%;
-
     top: 66px;
 
     transform:
@@ -636,17 +598,6 @@ section.content {
 }
 
 
-.statement {
-    max-width: 1100px;
-
-    font-size: clamp(35px, 6vw, 85px);
-
-    line-height: 1.05;
-
-    font-weight: 400;
-}
-
-
 /* =====================================================
    WHAT'S ON
 ===================================================== */
@@ -733,10 +684,6 @@ section.content {
 }
 
 
-/* =====================================================
-   CARD GENERALE
-===================================================== */
-
 .work-card {
     position: relative;
 
@@ -755,10 +702,6 @@ section.content {
     background: white;
 }
 
-
-/* =====================================================
-   CARD CON FOTO
-===================================================== */
 
 .work-card img {
     position: absolute;
@@ -782,10 +725,6 @@ section.content {
     transform: scale(1.025);
 }
 
-
-/* =====================================================
-   TITOLO SOPRA FOTO
-===================================================== */
 
 .work-title-overlay {
     position: absolute;
@@ -820,10 +759,6 @@ section.content {
 }
 
 
-/* =====================================================
-   CARD SENZA FOTO
-===================================================== */
-
 .work-card-empty {
     display: flex;
 
@@ -841,6 +776,128 @@ section.content {
     font-weight: 400;
 
     line-height: 1;
+}
+
+
+/* =====================================================
+   THE CLUB
+===================================================== */
+
+.club-statement {
+    max-width: 1250px;
+
+    margin: 0 0 120px;
+
+    font-size: clamp(48px, 7vw, 105px);
+
+    line-height: 0.98;
+
+    font-weight: 400;
+
+    letter-spacing: -2px;
+}
+
+
+.club-intro {
+    max-width: 900px;
+
+    margin-left: auto;
+
+    font-size: clamp(22px, 2.5vw, 36px);
+
+    line-height: 1.25;
+}
+
+
+.club-intro p {
+    margin: 0;
+}
+
+
+/* =====================================================
+   READ MORE
+===================================================== */
+
+.club-read-more {
+    display: inline-block;
+
+    margin-top: 50px;
+
+    padding: 0;
+
+    border: none;
+
+    background: none;
+
+    color: black;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   BIO COMPLETA
+===================================================== */
+
+.club-more {
+    max-width: 900px;
+
+    margin-left: auto;
+
+    overflow: hidden;
+
+    max-height: 0;
+
+    opacity: 0;
+
+    transition:
+        max-height 1.2s cubic-bezier(0.22, 0.61, 0.36, 1),
+        opacity 0.8s ease,
+        margin-top 1s ease;
+}
+
+
+.club-more.open {
+    max-height: 3000px;
+
+    opacity: 1;
+
+    margin-top: 70px;
+}
+
+
+.club-more p {
+    margin:
+        0
+        0
+        35px;
+
+    font-size: 18px;
+
+    line-height: 1.55;
+
+    max-width: 850px;
+}
+
+
+/* =====================================================
+   PEOPLE
+===================================================== */
+
+.statement {
+    max-width: 1100px;
+
+    font-size: clamp(35px, 6vw, 85px);
+
+    line-height: 1.05;
+
+    font-weight: 400;
 }
 
 
@@ -946,6 +1003,32 @@ footer a {
             scale(0.65);
     }
 
+
+    .club-statement {
+        font-size: 48px;
+
+        letter-spacing: -1px;
+
+        margin-bottom: 80px;
+    }
+
+
+    .club-intro {
+        margin-left: 0;
+
+        font-size: 24px;
+    }
+
+
+    .club-more {
+        margin-left: 0;
+    }
+
+
+    .club-more p {
+        font-size: 16px;
+    }
+
 }
 
 </style>
@@ -1020,11 +1103,10 @@ footer a {
 
 
 <!-- =====================================================
-     OPENING — NON TOCCARE
+     OPENING
 ===================================================== -->
 
 <section class="opening">
-
 
     <div class="dot dot-one"></div>
 
@@ -1079,7 +1161,6 @@ footer a {
 
     </div>
 
-
 </section>
 
 
@@ -1102,9 +1183,7 @@ footer a {
 
     <div class="events">
 
-
         <div class="event">
-
 
             <div class="event-date">
 
@@ -1138,9 +1217,7 @@ footer a {
 
             </a>
 
-
         </div>
-
 
     </div>
 
@@ -1167,10 +1244,7 @@ footer a {
     <div class="works">
 
 
-        <!-- =============================================
-             VEDO IL MONDO GIRARE
-             PER ORA SENZA FOTO
-        ============================================== -->
+        <!-- VEDO IL MONDO GIRARE -->
 
         <a
             href="#"
@@ -1184,9 +1258,7 @@ footer a {
 
 
 
-        <!-- =============================================
-             SUITE
-        ============================================== -->
+        <!-- SUITE -->
 
         <a
             href="#"
@@ -1209,9 +1281,7 @@ footer a {
 
 
 
-        <!-- =============================================
-             URBAN SUITE
-        ============================================== -->
+        <!-- URBAN SUITE -->
 
         <a
             href="#"
@@ -1234,18 +1304,16 @@ footer a {
 
 
 
-        <!-- =============================================
-             UNUSUAL SUITE
-        ============================================== -->
+        <!-- UNUSUAL SUITE -->
 
         <a
             href="#"
             class="work-card">
 
-           <img
-    src="unusual suite1.png"
-    alt="Unusual Suite"
-    style="object-position: center bottom;">
+            <img
+                src="unusual suite1.png"
+                alt="Unusual Suite"
+                style="object-position: center bottom;">
 
 
             <div class="work-title-overlay">
@@ -1266,7 +1334,7 @@ footer a {
 
 
 <!-- =====================================================
-     ABOUT
+     THE CLUB
 ===================================================== -->
 
 <section
@@ -1281,15 +1349,134 @@ footer a {
     </div>
 
 
-    <div
-        class="statement"
-        id="aboutText">
+    <!-- FRASE PRINCIPALE -->
 
-        Un luogo dove corpi,
-        esperienze e immaginari
-        diversi entrano in relazione.
+    <h2
+        class="club-statement"
+        id="clubStatement">
+
+        Uno spazio non fisico<br>
+        di sperimentazione,<br>
+        di fluidità, di incontro.
+
+    </h2>
+
+
+
+    <!-- INTRODUZIONE -->
+
+    <div class="club-intro">
+
+
+        <p id="clubIntro">
+
+            Club Alieno è un collettivo artistico con sede a Riccione
+            che sviluppa la propria ricerca nell'incontro tra danza
+            contemporanea, musica, luce, spazio e performance.
+            Fondato dalle danzatrici e coreografe Valeria Fiorini ed
+            Eleonora Gennari, riunisce artisti e performer con
+            differenti esperienze, corpi e linguaggi.
+
+        </p>
+
+
+        <button
+            class="club-read-more"
+            id="clubButton"
+            onclick="toggleClub()">
+
+            READ MORE +
+
+        </button>
+
 
     </div>
+
+
+
+    <!-- BIO COMPLETA -->
+
+    <div
+        class="club-more"
+        id="clubMore">
+
+
+        <p id="clubParagraph1">
+
+            La ricerca coreografica si intreccia con la drammaturgia
+            dello spazio e della luce di Antonio Rinaldi e con la
+            ricerca sonora e le musiche elettroniche originali di Kino,
+            dando vita a un processo creativo in cui i diversi linguaggi
+            non intervengono come elementi separati, ma partecipano
+            insieme alla composizione.
+
+        </p>
+
+
+        <p id="clubParagraph2">
+
+            Il lavoro di Club Alieno nasce da una poetica della pluralità:
+            dall'incontro tra differenti modi di abitare il corpo, lo
+            spazio e la relazione. Questa eterogeneità non viene assunta
+            come tema da rappresentare, ma come principio generativo
+            della creazione artistica.
+
+        </p>
+
+
+        <p id="clubParagraph3">
+
+            Il Club è composto da un nucleo variabile di artisti,
+            performer e danzatori con differenti esperienze, corpi e
+            modalità di presenza. Da questa pluralità prendono forma
+            spazi di ricerca “alieni”: territori non conformi nei quali
+            mettere in discussione gli sguardi abituali e immaginare
+            nuove possibilità di relazione. L'obiettivo non è
+            rappresentare la diversità, ma ampliare lo sguardo con cui
+            osserviamo il corpo, l'altro e la complessità
+            dell'esperienza umana.
+
+        </p>
+
+
+        <p id="clubParagraph4">
+
+            La ricerca si sviluppa attraverso spettacoli, performance,
+            progetti site-specific e pratiche che attraversano anche lo
+            spazio urbano, i musei e i luoghi non convenzionali.
+            Alla produzione artistica si affianca un lavoro di
+            formazione e partecipazione culturale attraverso laboratori
+            nelle scuole, percorsi con le comunità e azioni artistiche
+            rivolte alla cittadinanza.
+
+        </p>
+
+
+        <p id="clubParagraph5">
+
+            Il debutto della compagnia avviene nel settembre 2024 con
+            Suite, realizzato in residenza presso il Teatro Dimora |
+            L'Arboreto di Mondaino. Nel 2025 Club Alieno viene
+            selezionato per Open Dialogo, programma internazionale di
+            scambio culturale tra Italia e Regno Unito, con una
+            residenza artistica presso Farnham Maltings.
+
+        </p>
+
+
+        <p id="clubParagraph6">
+
+            Tra le produzioni figurano Urban Suite, progetto
+            performativo per lo spazio urbano, Unusual Suite, pensato
+            per musei e luoghi del patrimonio, e Vedo il mondo girare,
+            nuova creazione che amplia il dialogo tra corpo, segno,
+            immagine e suono.
+
+        </p>
+
+
+    </div>
+
 
 </section>
 
@@ -1319,6 +1506,7 @@ footer a {
         corpi e individualità differenti.
 
     </div>
+
 
 </section>
 
@@ -1415,19 +1603,67 @@ window.addEventListener(
 
 
 /* =====================================================
+   APERTURA / CHIUSURA BIO
+===================================================== */
+
+let clubOpen = false;
+
+
+function toggleClub() {
+
+    const more =
+        document.getElementById("clubMore");
+
+    const button =
+        document.getElementById("clubButton");
+
+
+    clubOpen = !clubOpen;
+
+
+    if (clubOpen) {
+
+        more.classList.add("open");
+
+        button.innerHTML =
+            "CLOSE −";
+
+    }
+
+    else {
+
+        more.classList.remove("open");
+
+        button.innerHTML =
+            "READ MORE +";
+
+    }
+
+}
+
+
+
+/* =====================================================
    LINGUA
 ===================================================== */
 
 function setLanguage(language) {
 
-    const aboutText =
-        document.getElementById("aboutText");
-
-    const peopleText =
-        document.getElementById("peopleText");
 
     const subtitle =
         document.getElementById("subtitle");
+
+    const clubStatement =
+        document.getElementById("clubStatement");
+
+    const clubIntro =
+        document.getElementById("clubIntro");
+
+    const clubButton =
+        document.getElementById("clubButton");
+
+    const peopleText =
+        document.getElementById("peopleText");
 
     const itButton =
         document.getElementById("it");
@@ -1438,19 +1674,84 @@ function setLanguage(language) {
 
     if (language === "en") {
 
+
         subtitle.innerHTML =
             "DANCE · PERFORMANCE · RESEARCH";
 
 
-        aboutText.innerHTML =
-            "A space where different bodies, experiences and imaginations meet.";
+        clubStatement.innerHTML =
+            "A non-physical space<br>" +
+            "for experimentation,<br>" +
+            "fluidity and encounter.";
+
+
+        clubIntro.innerHTML =
+            "Club Alieno is an artistic collective based in Riccione " +
+            "whose research develops through the encounter between " +
+            "contemporary dance, music, light, space and performance. " +
+            "Founded by dancers and choreographers Valeria Fiorini and " +
+            "Eleonora Gennari, it brings together artists and performers " +
+            "with different experiences, bodies and languages.";
+
+
+        document.getElementById("clubParagraph1").innerHTML =
+            "Choreographic research intertwines with Antonio Rinaldi's " +
+            "dramaturgy of space and light and Kino's sound research " +
+            "and original electronic music, creating a process in which " +
+            "different artistic languages participate together in the composition.";
+
+
+        document.getElementById("clubParagraph2").innerHTML =
+            "Club Alieno's work is grounded in a poetics of plurality: " +
+            "an encounter between different ways of inhabiting the body, " +
+            "space and relationships. This heterogeneity is not treated " +
+            "as a subject to be represented, but as a generative principle " +
+            "of artistic creation.";
+
+
+        document.getElementById("clubParagraph3").innerHTML =
+            "The Club consists of a changing group of artists, performers " +
+            "and dancers with different experiences, bodies and modes of " +
+            "presence. From this plurality emerge ‘alien’ spaces of research: " +
+            "non-conforming territories in which habitual perspectives can " +
+            "be questioned and new possibilities of relationship imagined. " +
+            "The aim is not to represent diversity, but to broaden the way " +
+            "we look at the body, the other and the complexity of human experience.";
+
+
+        document.getElementById("clubParagraph4").innerHTML =
+            "The research develops through performances, site-specific projects " +
+            "and practices that also inhabit urban spaces, museums and " +
+            "non-conventional venues. Artistic production is accompanied by " +
+            "training and cultural participation through workshops in schools, " +
+            "community projects and artistic actions addressed to local communities.";
+
+
+        document.getElementById("clubParagraph5").innerHTML =
+            "The company debuted in September 2024 with Suite, developed " +
+            "in residence at Teatro Dimora | L'Arboreto in Mondaino. " +
+            "In 2025 Club Alieno was selected for Open Dialogo, an international " +
+            "cultural exchange programme between Italy and the United Kingdom, " +
+            "with an artistic residency at Farnham Maltings.";
+
+
+        document.getElementById("clubParagraph6").innerHTML =
+            "Its productions also include Urban Suite, a performative project " +
+            "for urban spaces, Unusual Suite, created for museums and heritage " +
+            "sites, and Vedo il mondo girare, a new work extending the dialogue " +
+            "between body, mark, image and sound.";
 
 
         peopleText.innerHTML =
             "A collective of performers, bodies and different individualities.";
 
 
-        document.documentElement.lang = "en";
+        clubButton.innerHTML =
+            clubOpen ? "CLOSE −" : "READ MORE +";
+
+
+        document.documentElement.lang =
+            "en";
 
 
         enButton.classList.add("active");
@@ -1462,19 +1763,91 @@ function setLanguage(language) {
 
     else {
 
+
         subtitle.innerHTML =
             "DANZA · PERFORMANCE · RICERCA";
 
 
-        aboutText.innerHTML =
-            "Un luogo dove corpi, esperienze e immaginari diversi entrano in relazione.";
+        clubStatement.innerHTML =
+            "Uno spazio non fisico<br>" +
+            "di sperimentazione,<br>" +
+            "di fluidità, di incontro.";
+
+
+        clubIntro.innerHTML =
+            "Club Alieno è un collettivo artistico con sede a Riccione " +
+            "che sviluppa la propria ricerca nell'incontro tra danza " +
+            "contemporanea, musica, luce, spazio e performance. " +
+            "Fondato dalle danzatrici e coreografe Valeria Fiorini ed " +
+            "Eleonora Gennari, riunisce artisti e performer con " +
+            "differenti esperienze, corpi e linguaggi.";
+
+
+        document.getElementById("clubParagraph1").innerHTML =
+            "La ricerca coreografica si intreccia con la drammaturgia " +
+            "dello spazio e della luce di Antonio Rinaldi e con la " +
+            "ricerca sonora e le musiche elettroniche originali di Kino, " +
+            "dando vita a un processo creativo in cui i diversi linguaggi " +
+            "non intervengono come elementi separati, ma partecipano " +
+            "insieme alla composizione.";
+
+
+        document.getElementById("clubParagraph2").innerHTML =
+            "Il lavoro di Club Alieno nasce da una poetica della pluralità: " +
+            "dall'incontro tra differenti modi di abitare il corpo, lo " +
+            "spazio e la relazione. Questa eterogeneità non viene assunta " +
+            "come tema da rappresentare, ma come principio generativo " +
+            "della creazione artistica.";
+
+
+        document.getElementById("clubParagraph3").innerHTML =
+            "Il Club è composto da un nucleo variabile di artisti, " +
+            "performer e danzatori con differenti esperienze, corpi e " +
+            "modalità di presenza. Da questa pluralità prendono forma " +
+            "spazi di ricerca “alieni”: territori non conformi nei quali " +
+            "mettere in discussione gli sguardi abituali e immaginare " +
+            "nuove possibilità di relazione. L'obiettivo non è " +
+            "rappresentare la diversità, ma ampliare lo sguardo con cui " +
+            "osserviamo il corpo, l'altro e la complessità dell'esperienza umana.";
+
+
+        document.getElementById("clubParagraph4").innerHTML =
+            "La ricerca si sviluppa attraverso spettacoli, performance, " +
+            "progetti site-specific e pratiche che attraversano anche lo " +
+            "spazio urbano, i musei e i luoghi non convenzionali. " +
+            "Alla produzione artistica si affianca un lavoro di " +
+            "formazione e partecipazione culturale attraverso laboratori " +
+            "nelle scuole, percorsi con le comunità e azioni artistiche " +
+            "rivolte alla cittadinanza.";
+
+
+        document.getElementById("clubParagraph5").innerHTML =
+            "Il debutto della compagnia avviene nel settembre 2024 con " +
+            "Suite, realizzato in residenza presso il Teatro Dimora | " +
+            "L'Arboreto di Mondaino. Nel 2025 Club Alieno viene " +
+            "selezionato per Open Dialogo, programma internazionale di " +
+            "scambio culturale tra Italia e Regno Unito, con una " +
+            "residenza artistica presso Farnham Maltings.";
+
+
+        document.getElementById("clubParagraph6").innerHTML =
+            "Tra le produzioni figurano Urban Suite, progetto " +
+            "performativo per lo spazio urbano, Unusual Suite, pensato " +
+            "per musei e luoghi del patrimonio, e Vedo il mondo girare, " +
+            "nuova creazione che amplia il dialogo tra corpo, segno, " +
+            "immagine e suono.";
 
 
         peopleText.innerHTML =
             "Un collettivo di performer, corpi e individualità differenti.";
 
 
-        document.documentElement.lang = "it";
+        clubButton.innerHTML =
+            clubOpen ? "CLOSE −" : "READ MORE +";
+
+
+        document.documentElement.lang =
+            "it";
 
 
         itButton.classList.add("active");
