@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Suite · Club Alieno</title>
+
+
+<style>
+
+/* =====================================================
+   BASE
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: white;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu {
+    position: fixed;
+    top: 30px;
+    left: 40px;
+    right: 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 100;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.menu a {
+    color: black;
+    text-decoration: none;
+    margin-right: 22px;
+}
+
+.menu-right {
+    display: flex;
+    align-items: center;
+}
+
+
+/* =====================================================
+   PAGINA
+===================================================== */
+
+.page {
+    padding: 150px 7vw 100px;
+}
+
+
+/* =====================================================
+   BACK
+===================================================== */
+
+.back-link {
+    display: inline-block;
+
+    margin-bottom: 90px;
+
+    color: black;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    margin-bottom: 140px;
+}
+
+
+.hero h1 {
+    margin: 0 0 70px;
+
+    font-size: clamp(80px, 15vw, 220px);
+
+    font-weight: 400;
+
+    line-height: 0.82;
+
+    letter-spacing: -7px;
+}
+
+
+.hero-image {
+    width: 100%;
+
+    height: min(72vh, 800px);
+
+    overflow: hidden;
+}
+
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro {
+    max-width: 1150px;
+
+    margin: 0 auto 170px;
+}
+
+
+.intro p {
+    margin: 0;
+
+    font-size: clamp(34px, 5vw, 72px);
+
+    line-height: 1.05;
+
+    font-weight: 400;
+}
+
+
+/* =====================================================
+   SECTION LABEL
+===================================================== */
+
+.section-label {
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 55px;
+}
+
+
+/* =====================================================
+   TESTO PRINCIPALE
+===================================================== */
+
+.work-text {
+    display: grid;
+
+    grid-template-columns: 1fr 1.4fr;
+
+    gap: 90px;
+
+    margin-bottom: 170px;
+
+    padding-top: 45px;
+
+    border-top: 1px solid black;
+}
+
+
+.work-text-title {
+    font-size: clamp(34px, 4vw, 60px);
+
+    line-height: 1;
+
+    font-weight: 400;
+}
+
+
+.work-text-body {
+    max-width: 780px;
+}
+
+
+.work-text-body p {
+    margin: 0 0 28px;
+
+    font-size: 19px;
+
+    line-height: 1.55;
+}
+
+
+/* =====================================================
+   MUSICA / LUCI
+===================================================== */
+
+.atmosphere {
+    margin-bottom: 170px;
+
+    padding-top: 45px;
+
+    border-top: 1px solid black;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+}
+
+
+.atmosphere-block h2 {
+    margin: 0 0 25px;
+
+    font-size: clamp(32px, 4vw, 55px);
+
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+
+.atmosphere-block p {
+    margin: 0;
+
+    font-size: 18px;
+
+    line-height: 1.55;
+
+    max-width: 600px;
+}
+
+
+/* =====================================================
+   CREDITI
+===================================================== */
+
+.credits {
+    padding-top: 45px;
+
+    border-top: 1px solid black;
+
+    margin-bottom: 150px;
+}
+
+
+.credits-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 50px 80px;
+}
+
+
+.credit-label {
+    margin-bottom: 8px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+.credit-text {
+    font-size: 18px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   FINALE
+===================================================== */
+
+.end {
+    padding-top: 60px;
+
+    border-top: 1px solid black;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+}
+
+
+.end-title {
+    font-size: clamp(55px, 9vw, 125px);
+
+    line-height: 0.9;
+
+    font-weight: 400;
+}
+
+
+.end a {
+    color: black;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .menu {
+        top: 20px;
+        left: 20px;
+        right: 20px;
+
+        font-size: 10px;
+    }
+
+    .menu a {
+        margin-right: 8px;
+    }
+
+    .page {
+        padding: 110px 25px 70px;
+    }
+
+    .back-link {
+        margin-bottom: 60px;
+    }
+
+    .hero {
+        margin-bottom: 100px;
+    }
+
+    .hero h1 {
+        font-size: 85px;
+        letter-spacing: -4px;
+        margin-bottom: 45px;
+    }
+
+    .hero-image {
+        height: 55vh;
+    }
+
+    .intro {
+        margin-bottom: 110px;
+    }
+
+    .intro p {
+        font-size: 36px;
+    }
+
+    .work-text {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        margin-bottom: 110px;
+    }
+
+    .work-text-body p {
+        font-size: 17px;
+    }
+
+    .atmosphere {
+        grid-template-columns: 1fr;
+
+        gap: 70px;
+
+        margin-bottom: 110px;
+    }
+
+    .credits-grid {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .end {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 50px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     MENU
+===================================================== -->
+
+<nav class="menu">
+
+    <div>
+
+        <a href="index.html#whats-on">
+            WHAT'S ON
+        </a>
+
+        <a href="index.html#works">
+            WORKS
+        </a>
+
+        <a href="index.html#about">
+            ABOUT
+        </a>
+
+        <a href="index.html#people">
+            PEOPLE
+        </a>
+
+    </div>
+
+
+    <div class="menu-right">
+
+        <a href="index.html#contact">
+            CONTACT
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<main class="page">
+
+
+    <!-- =================================================
+         BACK
+    ================================================== -->
+
+    <a
+        href="index.html#works"
+        class="back-link">
+
+        ← BACK TO WORKS
+
+    </a>
+
+
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
+    <section class="hero">
+
+
+        <h1>
+            SUITE
+        </h1>
+
+
+        <div class="hero-image">
+
+            <img
+                src="suite.png"
+                alt="Suite di Club Alieno">
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         INTRO
+    ================================================== -->
+
+    <section class="intro">
+
+        <p>
+
+            Suite è uno spettacolo di danza contemporanea
+            che nasce dall'incontro tra movimento,
+            musica e relazione.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         IL LAVORO
+    ================================================== -->
+
+    <section>
+
+
+        <div class="section-label">
+
+            01 / THE WORK
+
+        </div>
+
+
+        <div class="work-text">
+
+
+            <div class="work-text-title">
+
+                Una successione<br>
+                di frammenti,<br>
+                immagini,<br>
+                possibilità.
+
+            </div>
+
+
+            <div class="work-text-body">
+
+
+                <p>
+
+                    In ambito musicale, la suite — dal francese
+                    “successione” — è una composizione formata da una
+                    serie di brani pensati per essere eseguiti in
+                    sequenza. Ogni pezzo è un mondo a sé, ma parte
+                    integrante di un disegno più ampio, come se ciascun
+                    movimento fosse una tappa di un viaggio emotivo.
+
+                </p>
+
+
+                <p>
+
+                    Ma “suite” è anche un termine che indica un
+                    particolare tipo di camera d'albergo: uno spazio
+                    privato, articolato come un piccolo appartamento,
+                    dove si vive per un tempo limitato, in transito
+                    tra un prima e un dopo.
+
+                </p>
+
+
+                <p>
+
+                    La nostra Suite nasce proprio da questa doppia
+                    ispirazione. È uno spettacolo composto da frammenti,
+                    episodi, immagini in movimento, che si susseguono
+                    come in una partitura danzata.
+
+                </p>
+
+
+                <p>
+
+                    Ogni quadro è un momento della vita, una sfumatura
+                    dell'esperienza umana: gioia, smarrimento, desiderio,
+                    paura, perdita, scoperta.
+
+                </p>
+
+
+                <p>
+
+                    Otto interpreti danno corpo e voce a questo mosaico
+                    emotivo, intrecciando gesto e suono in una narrazione
+                    che scorre come un filo sottile.
+
+                </p>
+
+
+                <p>
+
+                    Suite è un microcosmo in cui si riflette la
+                    complessità dell'esistenza. Un percorso fatto di
+                    passaggi, di eventi talvolta lieti, altre volte
+                    dolorosi, che scandiscono il tempo della nostra vita.
+
+                </p>
+
+
+                <p>
+
+                    È anche — e soprattutto — un enigma, una tensione
+                    sottile che attraversa l'intero spettacolo:
+                    qualcosa accade, ma il significato non è subito
+                    chiaro. È una domanda che si affaccia, una sensazione
+                    che ci abita, un mistero da comprendere — forse —
+                    solo alla fine.
+
+                </p>
+
+
+                <p>
+
+                    Questo spettacolo non dà risposte, ma lascia spazio.
+                    Spazio per sentire, per riflettere, per riconoscersi.
+
+                </p>
+
+
+                <p>
+
+                    Come una suite musicale o una stanza d'albergo,
+                    Suite accoglie, accompagna e poi lascia andare,
+                    ma qualcosa — una nota, un gesto, un'immagine —
+                    resta con noi, al di là della scena.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         MUSICA / LUCI
+    ================================================== -->
+
+    <section>
+
+
+        <div class="section-label">
+
+            02 / SOUND · LIGHT · SPACE
+
+        </div>
+
+
+        <div class="atmosphere">
+
+
+            <div class="atmosphere-block">
+
+
+                <h2>
+                    SOUND
+                </h2>
+
+
+                <p>
+
+                    La musica elettronica di Kino, suonata dal vivo,
+                    accompagna ogni frammento, creando uno spazio
+                    sonoro che è esso stesso protagonista.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="atmosphere-block">
+
+
+                <h2>
+                    LIGHT · SPACE
+                </h2>
+
+
+                <p>
+
+                    Le luci e la scena, curate da Antonio Rinaldi,
+                    costruiscono atmosfere sospese e silenziose,
+                    evocando la luce, le geometrie e le solitudini
+                    dei quadri di Edward Hopper, in cui ogni immagine
+                    sembra racchiudere una storia ancora da raccontare.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         CREDITI
+    ================================================== -->
+
+    <section class="credits">
+
+
+        <div class="section-label">
+
+            03 / CREDITS
+
+        </div>
+
+
+        <div class="credits-grid">
+
+
+            <div>
+
+                <div class="credit-label">
+                    CONCEPT · COREOGRAFIA
+                </div>
+
+                <div class="credit-text">
+                    Eleonora Gennari, Valeria Fiorini
+                </div>
+
+            </div>
+
+
+
+            <div>
+
+                <div class="credit-label">
+                    MUSICHE
+                </div>
+
+                <div class="credit-text">
+                    Kino
+                </div>
+
+            </div>
+
+
+
+            <div>
+
+                <div class="credit-label">
+                    LUCI · SCENE
+                </div>
+
+                <div class="credit-text">
+                    Antonio Rinaldi
+                </div>
+
+            </div>
+
+
+
+            <div>
+
+                <div class="credit-label">
+                    IN SCENA
+                </div>
+
+                <div class="credit-text">
+
+                    Alex Tonti, Caterina Savioli,
+                    Corinna Lattanzi, Daniele Mordini,
+                    Elisa Tamagnini, Giorgia Berlini,
+                    Luca Leardini, Maya Giorgetti
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         FINALE
+    ================================================== -->
+
+    <section class="end">
+
+
+        <div class="end-title">
+
+            SUITE
+
+        </div>
+
+
+        <a href="index.html#works">
+
+            ← BACK TO WORKS
+
+        </a>
+
+
+    </section>
+
+
+</main>
+
+
+</body>
+
+</html>
