@@ -153,6 +153,7 @@ body {
     height: 100%;
 
     object-fit: cover;
+    object-position: center;
 
     display: block;
 
@@ -170,8 +171,8 @@ body {
     background:
         linear-gradient(
             to top,
-            rgba(0,0,0,0.55),
-            rgba(0,0,0,0.02) 55%
+            rgba(0,0,0,0.35),
+            rgba(0,0,0,0) 45%
         );
 
     pointer-events: none;
@@ -179,7 +180,6 @@ body {
 
 .trailer:hover img {
     transform: scale(1.02);
-    opacity: 0.92;
 }
 
 .trailer-label {
@@ -229,7 +229,7 @@ body {
 
 
 /* =====================================================
-   TEXT SECTION
+   TEXT
 ===================================================== */
 
 .work-text {
@@ -268,15 +268,13 @@ body {
 
 
 /* =====================================================
-   FULL IMAGE
+   IMMAGINI ORIZZONTALI
 ===================================================== */
 
 .full-image {
     width: 80%;
 
     margin: 0 auto 100px;
-
-    overflow: hidden;
 }
 
 .full-image img {
@@ -288,7 +286,25 @@ body {
 
 
 /* =====================================================
-   DOUBLE IMAGE — FOTO INTERE
+   FOTO DEL TAVOLO — PIÙ PICCOLA
+===================================================== */
+
+.table-image {
+    width: 62%;
+
+    margin: 0 auto 120px;
+}
+
+.table-image img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+}
+
+
+/* =====================================================
+   FOTO VERTICALI — INTERE
 ===================================================== */
 
 .double-image {
@@ -326,7 +342,7 @@ body {
 
 
 /* =====================================================
-   CITY SECTION
+   CITY
 ===================================================== */
 
 .city {
@@ -490,7 +506,8 @@ body {
         font-size: 16px;
     }
 
-    .full-image {
+    .full-image,
+    .table-image {
         width: 100%;
 
         margin-bottom: 75px;
@@ -508,7 +525,6 @@ body {
 
     .double-image img {
         width: 100%;
-
         height: auto;
 
         max-height: none;
@@ -564,7 +580,6 @@ body {
         <a href="index.html#contact">
             CONTACT
         </a>
-
 
         <div class="language">
 
@@ -630,7 +645,7 @@ body {
         rel="noopener noreferrer">
 
         <img
-            src="https://img.youtube.com/vi/w0Mj4Q9F7sU/maxresdefault.jpg"
+            src="urban-trailer.png"
             alt="Trailer di Urban Suite">
 
 
@@ -698,7 +713,6 @@ body {
 
         <div class="work-text-body">
 
-
             <p id="workP1">
 
                 Urban Suite è una performance itinerante che si sviluppa
@@ -735,7 +749,6 @@ body {
 
             </p>
 
-
         </div>
 
     </div>
@@ -759,7 +772,7 @@ body {
 
 
 <!-- =====================================================
-     DOUBLE IMAGE — FOTO INTERE
+     FOTO VERTICALI
 ===================================================== -->
 
 <div class="double-image">
@@ -819,7 +832,6 @@ body {
 
         <div class="city-text">
 
-
             <p id="cityP1">
 
                 Urban Suite interroga il modo in cui viviamo la città,
@@ -856,7 +868,6 @@ body {
 
             </p>
 
-
         </div>
 
     </div>
@@ -866,10 +877,10 @@ body {
 
 
 <!-- =====================================================
-     IMAGE 3
+     FOTO DEL TAVOLO — PIÙ PICCOLA
 ===================================================== -->
 
-<div class="full-image">
+<div class="table-image">
 
     <img
         src="urban3.jpg"
