@@ -814,10 +814,6 @@ section.content {
 }
 
 
-/* =====================================================
-   READ MORE
-===================================================== */
-
 .club-read-more {
     display: inline-block;
 
@@ -840,10 +836,6 @@ section.content {
     cursor: pointer;
 }
 
-
-/* =====================================================
-   BIO COMPLETA
-===================================================== */
 
 .club-more {
     max-width: 900px;
@@ -890,14 +882,78 @@ section.content {
    PEOPLE
 ===================================================== */
 
-.statement {
-    max-width: 1100px;
+.people-grid {
+    display: grid;
 
-    font-size: clamp(35px, 6vw, 85px);
+    grid-template-columns: repeat(4, 1fr);
 
-    line-height: 1.05;
+    gap: 70px 28px;
+}
+
+
+.person-card {
+    display: block;
+
+    text-decoration: none;
+
+    color: black;
+
+    cursor: pointer;
+}
+
+
+.person-photo {
+    width: 100%;
+
+    aspect-ratio: 3 / 4;
+
+    background: #f2f2f2;
+
+    border: 1px solid #d9d9d9;
+
+    overflow: hidden;
+}
+
+
+.person-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+
+.person-card:hover .person-photo img {
+    transform: scale(1.025);
+}
+
+
+.person-name {
+    margin-top: 16px;
+
+    font-size: 18px;
+
+    line-height: 1.2;
 
     font-weight: 400;
+}
+
+
+.person-role {
+    margin-top: 7px;
+
+    font-size: 9px;
+
+    letter-spacing: 1.8px;
+
+    line-height: 1.5;
+
+    text-transform: uppercase;
 }
 
 
@@ -1027,6 +1083,25 @@ footer a {
 
     .club-more p {
         font-size: 16px;
+    }
+
+
+    .people-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 45px 18px;
+    }
+
+
+    .person-name {
+        font-size: 16px;
+    }
+
+
+    .person-role {
+        font-size: 8px;
+
+        letter-spacing: 1.3px;
     }
 
 }
@@ -1244,8 +1319,6 @@ footer a {
     <div class="works">
 
 
-        <!-- VEDO IL MONDO GIRARE -->
-
         <a
             href="#"
             class="work-card work-card-empty">
@@ -1257,8 +1330,6 @@ footer a {
         </a>
 
 
-
-        <!-- SUITE -->
 
         <a
             href="#"
@@ -1281,8 +1352,6 @@ footer a {
 
 
 
-        <!-- URBAN SUITE -->
-
         <a
             href="#"
             class="work-card">
@@ -1303,8 +1372,6 @@ footer a {
         </a>
 
 
-
-        <!-- UNUSUAL SUITE -->
 
         <a
             href="#"
@@ -1349,8 +1416,6 @@ footer a {
     </div>
 
 
-    <!-- FRASE PRINCIPALE -->
-
     <h2
         class="club-statement"
         id="clubStatement">
@@ -1362,8 +1427,6 @@ footer a {
     </h2>
 
 
-
-    <!-- INTRODUZIONE -->
 
     <div class="club-intro">
 
@@ -1393,8 +1456,6 @@ footer a {
     </div>
 
 
-
-    <!-- BIO COMPLETA -->
 
     <div
         class="club-more"
@@ -1498,12 +1559,188 @@ footer a {
     </div>
 
 
-    <div
-        class="statement"
-        id="peopleText">
+    <div class="people-grid">
 
-        Un collettivo di performer,
-        corpi e individualità differenti.
+
+        <a href="#" class="person-card">
+
+            <div class="person-photo"></div>
+
+            <div class="person-name">
+                Eleonora Gennari
+            </div>
+
+            <div class="person-role">
+                Coreografa
+            </div>
+
+        </a>
+
+
+        <a href="#" class="person-card">
+
+            <div class="person-photo"></div>
+
+            <div class="person-name">
+                Valeria Fiorini
+            </div>
+
+            <div class="person-role">
+                Coreografa
+            </div>
+
+        </a>
+
+
+        <a href="#" class="person-card">
+
+            <div class="person-photo"></div>
+
+            <div class="person-name">
+                Antonio Rinaldi
+            </div>
+
+            <div class="person-role">
+                Light Designer · Dramaturg
+            </div>
+
+        </a>
+
+
+        <a href="#" class="person-card">
+
+            <div class="person-photo"></div>
+
+            <div class="person-name">
+                Kino
+            </div>
+
+            <div class="person-role">
+                Musicista · Sound Artist
+            </div>
+
+        </a>
+
+
+        <a href="#" class="person-card">
+
+            <div class="person-photo"></div>
+
+            <div class="person-name">
+                Elisa Tamagnini
+            </div>
+
+            <div class="person-role">
+                Danzatrice
+            </div>
+
+        </a>
+
+
+        <a href="#" class="person-card">
+
+            <div class="person-photo"></div>
+
+            <div class="person-name">
+                Luca Leardini
+            </div>
+
+            <div class="person-role">
+                Danzatore
+            </div>
+
+        </a>
+
+
+        <a href="#" class="person-card">
+
+            <div class="person-photo"></div>
+
+            <div class="person-name">
+                Corinna Lattanzi
+            </div>
+
+            <div class="person-role">
+                Danzatrice
+            </div>
+
+        </a>
+
+
+        <a href="#" class="person-card">
+
+            <div class="person-photo"></div>
+
+            <div class="person-name">
+                Maya Giorgetti
+            </div>
+
+            <div class="person-role">
+                Danzatrice
+            </div>
+
+        </a>
+
+
+        <a href="#" class="person-card">
+
+            <div class="person-photo"></div>
+
+            <div class="person-name">
+                Alex Tonti
+            </div>
+
+            <div class="person-role">
+                Danzatore
+            </div>
+
+        </a>
+
+
+        <a href="#" class="person-card">
+
+            <div class="person-photo"></div>
+
+            <div class="person-name">
+                Giorgia Berlini
+            </div>
+
+            <div class="person-role">
+                Danzatrice
+            </div>
+
+        </a>
+
+
+        <a href="#" class="person-card">
+
+            <div class="person-photo"></div>
+
+            <div class="person-name">
+                Daniele Mordini
+            </div>
+
+            <div class="person-role">
+                Danzatore
+            </div>
+
+        </a>
+
+
+        <a href="#" class="person-card">
+
+            <div class="person-photo"></div>
+
+            <div class="person-name">
+                Caterina Savioli
+            </div>
+
+            <div class="person-role">
+                Danzatrice
+            </div>
+
+        </a>
+
 
     </div>
 
@@ -1560,10 +1797,6 @@ footer a {
 <script>
 
 
-/* =====================================================
-   POSIZIONE UFO
-===================================================== */
-
 function positionSaucer() {
 
     const letter =
@@ -1602,10 +1835,6 @@ window.addEventListener(
 
 
 
-/* =====================================================
-   APERTURA / CHIUSURA BIO
-===================================================== */
-
 let clubOpen = false;
 
 
@@ -1643,10 +1872,6 @@ function toggleClub() {
 
 
 
-/* =====================================================
-   LINGUA
-===================================================== */
-
 function setLanguage(language) {
 
 
@@ -1661,9 +1886,6 @@ function setLanguage(language) {
 
     const clubButton =
         document.getElementById("clubButton");
-
-    const peopleText =
-        document.getElementById("peopleText");
 
     const itButton =
         document.getElementById("it");
@@ -1740,10 +1962,6 @@ function setLanguage(language) {
             "for urban spaces, Unusual Suite, created for museums and heritage " +
             "sites, and Vedo il mondo girare, a new work extending the dialogue " +
             "between body, mark, image and sound.";
-
-
-        peopleText.innerHTML =
-            "A collective of performers, bodies and different individualities.";
 
 
         clubButton.innerHTML =
@@ -1836,10 +2054,6 @@ function setLanguage(language) {
             "per musei e luoghi del patrimonio, e Vedo il mondo girare, " +
             "nuova creazione che amplia il dialogo tra corpo, segno, " +
             "immagine e suono.";
-
-
-        peopleText.innerHTML =
-            "Un collettivo di performer, corpi e individualità differenti.";
 
 
         clubButton.innerHTML =
