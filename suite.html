@@ -37,6 +37,7 @@ body {
 
 .menu {
     position: fixed;
+
     top: 30px;
     left: 40px;
     right: 40px;
@@ -51,15 +52,40 @@ body {
     letter-spacing: 2px;
 }
 
+
 .menu a {
     color: black;
     text-decoration: none;
     margin-right: 22px;
 }
 
+
 .menu-right {
     display: flex;
     align-items: center;
+}
+
+
+.language {
+    display: flex;
+    align-items: center;
+}
+
+
+.language button {
+    border: none;
+    background: none;
+
+    cursor: pointer;
+
+    font: inherit;
+
+    padding: 0 4px;
+}
+
+
+.language button.active {
+    text-decoration: underline;
 }
 
 
@@ -82,11 +108,9 @@ body {
     margin-bottom: 90px;
 
     color: black;
-
     text-decoration: none;
 
     font-size: 11px;
-
     letter-spacing: 2px;
 }
 
@@ -113,22 +137,77 @@ body {
 }
 
 
-.hero-image {
-    width: 100%;
+/* =====================================================
+   TRAILER
+===================================================== */
 
+.trailer {
+    display: block;
+
+    position: relative;
+
+    width: 100%;
     height: min(72vh, 800px);
 
     overflow: hidden;
+
+    background: black;
+
+    color: white;
+
+    text-decoration: none;
 }
 
 
-.hero-image img {
+.trailer img {
     width: 100%;
     height: 100%;
 
     object-fit: cover;
 
     display: block;
+
+    transition:
+        transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1),
+        opacity 0.8s ease;
+}
+
+
+.trailer::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.55),
+            rgba(0,0,0,0.02) 55%
+        );
+
+    pointer-events: none;
+}
+
+
+.trailer:hover img {
+    transform: scale(1.02);
+
+    opacity: 0.92;
+}
+
+
+.trailer-label {
+    position: absolute;
+
+    right: 35px;
+    bottom: 32px;
+
+    z-index: 3;
+
+    font-size: 11px;
+    letter-spacing: 2px;
 }
 
 
@@ -339,39 +418,56 @@ body {
         font-size: 10px;
     }
 
+
     .menu a {
         margin-right: 8px;
     }
+
 
     .page {
         padding: 110px 25px 70px;
     }
 
+
     .back-link {
         margin-bottom: 60px;
     }
+
 
     .hero {
         margin-bottom: 100px;
     }
 
+
     .hero h1 {
         font-size: 85px;
+
         letter-spacing: -4px;
+
         margin-bottom: 45px;
     }
 
-    .hero-image {
-        height: 55vh;
+
+    .trailer {
+        height: 52vh;
     }
+
+
+    .trailer-label {
+        right: 20px;
+        bottom: 20px;
+    }
+
 
     .intro {
         margin-bottom: 110px;
     }
 
+
     .intro p {
         font-size: 36px;
     }
+
 
     .work-text {
         grid-template-columns: 1fr;
@@ -381,9 +477,11 @@ body {
         margin-bottom: 110px;
     }
 
+
     .work-text-body p {
         font-size: 17px;
     }
+
 
     .atmosphere {
         grid-template-columns: 1fr;
@@ -393,11 +491,13 @@ body {
         margin-bottom: 110px;
     }
 
+
     .credits-grid {
         grid-template-columns: 1fr;
 
         gap: 35px;
     }
+
 
     .end {
         flex-direction: column;
@@ -423,6 +523,7 @@ body {
 
 <nav class="menu">
 
+
     <div>
 
         <a href="index.html#whats-on">
@@ -446,11 +547,38 @@ body {
 
     <div class="menu-right">
 
+
         <a href="index.html#contact">
             CONTACT
         </a>
 
+
+        <div class="language">
+
+            <button
+                id="it"
+                class="active"
+                onclick="setLanguage('it')">
+
+                IT
+
+            </button>
+
+            /
+
+            <button
+                id="en"
+                onclick="setLanguage('en')">
+
+                EN
+
+            </button>
+
+        </div>
+
+
     </div>
+
 
 </nav>
 
@@ -465,7 +593,8 @@ body {
 
     <a
         href="index.html#works"
-        class="back-link">
+        class="back-link"
+        id="backTop">
 
         ← BACK TO WORKS
 
@@ -485,13 +614,27 @@ body {
         </h1>
 
 
-        <div class="hero-image">
+        <a
+            class="trailer"
+            href="https://www.youtube.com/watch?v=Ho3r70iOjbQ"
+            target="_blank"
+            rel="noopener noreferrer">
 
             <img
-                src="suite.png"
-                alt="Suite di Club Alieno">
+                src="https://img.youtube.com/vi/Ho3r70iOjbQ/maxresdefault.jpg"
+                alt="Trailer di Suite">
 
-        </div>
+
+            <div
+                class="trailer-label"
+                id="trailerLabel">
+
+                GUARDA IL TRAILER →
+
+            </div>
+
+
+        </a>
 
 
     </section>
@@ -504,7 +647,7 @@ body {
 
     <section class="intro">
 
-        <p>
+        <p id="introText">
 
             Suite è uno spettacolo di danza contemporanea
             che nasce dall'incontro tra movimento,
@@ -523,9 +666,11 @@ body {
     <section>
 
 
-        <div class="section-label">
+        <div
+            class="section-label"
+            id="workLabel">
 
-            01 / THE WORK
+            01 / IL LAVORO
 
         </div>
 
@@ -533,7 +678,9 @@ body {
         <div class="work-text">
 
 
-            <div class="work-text-title">
+            <div
+                class="work-text-title"
+                id="workTitle">
 
                 Una successione<br>
                 di frammenti,<br>
@@ -543,10 +690,11 @@ body {
             </div>
 
 
+
             <div class="work-text-body">
 
 
-                <p>
+                <p id="workP1">
 
                     In ambito musicale, la suite — dal francese
                     “successione” — è una composizione formata da una
@@ -558,7 +706,7 @@ body {
                 </p>
 
 
-                <p>
+                <p id="workP2">
 
                     Ma “suite” è anche un termine che indica un
                     particolare tipo di camera d'albergo: uno spazio
@@ -569,7 +717,7 @@ body {
                 </p>
 
 
-                <p>
+                <p id="workP3">
 
                     La nostra Suite nasce proprio da questa doppia
                     ispirazione. È uno spettacolo composto da frammenti,
@@ -579,7 +727,7 @@ body {
                 </p>
 
 
-                <p>
+                <p id="workP4">
 
                     Ogni quadro è un momento della vita, una sfumatura
                     dell'esperienza umana: gioia, smarrimento, desiderio,
@@ -588,7 +736,7 @@ body {
                 </p>
 
 
-                <p>
+                <p id="workP5">
 
                     Otto interpreti danno corpo e voce a questo mosaico
                     emotivo, intrecciando gesto e suono in una narrazione
@@ -597,7 +745,7 @@ body {
                 </p>
 
 
-                <p>
+                <p id="workP6">
 
                     Suite è un microcosmo in cui si riflette la
                     complessità dell'esistenza. Un percorso fatto di
@@ -607,7 +755,7 @@ body {
                 </p>
 
 
-                <p>
+                <p id="workP7">
 
                     È anche — e soprattutto — un enigma, una tensione
                     sottile che attraversa l'intero spettacolo:
@@ -619,7 +767,7 @@ body {
                 </p>
 
 
-                <p>
+                <p id="workP8">
 
                     Questo spettacolo non dà risposte, ma lascia spazio.
                     Spazio per sentire, per riflettere, per riconoscersi.
@@ -627,7 +775,7 @@ body {
                 </p>
 
 
-                <p>
+                <p id="workP9">
 
                     Come una suite musicale o una stanza d'albergo,
                     Suite accoglie, accompagna e poi lascia andare,
@@ -647,15 +795,17 @@ body {
 
 
     <!-- =================================================
-         MUSICA / LUCI
+         SOUND / LIGHT / SPACE
     ================================================== -->
 
     <section>
 
 
-        <div class="section-label">
+        <div
+            class="section-label"
+            id="soundSectionLabel">
 
-            02 / SOUND · LIGHT · SPACE
+            02 / SUONO · LUCE · SPAZIO
 
         </div>
 
@@ -666,12 +816,12 @@ body {
             <div class="atmosphere-block">
 
 
-                <h2>
-                    SOUND
+                <h2 id="soundTitle">
+                    SUONO
                 </h2>
 
 
-                <p>
+                <p id="soundText">
 
                     La musica elettronica di Kino, suonata dal vivo,
                     accompagna ogni frammento, creando uno spazio
@@ -687,12 +837,12 @@ body {
             <div class="atmosphere-block">
 
 
-                <h2>
-                    LIGHT · SPACE
+                <h2 id="lightTitle">
+                    LUCE · SPAZIO
                 </h2>
 
 
-                <p>
+                <p id="lightText">
 
                     Le luci e la scena, curate da Antonio Rinaldi,
                     costruiscono atmosfere sospese e silenziose,
@@ -720,9 +870,11 @@ body {
     <section class="credits">
 
 
-        <div class="section-label">
+        <div
+            class="section-label"
+            id="creditsLabel">
 
-            03 / CREDITS
+            03 / CREDITI
 
         </div>
 
@@ -732,12 +884,18 @@ body {
 
             <div>
 
-                <div class="credit-label">
+                <div
+                    class="credit-label"
+                    id="conceptLabel">
+
                     CONCEPT · COREOGRAFIA
+
                 </div>
 
                 <div class="credit-text">
+
                     Eleonora Gennari, Valeria Fiorini
+
                 </div>
 
             </div>
@@ -746,12 +904,18 @@ body {
 
             <div>
 
-                <div class="credit-label">
+                <div
+                    class="credit-label"
+                    id="musicLabel">
+
                     MUSICHE
+
                 </div>
 
                 <div class="credit-text">
+
                     Kino
+
                 </div>
 
             </div>
@@ -760,12 +924,18 @@ body {
 
             <div>
 
-                <div class="credit-label">
+                <div
+                    class="credit-label"
+                    id="lightsLabel">
+
                     LUCI · SCENE
+
                 </div>
 
                 <div class="credit-text">
+
                     Antonio Rinaldi
+
                 </div>
 
             </div>
@@ -774,8 +944,12 @@ body {
 
             <div>
 
-                <div class="credit-label">
+                <div
+                    class="credit-label"
+                    id="castLabel">
+
                     IN SCENA
+
                 </div>
 
                 <div class="credit-text">
@@ -811,7 +985,9 @@ body {
         </div>
 
 
-        <a href="index.html#works">
+        <a
+            href="index.html#works"
+            id="backBottom">
 
             ← BACK TO WORKS
 
@@ -822,6 +998,305 @@ body {
 
 
 </main>
+
+
+
+<!-- =====================================================
+     LINGUA
+===================================================== -->
+
+<script>
+
+
+function setLanguage(language) {
+
+
+    const itButton =
+        document.getElementById("it");
+
+    const enButton =
+        document.getElementById("en");
+
+
+    if (language === "en") {
+
+
+        document.documentElement.lang = "en";
+
+
+        enButton.classList.add("active");
+        itButton.classList.remove("active");
+
+
+        document.getElementById("backTop").innerHTML =
+            "← BACK TO WORKS";
+
+
+        document.getElementById("backBottom").innerHTML =
+            "← BACK TO WORKS";
+
+
+        document.getElementById("trailerLabel").innerHTML =
+            "WATCH TRAILER →";
+
+
+        document.getElementById("introText").innerHTML =
+            "Suite is a contemporary dance performance born from " +
+            "the encounter between movement, music and relationship.";
+
+
+        document.getElementById("workLabel").innerHTML =
+            "01 / THE WORK";
+
+
+        document.getElementById("workTitle").innerHTML =
+            "A succession<br>" +
+            "of fragments,<br>" +
+            "images,<br>" +
+            "possibilities.";
+
+
+        document.getElementById("workP1").innerHTML =
+            "In music, a suite — from the French word meaning " +
+            "“succession” — is a composition made up of a series of pieces " +
+            "designed to be performed in sequence. Each piece is a world " +
+            "of its own, while remaining part of a broader design, as if " +
+            "each movement were a stage in an emotional journey.";
+
+
+        document.getElementById("workP2").innerHTML =
+            "But “suite” is also the term used for a particular kind of " +
+            "hotel room: a private space arranged like a small apartment, " +
+            "inhabited for a limited time, suspended between a before and an after.";
+
+
+        document.getElementById("workP3").innerHTML =
+            "Our Suite grows from this double inspiration. It is a performance " +
+            "composed of fragments, episodes and moving images that follow one " +
+            "another like a danced score.";
+
+
+        document.getElementById("workP4").innerHTML =
+            "Each scene is a moment in life, a nuance of human experience: " +
+            "joy, disorientation, desire, fear, loss and discovery.";
+
+
+        document.getElementById("workP5").innerHTML =
+            "Eight performers give body and voice to this emotional mosaic, " +
+            "interweaving gesture and sound in a narrative that flows like a subtle thread.";
+
+
+        document.getElementById("workP6").innerHTML =
+            "Suite is a microcosm reflecting the complexity of existence: " +
+            "a journey made of passages and events, sometimes joyful and sometimes painful, " +
+            "that mark the passing of our lives.";
+
+
+        document.getElementById("workP7").innerHTML =
+            "It is also — and above all — an enigma, a subtle tension running " +
+            "through the entire performance: something happens, but its meaning " +
+            "is not immediately clear. A question emerges, a sensation remains, " +
+            "a mystery that may only be understood — perhaps — at the end.";
+
+
+        document.getElementById("workP8").innerHTML =
+            "The performance offers no answers, but leaves space: space to feel, " +
+            "to reflect and to recognise ourselves.";
+
+
+        document.getElementById("workP9").innerHTML =
+            "Like a musical suite or a hotel room, Suite welcomes us, accompanies us " +
+            "and then lets us go, yet something — a note, a gesture, an image — " +
+            "remains with us beyond the stage.";
+
+
+        document.getElementById("soundSectionLabel").innerHTML =
+            "02 / SOUND · LIGHT · SPACE";
+
+
+        document.getElementById("soundTitle").innerHTML =
+            "SOUND";
+
+
+        document.getElementById("soundText").innerHTML =
+            "Kino's electronic music, performed live, accompanies each fragment, " +
+            "creating a sonic space that becomes a protagonist in its own right.";
+
+
+        document.getElementById("lightTitle").innerHTML =
+            "LIGHT · SPACE";
+
+
+        document.getElementById("lightText").innerHTML =
+            "The lighting and stage design by Antonio Rinaldi create suspended, " +
+            "quiet atmospheres, evoking the light, geometries and solitude of " +
+            "Edward Hopper's paintings, where every image seems to contain a story " +
+            "still waiting to be told.";
+
+
+        document.getElementById("creditsLabel").innerHTML =
+            "03 / CREDITS";
+
+
+        document.getElementById("conceptLabel").innerHTML =
+            "CONCEPT · CHOREOGRAPHY";
+
+
+        document.getElementById("musicLabel").innerHTML =
+            "MUSIC";
+
+
+        document.getElementById("lightsLabel").innerHTML =
+            "LIGHTING · SET DESIGN";
+
+
+        document.getElementById("castLabel").innerHTML =
+            "PERFORMERS";
+
+    }
+
+
+    else {
+
+
+        document.documentElement.lang = "it";
+
+
+        itButton.classList.add("active");
+        enButton.classList.remove("active");
+
+
+        document.getElementById("backTop").innerHTML =
+            "← TORNA AI LAVORI";
+
+
+        document.getElementById("backBottom").innerHTML =
+            "← TORNA AI LAVORI";
+
+
+        document.getElementById("trailerLabel").innerHTML =
+            "GUARDA IL TRAILER →";
+
+
+        document.getElementById("introText").innerHTML =
+            "Suite è uno spettacolo di danza contemporanea " +
+            "che nasce dall'incontro tra movimento, musica e relazione.";
+
+
+        document.getElementById("workLabel").innerHTML =
+            "01 / IL LAVORO";
+
+
+        document.getElementById("workTitle").innerHTML =
+            "Una successione<br>" +
+            "di frammenti,<br>" +
+            "immagini,<br>" +
+            "possibilità.";
+
+
+        document.getElementById("workP1").innerHTML =
+            "In ambito musicale, la suite — dal francese “successione” — " +
+            "è una composizione formata da una serie di brani pensati per " +
+            "essere eseguiti in sequenza. Ogni pezzo è un mondo a sé, ma " +
+            "parte integrante di un disegno più ampio, come se ciascun " +
+            "movimento fosse una tappa di un viaggio emotivo.";
+
+
+        document.getElementById("workP2").innerHTML =
+            "Ma “suite” è anche un termine che indica un particolare tipo " +
+            "di camera d'albergo: uno spazio privato, articolato come un " +
+            "piccolo appartamento, dove si vive per un tempo limitato, " +
+            "in transito tra un prima e un dopo.";
+
+
+        document.getElementById("workP3").innerHTML =
+            "La nostra Suite nasce proprio da questa doppia ispirazione. " +
+            "È uno spettacolo composto da frammenti, episodi, immagini in " +
+            "movimento, che si susseguono come in una partitura danzata.";
+
+
+        document.getElementById("workP4").innerHTML =
+            "Ogni quadro è un momento della vita, una sfumatura dell'esperienza " +
+            "umana: gioia, smarrimento, desiderio, paura, perdita, scoperta.";
+
+
+        document.getElementById("workP5").innerHTML =
+            "Otto interpreti danno corpo e voce a questo mosaico emotivo, " +
+            "intrecciando gesto e suono in una narrazione che scorre come un filo sottile.";
+
+
+        document.getElementById("workP6").innerHTML =
+            "Suite è un microcosmo in cui si riflette la complessità dell'esistenza. " +
+            "Un percorso fatto di passaggi, di eventi talvolta lieti, altre volte dolorosi, " +
+            "che scandiscono il tempo della nostra vita.";
+
+
+        document.getElementById("workP7").innerHTML =
+            "È anche — e soprattutto — un enigma, una tensione sottile che attraversa " +
+            "l'intero spettacolo: qualcosa accade, ma il significato non è subito chiaro. " +
+            "È una domanda che si affaccia, una sensazione che ci abita, un mistero da " +
+            "comprendere — forse — solo alla fine.";
+
+
+        document.getElementById("workP8").innerHTML =
+            "Questo spettacolo non dà risposte, ma lascia spazio. " +
+            "Spazio per sentire, per riflettere, per riconoscersi.";
+
+
+        document.getElementById("workP9").innerHTML =
+            "Come una suite musicale o una stanza d'albergo, Suite accoglie, " +
+            "accompagna e poi lascia andare, ma qualcosa — una nota, un gesto, " +
+            "un'immagine — resta con noi, al di là della scena.";
+
+
+        document.getElementById("soundSectionLabel").innerHTML =
+            "02 / SUONO · LUCE · SPAZIO";
+
+
+        document.getElementById("soundTitle").innerHTML =
+            "SUONO";
+
+
+        document.getElementById("soundText").innerHTML =
+            "La musica elettronica di Kino, suonata dal vivo, accompagna ogni " +
+            "frammento, creando uno spazio sonoro che è esso stesso protagonista.";
+
+
+        document.getElementById("lightTitle").innerHTML =
+            "LUCE · SPAZIO";
+
+
+        document.getElementById("lightText").innerHTML =
+            "Le luci e la scena, curate da Antonio Rinaldi, costruiscono atmosfere " +
+            "sospese e silenziose, evocando la luce, le geometrie e le solitudini " +
+            "dei quadri di Edward Hopper, in cui ogni immagine sembra racchiudere " +
+            "una storia ancora da raccontare.";
+
+
+        document.getElementById("creditsLabel").innerHTML =
+            "03 / CREDITI";
+
+
+        document.getElementById("conceptLabel").innerHTML =
+            "CONCEPT · COREOGRAFIA";
+
+
+        document.getElementById("musicLabel").innerHTML =
+            "MUSICHE";
+
+
+        document.getElementById("lightsLabel").innerHTML =
+            "LUCI · SCENE";
+
+
+        document.getElementById("castLabel").innerHTML =
+            "IN SCENA";
+
+    }
+
+}
+
+</script>
 
 
 </body>
