@@ -729,15 +729,102 @@ section.content {
 
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 80px 40px;
+    gap: 40px;
 }
 
 
-.work {
-    min-height: 400px;
+/* =====================================================
+   CARD GENERALE
+===================================================== */
+
+.work-card {
+    position: relative;
+
+    min-height: 500px;
+
+    overflow: hidden;
 
     border: 1px solid black;
 
+    text-decoration: none;
+
+    color: black;
+
+    display: block;
+
+    background: white;
+}
+
+
+/* =====================================================
+   CARD CON FOTO
+===================================================== */
+
+.work-card img {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+
+.work-card:hover img {
+    transform: scale(1.025);
+}
+
+
+/* =====================================================
+   TITOLO SOPRA FOTO
+===================================================== */
+
+.work-title-overlay {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 30px;
+
+    color: white;
+
+    z-index: 3;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.60),
+            rgba(0,0,0,0)
+        );
+}
+
+
+.work-title-overlay h2 {
+    margin: 0;
+
+    font-size: clamp(32px, 4vw, 58px);
+
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+
+/* =====================================================
+   CARD SENZA FOTO
+===================================================== */
+
+.work-card-empty {
     display: flex;
 
     align-items: flex-end;
@@ -746,23 +833,14 @@ section.content {
 }
 
 
-.work h2 {
+.work-card-empty h2 {
     margin: 0;
 
-    font-size: 35px;
+    font-size: clamp(32px, 4vw, 58px);
 
     font-weight: 400;
-}
 
-
-.work span {
-    display: block;
-
-    margin-top: 12px;
-
-    font-size: 11px;
-
-    letter-spacing: 2px;
+    line-height: 1;
 }
 
 
@@ -841,8 +919,8 @@ footer a {
     }
 
 
-    .work {
-        min-height: 300px;
+    .work-card {
+        min-height: 380px;
     }
 
 
@@ -867,6 +945,7 @@ footer a {
             translateX(-50%)
             scale(0.65);
     }
+
 }
 
 </style>
@@ -1007,9 +1086,6 @@ footer a {
 
 <!-- =====================================================
      WHAT'S ON
-
-     PER AGGIUNGERE EVENTI IN FUTURO:
-     LAVOREREMO SOLO QUI.
 ===================================================== -->
 
 <section
@@ -1091,72 +1167,95 @@ footer a {
     <div class="works">
 
 
-        <div class="work">
+        <!-- =============================================
+             VEDO IL MONDO GIRARE
+             PER ORA SENZA FOTO
+        ============================================== -->
 
-            <div>
+        <a
+            href="#"
+            class="work-card work-card-empty">
 
-                <h2>
-                    Vedo il mondo girare
-                </h2>
+            <h2>
+                Vedo il mondo girare
+            </h2>
 
-                <span>
-                    2026 · PERFORMANCE
-                </span>
-
-            </div>
-
-        </div>
+        </a>
 
 
-        <div class="work">
 
-            <div>
+        <!-- =============================================
+             SUITE
+        ============================================== -->
+
+        <a
+            href="#"
+            class="work-card">
+
+            <img
+                src="suite.jpg"
+                alt="Suite">
+
+
+            <div class="work-title-overlay">
 
                 <h2>
                     Suite
                 </h2>
 
-                <span>
-                    2023 · PERFORMANCE
-                </span>
-
             </div>
 
-        </div>
+        </a>
 
 
-        <div class="work">
 
-            <div>
+        <!-- =============================================
+             URBAN SUITE
+        ============================================== -->
+
+        <a
+            href="#"
+            class="work-card">
+
+            <img
+                src="urbansuite.jpg"
+                alt="Urban Suite">
+
+
+            <div class="work-title-overlay">
 
                 <h2>
                     Urban Suite
                 </h2>
 
-                <span>
-                    PERFORMATIVE PROJECT
-                </span>
-
             </div>
 
-        </div>
+        </a>
 
 
-        <div class="work">
 
-            <div>
+        <!-- =============================================
+             UNUSUAL SUITE
+        ============================================== -->
+
+        <a
+            href="#"
+            class="work-card">
+
+            <img
+                src="unusual suite1.png"
+                alt="Unusual Suite">
+
+
+            <div class="work-title-overlay">
 
                 <h2>
                     Unusual Suite
                 </h2>
 
-                <span>
-                    PERFORMANCE · MUSEUMS
-                </span>
-
             </div>
 
-        </div>
+        </a>
 
 
     </div>
