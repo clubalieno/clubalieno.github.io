@@ -81,7 +81,7 @@ body {
 
 
 /* =====================================================
-   PAGINA
+   PAGE
 ===================================================== */
 
 .page {
@@ -96,7 +96,7 @@ body {
 .back-link {
     display: inline-block;
 
-    margin-bottom: 75px;
+    margin-bottom: 70px;
 
     color: black;
     text-decoration: none;
@@ -111,19 +111,19 @@ body {
 ===================================================== */
 
 .hero {
-    margin-bottom: 130px;
+    margin-bottom: 120px;
 }
 
 .hero h1 {
-    margin: 0 0 50px;
+    margin: 0 0 40px;
 
-    font-size: clamp(60px, 10vw, 150px);
+    font-size: clamp(48px, 7vw, 105px);
 
     font-weight: 400;
 
-    line-height: 0.9;
+    line-height: 0.95;
 
-    letter-spacing: -4px;
+    letter-spacing: -3px;
 }
 
 
@@ -135,8 +135,8 @@ body {
     display: block;
     position: relative;
 
-    width: 88%;
-    height: min(60vh, 650px);
+    width: 82%;
+    height: min(56vh, 600px);
 
     margin: 0 auto;
 
@@ -153,6 +153,7 @@ body {
     height: 100%;
 
     object-fit: cover;
+    object-position: center;
 
     display: block;
 
@@ -170,8 +171,8 @@ body {
     background:
         linear-gradient(
             to top,
-            rgba(0,0,0,0.55),
-            rgba(0,0,0,0.02) 55%
+            rgba(0,0,0,0.35),
+            rgba(0,0,0,0) 45%
         );
 
     pointer-events: none;
@@ -179,14 +180,13 @@ body {
 
 .trailer:hover img {
     transform: scale(1.02);
-    opacity: 0.92;
 }
 
 .trailer-label {
     position: absolute;
 
-    right: 30px;
-    bottom: 28px;
+    right: 28px;
+    bottom: 25px;
 
     z-index: 3;
 
@@ -200,36 +200,36 @@ body {
 ===================================================== */
 
 .intro {
-    max-width: 1050px;
+    max-width: 900px;
 
-    margin: 0 auto 150px;
+    margin: 0 auto 140px;
 }
 
 .intro p {
     margin: 0;
 
-    font-size: clamp(30px, 4.2vw, 58px);
+    font-size: clamp(24px, 3vw, 42px);
 
-    line-height: 1.08;
+    line-height: 1.15;
 
     font-weight: 400;
 }
 
 
 /* =====================================================
-   SECTION LABEL
+   LABEL
 ===================================================== */
 
 .section-label {
     font-size: 11px;
     letter-spacing: 3px;
 
-    margin-bottom: 50px;
+    margin-bottom: 48px;
 }
 
 
 /* =====================================================
-   TESTO PRINCIPALE
+   THE WORK
 ===================================================== */
 
 .work-text {
@@ -237,44 +237,62 @@ body {
 
     grid-template-columns: 1fr 1.4fr;
 
-    gap: 80px;
+    gap: 75px;
 
-    margin-bottom: 150px;
+    margin-bottom: 110px;
 
-    padding-top: 40px;
+    padding-top: 38px;
 
     border-top: 1px solid black;
 }
 
 .work-text-title {
-    font-size: clamp(30px, 3.5vw, 50px);
+    font-size: clamp(28px, 3vw, 44px);
 
-    line-height: 1.02;
+    line-height: 1.04;
 
     font-weight: 400;
 }
 
 .work-text-body {
-    max-width: 760px;
+    max-width: 740px;
 }
 
 .work-text-body p {
-    margin: 0 0 26px;
+    margin: 0 0 24px;
 
-    font-size: 18px;
+    font-size: 17px;
 
     line-height: 1.55;
 }
 
 
 /* =====================================================
-   MUSICA / LUCI
+   FOTO ALEX
+===================================================== */
+
+.alex-image {
+    width: 48%;
+
+    margin: 0 auto 130px;
+}
+
+.alex-image img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+}
+
+
+/* =====================================================
+   SOUND / LIGHT
 ===================================================== */
 
 .atmosphere {
-    margin-bottom: 150px;
+    margin-bottom: 110px;
 
-    padding-top: 40px;
+    padding-top: 38px;
 
     border-top: 1px solid black;
 
@@ -288,7 +306,7 @@ body {
 .atmosphere-block h2 {
     margin: 0 0 22px;
 
-    font-size: clamp(30px, 3.5vw, 48px);
+    font-size: clamp(28px, 3vw, 44px);
 
     font-weight: 400;
 
@@ -307,15 +325,15 @@ body {
 
 
 /* =====================================================
-   CREDITI
+   CREDITS
 ===================================================== */
 
 .credits {
-    padding-top: 40px;
+    padding-top: 38px;
 
     border-top: 1px solid black;
 
-    margin-bottom: 130px;
+    margin-bottom: 100px;
 }
 
 .credits-grid {
@@ -323,29 +341,30 @@ body {
 
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 45px 70px;
+    gap: 42px 65px;
 }
 
 .credit-label {
     margin-bottom: 8px;
 
     font-size: 10px;
+
     letter-spacing: 2px;
 }
 
 .credit-text {
-    font-size: 17px;
+    font-size: 16px;
 
     line-height: 1.5;
 }
 
 
 /* =====================================================
-   FINALE
+   END
 ===================================================== */
 
 .end {
-    padding-top: 55px;
+    padding-top: 50px;
     padding-bottom: 25px;
 
     border-top: 1px solid black;
@@ -385,24 +404,25 @@ body {
     }
 
     .back-link {
-        margin-bottom: 55px;
+        margin-bottom: 50px;
     }
 
     .hero {
-        margin-bottom: 90px;
+        margin-bottom: 85px;
     }
 
     .hero h1 {
-        font-size: 72px;
+        font-size: 52px;
 
-        letter-spacing: -3px;
+        letter-spacing: -2px;
 
-        margin-bottom: 35px;
+        margin-bottom: 30px;
     }
 
     .trailer {
         width: 100%;
-        height: 46vh;
+
+        height: 42vh;
     }
 
     .trailer-label {
@@ -411,23 +431,27 @@ body {
     }
 
     .intro {
-        margin-bottom: 100px;
+        margin-bottom: 90px;
     }
 
     .intro p {
-        font-size: 32px;
+        font-size: 26px;
     }
 
     .work-text {
         grid-template-columns: 1fr;
 
-        gap: 40px;
-
-        margin-bottom: 100px;
+        gap: 35px;
     }
 
     .work-text-body p {
         font-size: 16px;
+    }
+
+    .alex-image {
+        width: 80%;
+
+        margin-bottom: 90px;
     }
 
     .atmosphere {
@@ -441,11 +465,7 @@ body {
     .credits-grid {
         grid-template-columns: 1fr;
 
-        gap: 30px;
-    }
-
-    .credits {
-        margin-bottom: 90px;
+        gap: 28px;
     }
 
 }
@@ -556,7 +576,7 @@ body {
         rel="noopener noreferrer">
 
         <img
-            src="https://img.youtube.com/vi/Ho3r70iOjbQ/maxresdefault.jpg"
+            src="suite-trailer.png"
             alt="Trailer di Suite">
 
 
@@ -691,9 +711,7 @@ body {
                 È anche — e soprattutto — un enigma, una tensione
                 sottile che attraversa l'intero spettacolo:
                 qualcosa accade, ma il significato non è subito
-                chiaro. È una domanda che si affaccia, una sensazione
-                che ci abita, un mistero da comprendere — forse —
-                solo alla fine.
+                chiaro.
 
             </p>
 
@@ -706,21 +724,25 @@ body {
             </p>
 
 
-            <p id="workP9">
-
-                Come una suite musicale o una stanza d'albergo,
-                Suite accoglie, accompagna e poi lascia andare,
-                ma qualcosa — una nota, un gesto, un'immagine —
-                resta con noi, al di là della scena.
-
-            </p>
-
-
         </div>
 
     </div>
 
 </section>
+
+
+
+<!-- =====================================================
+     FOTO ALEX
+===================================================== -->
+
+<div class="alex-image">
+
+    <img
+        src="suite-alex.jpg"
+        alt="Suite">
+
+</div>
 
 
 
@@ -894,7 +916,7 @@ body {
 
 
 <!-- =====================================================
-     FINALE
+     END
 ===================================================== -->
 
 <section class="end">
@@ -913,7 +935,7 @@ body {
 
 
 <!-- =====================================================
-     LINGUA
+     LANGUAGE
 ===================================================== -->
 
 <script>
@@ -957,16 +979,15 @@ function setLanguage(language) {
 
         document.getElementById("workP1").innerHTML =
             "In music, a suite — from the French word meaning “succession” — " +
-            "is a composition made up of a series of pieces designed to be " +
-            "performed in sequence. Each piece is a world of its own, while " +
-            "remaining part of a broader design, as if each movement were " +
-            "a stage in an emotional journey.";
+            "is a composition made up of a series of pieces designed to be performed " +
+            "in sequence. Each piece is a world of its own while remaining part " +
+            "of a broader design, as if each movement were a stage in an emotional journey.";
 
 
         document.getElementById("workP2").innerHTML =
             "But “suite” is also the term used for a particular kind of hotel room: " +
-            "a private space arranged like a small apartment, inhabited for a limited " +
-            "time, suspended between a before and an after.";
+            "a private space arranged like a small apartment, inhabited for a limited time, " +
+            "suspended between a before and an after.";
 
 
         document.getElementById("workP3").innerHTML =
@@ -980,30 +1001,24 @@ function setLanguage(language) {
 
 
         document.getElementById("workP5").innerHTML =
-            "Eight performers give body and voice to this emotional mosaic, interweaving " +
-            "gesture and sound in a narrative that flows like a subtle thread.";
+            "Eight performers give body and voice to this emotional mosaic, " +
+            "interweaving gesture and sound in a narrative that flows like a subtle thread.";
 
 
         document.getElementById("workP6").innerHTML =
-            "Suite is a microcosm reflecting the complexity of existence: a journey made " +
-            "of passages and events, sometimes joyful and sometimes painful, that mark " +
-            "the passing of our lives.";
+            "Suite is a microcosm reflecting the complexity of existence: " +
+            "a journey made of passages and events, sometimes joyful and sometimes painful, " +
+            "that mark the passing of our lives.";
 
 
         document.getElementById("workP7").innerHTML =
-            "It is also — and above all — an enigma, a subtle tension running through " +
-            "the entire performance: something happens, but its meaning is not immediately clear. " +
-            "A question emerges, a sensation remains, a mystery that may only be understood — perhaps — at the end.";
+            "It is also — and above all — an enigma, a subtle tension running " +
+            "through the entire performance: something happens, but its meaning is not immediately clear.";
 
 
         document.getElementById("workP8").innerHTML =
-            "The performance offers no answers, but leaves space: space to feel, " +
-            "to reflect and to recognise ourselves.";
-
-
-        document.getElementById("workP9").innerHTML =
-            "Like a musical suite or a hotel room, Suite welcomes us, accompanies us " +
-            "and then lets us go, yet something — a note, a gesture, an image — remains with us beyond the stage.";
+            "The performance offers no answers, but leaves space: " +
+            "space to feel, to reflect and to recognise ourselves.";
 
 
         document.getElementById("soundSectionLabel").innerHTML =
@@ -1081,28 +1096,26 @@ function setLanguage(language) {
 
         document.getElementById("workP1").innerHTML =
             "In ambito musicale, la suite — dal francese “successione” — " +
-            "è una composizione formata da una serie di brani pensati per " +
-            "essere eseguiti in sequenza. Ogni pezzo è un mondo a sé, ma " +
-            "parte integrante di un disegno più ampio, come se ciascun " +
-            "movimento fosse una tappa di un viaggio emotivo.";
+            "è una composizione formata da una serie di brani pensati per essere eseguiti " +
+            "in sequenza. Ogni pezzo è un mondo a sé, ma parte integrante di un disegno più ampio, " +
+            "come se ciascun movimento fosse una tappa di un viaggio emotivo.";
 
 
         document.getElementById("workP2").innerHTML =
-            "Ma “suite” è anche un termine che indica un particolare tipo " +
-            "di camera d'albergo: uno spazio privato, articolato come un " +
-            "piccolo appartamento, dove si vive per un tempo limitato, " +
-            "in transito tra un prima e un dopo.";
+            "Ma “suite” è anche un termine che indica un particolare tipo di camera d'albergo: " +
+            "uno spazio privato, articolato come un piccolo appartamento, dove si vive per " +
+            "un tempo limitato, in transito tra un prima e un dopo.";
 
 
         document.getElementById("workP3").innerHTML =
             "La nostra Suite nasce proprio da questa doppia ispirazione. " +
-            "È uno spettacolo composto da frammenti, episodi, immagini in " +
-            "movimento, che si susseguono come in una partitura danzata.";
+            "È uno spettacolo composto da frammenti, episodi, immagini in movimento, " +
+            "che si susseguono come in una partitura danzata.";
 
 
         document.getElementById("workP4").innerHTML =
-            "Ogni quadro è un momento della vita, una sfumatura dell'esperienza " +
-            "umana: gioia, smarrimento, desiderio, paura, perdita, scoperta.";
+            "Ogni quadro è un momento della vita, una sfumatura dell'esperienza umana: " +
+            "gioia, smarrimento, desiderio, paura, perdita, scoperta.";
 
 
         document.getElementById("workP5").innerHTML =
@@ -1118,20 +1131,12 @@ function setLanguage(language) {
 
         document.getElementById("workP7").innerHTML =
             "È anche — e soprattutto — un enigma, una tensione sottile che attraversa " +
-            "l'intero spettacolo: qualcosa accade, ma il significato non è subito chiaro. " +
-            "È una domanda che si affaccia, una sensazione che ci abita, un mistero da " +
-            "comprendere — forse — solo alla fine.";
+            "l'intero spettacolo: qualcosa accade, ma il significato non è subito chiaro.";
 
 
         document.getElementById("workP8").innerHTML =
             "Questo spettacolo non dà risposte, ma lascia spazio. " +
             "Spazio per sentire, per riflettere, per riconoscersi.";
-
-
-        document.getElementById("workP9").innerHTML =
-            "Come una suite musicale o una stanza d'albergo, Suite accoglie, " +
-            "accompagna e poi lascia andare, ma qualcosa — una nota, un gesto, " +
-            "un'immagine — resta con noi, al di là della scena.";
 
 
         document.getElementById("soundSectionLabel").innerHTML =
@@ -1143,8 +1148,8 @@ function setLanguage(language) {
 
 
         document.getElementById("soundText").innerHTML =
-            "La musica elettronica di Kino, suonata dal vivo, accompagna ogni " +
-            "frammento, creando uno spazio sonoro che è esso stesso protagonista.";
+            "La musica elettronica di Kino, suonata dal vivo, accompagna ogni frammento, " +
+            "creando uno spazio sonoro che è esso stesso protagonista.";
 
 
         document.getElementById("lightTitle").innerHTML =
