@@ -128,21 +128,21 @@ body {
 
 
 /* =====================================================
-   TRAILER
+   TRAILER — IMMAGINE INTERA
 ===================================================== */
 
 .trailer {
     display: block;
     position: relative;
 
-    width: 82%;
-    height: min(56vh, 600px);
+    width: 72%;
+    height: auto;
 
     margin: 0 auto;
 
     overflow: hidden;
 
-    background: black;
+    background: transparent;
     color: white;
 
     text-decoration: none;
@@ -150,10 +150,9 @@ body {
 
 .trailer img {
     width: 100%;
-    height: 100%;
+    height: auto;
 
-    object-fit: cover;
-    object-position: center;
+    object-fit: contain;
 
     display: block;
 
@@ -170,22 +169,22 @@ body {
     background:
         linear-gradient(
             to top,
-            rgba(0,0,0,0.35),
-            rgba(0,0,0,0) 45%
+            rgba(0,0,0,0.25),
+            rgba(0,0,0,0) 35%
         );
 
     pointer-events: none;
 }
 
 .trailer:hover img {
-    transform: scale(1.02);
+    transform: scale(1.01);
 }
 
 .trailer-label {
     position: absolute;
 
-    right: 28px;
-    bottom: 25px;
+    right: 24px;
+    bottom: 20px;
 
     z-index: 3;
 
@@ -267,20 +266,36 @@ body {
 
 
 /* =====================================================
-   FOTO VERTICALI
+   DUE FOTO AFFIANCATE
 ===================================================== */
 
-.vertical-image {
-    width: 40%;
+.page-images {
+    width: 72%;
 
-    margin: 0 auto 120px;
+    margin: 0 auto 130px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 36px;
+
+    align-items: start;
 }
 
-.vertical-image img {
+.page-images div {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.page-images img {
     width: 100%;
     height: auto;
 
     display: block;
+
+    object-fit: contain;
 }
 
 
@@ -420,7 +435,7 @@ body {
 
     .trailer {
         width: 100%;
-        height: 42vh;
+        height: auto;
     }
 
     .trailer-label {
@@ -448,10 +463,19 @@ body {
         font-size: 16px;
     }
 
-    .vertical-image {
-        width: 80%;
+    .page-images {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
 
         margin-bottom: 90px;
+    }
+
+    .page-images img {
+        width: 100%;
+        height: auto;
     }
 
     .credits-grid {
@@ -673,14 +697,27 @@ body {
 
 
 <!-- =====================================================
-     FOTO 1
+     DUE FOTO AFFIANCATE
 ===================================================== -->
 
-<div class="vertical-image">
+<div class="page-images">
 
-    <img
-        src="unusual-suite-page.png"
-        alt="Unusual Suite">
+    <div>
+
+        <img
+            src="unusual-suite-page.png"
+            alt="Unusual Suite">
+
+    </div>
+
+
+    <div>
+
+        <img
+            src="unusual-suite-page-2.png"
+            alt="Unusual Suite">
+
+    </div>
 
 </div>
 
@@ -762,20 +799,6 @@ body {
 
 
 <!-- =====================================================
-     FOTO 2
-===================================================== -->
-
-<div class="vertical-image">
-
-    <img
-        src="unusual-suite-page-2.png"
-        alt="Unusual Suite">
-
-</div>
-
-
-
-<!-- =====================================================
      CREDITS
 ===================================================== -->
 
@@ -837,9 +860,29 @@ body {
 
             <div
                 class="credit-label"
+                id="costumesLabel">
+
+                COSTUMI
+
+            </div>
+
+            <div class="credit-text">
+
+                Caterina Savioli
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div
+                class="credit-label"
                 id="technicalLabel">
 
-                SUPPORTO TECNICO
+                TECNICA
 
             </div>
 
@@ -999,8 +1042,12 @@ function setLanguage(language) {
             "MUSIC";
 
 
+        document.getElementById("costumesLabel").innerHTML =
+            "COSTUMES";
+
+
         document.getElementById("technicalLabel").innerHTML =
-            "TECHNICAL SUPPORT";
+            "TECHNICAL";
 
 
         document.getElementById("castLabel").innerHTML =
@@ -1095,8 +1142,12 @@ function setLanguage(language) {
             "MUSICHE";
 
 
+        document.getElementById("costumesLabel").innerHTML =
+            "COSTUMI";
+
+
         document.getElementById("technicalLabel").innerHTML =
-            "SUPPORTO TECNICO";
+            "TECNICA";
 
 
         document.getElementById("castLabel").innerHTML =
