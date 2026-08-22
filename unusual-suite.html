@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Unusual Suite · Club Alieno</title>
+
+
+<style>
+
+/* =====================================================
+   BASE
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: white;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu {
+    position: fixed;
+    top: 30px;
+    left: 40px;
+    right: 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 100;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.menu a {
+    color: black;
+    text-decoration: none;
+    margin-right: 22px;
+}
+
+.menu-right {
+    display: flex;
+    align-items: center;
+}
+
+.language {
+    display: flex;
+    align-items: center;
+}
+
+.language button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font: inherit;
+    padding: 0 4px;
+}
+
+.language button.active {
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page {
+    padding: 150px 7vw 100px;
+}
+
+
+/* =====================================================
+   BACK
+===================================================== */
+
+.back-link {
+    display: inline-block;
+
+    margin-bottom: 70px;
+
+    color: black;
+    text-decoration: none;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    margin-bottom: 120px;
+}
+
+.hero h1 {
+    margin: 0 0 40px;
+
+    font-size: clamp(48px, 7vw, 105px);
+
+    font-weight: 400;
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+}
+
+
+/* =====================================================
+   TRAILER
+===================================================== */
+
+.trailer {
+    display: block;
+    position: relative;
+
+    width: 82%;
+    height: min(56vh, 600px);
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    background: black;
+    color: white;
+
+    text-decoration: none;
+}
+
+.trailer img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+
+    transition:
+        transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.trailer::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.35),
+            rgba(0,0,0,0) 45%
+        );
+
+    pointer-events: none;
+}
+
+.trailer:hover img {
+    transform: scale(1.02);
+}
+
+.trailer-label {
+    position: absolute;
+
+    right: 28px;
+    bottom: 25px;
+
+    z-index: 3;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro {
+    max-width: 900px;
+
+    margin: 0 auto 140px;
+}
+
+.intro p {
+    margin: 0;
+
+    font-size: clamp(24px, 3vw, 42px);
+
+    line-height: 1.15;
+
+    font-weight: 400;
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+
+    margin-bottom: 48px;
+}
+
+
+/* =====================================================
+   THE WORK
+===================================================== */
+
+.work-text {
+    display: grid;
+
+    grid-template-columns: 1fr 1.4fr;
+
+    gap: 75px;
+
+    margin-bottom: 105px;
+
+    padding-top: 38px;
+
+    border-top: 1px solid black;
+}
+
+.work-text-title {
+    font-size: clamp(28px, 3vw, 44px);
+
+    line-height: 1.04;
+
+    font-weight: 400;
+}
+
+.work-text-body {
+    max-width: 740px;
+}
+
+.work-text-body p {
+    margin: 0 0 24px;
+
+    font-size: 17px;
+
+    line-height: 1.55;
+}
+
+
+/* =====================================================
+   FOTO VERTICALI
+===================================================== */
+
+.vertical-image {
+    width: 40%;
+
+    margin: 0 auto 120px;
+}
+
+.vertical-image img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+}
+
+
+/* =====================================================
+   EXPERIENCE
+===================================================== */
+
+.experience {
+    display: grid;
+
+    grid-template-columns: 1fr 1.4fr;
+
+    gap: 75px;
+
+    margin-bottom: 105px;
+
+    padding-top: 38px;
+
+    border-top: 1px solid black;
+}
+
+.experience-title {
+    font-size: clamp(28px, 3vw, 44px);
+
+    line-height: 1.04;
+
+    font-weight: 400;
+}
+
+.experience-text {
+    max-width: 740px;
+}
+
+.experience-text p {
+    margin: 0 0 24px;
+
+    font-size: 17px;
+
+    line-height: 1.55;
+}
+
+
+/* =====================================================
+   CREDITS
+===================================================== */
+
+.credits {
+    padding-top: 38px;
+
+    border-top: 1px solid black;
+
+    margin-bottom: 100px;
+}
+
+.credits-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 42px 65px;
+}
+
+.credit-label {
+    margin-bottom: 8px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+.credit-text {
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   END
+===================================================== */
+
+.end {
+    padding-top: 50px;
+    padding-bottom: 25px;
+
+    border-top: 1px solid black;
+}
+
+.end a {
+    color: black;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .menu {
+        top: 20px;
+        left: 20px;
+        right: 20px;
+
+        font-size: 10px;
+    }
+
+    .menu a {
+        margin-right: 8px;
+    }
+
+    .page {
+        padding: 110px 25px 70px;
+    }
+
+    .back-link {
+        margin-bottom: 50px;
+    }
+
+    .hero {
+        margin-bottom: 85px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+
+        letter-spacing: -2px;
+
+        margin-bottom: 30px;
+    }
+
+    .trailer {
+        width: 100%;
+        height: 42vh;
+    }
+
+    .trailer-label {
+        right: 18px;
+        bottom: 18px;
+    }
+
+    .intro {
+        margin-bottom: 90px;
+    }
+
+    .intro p {
+        font-size: 26px;
+    }
+
+    .work-text,
+    .experience {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .work-text-body p,
+    .experience-text p {
+        font-size: 16px;
+    }
+
+    .vertical-image {
+        width: 80%;
+
+        margin-bottom: 90px;
+    }
+
+    .credits-grid {
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     MENU
+===================================================== -->
+
+<nav class="menu">
+
+    <div>
+
+        <a href="index.html#whats-on">
+            WHAT'S ON
+        </a>
+
+        <a href="index.html#works">
+            WORKS
+        </a>
+
+        <a href="index.html#about">
+            ABOUT
+        </a>
+
+        <a href="index.html#people">
+            PEOPLE
+        </a>
+
+    </div>
+
+
+    <div class="menu-right">
+
+        <a href="index.html#contact">
+            CONTACT
+        </a>
+
+
+        <div class="language">
+
+            <button
+                id="it"
+                class="active"
+                onclick="setLanguage('it')">
+
+                IT
+
+            </button>
+
+            /
+
+            <button
+                id="en"
+                onclick="setLanguage('en')">
+
+                EN
+
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<main class="page">
+
+
+<!-- =====================================================
+     BACK
+===================================================== -->
+
+<a
+    href="index.html#works"
+    class="back-link">
+
+    ← BACK TO WORKS
+
+</a>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <h1>
+        UNUSUAL SUITE
+    </h1>
+
+
+    <a
+        class="trailer"
+        href="https://www.youtube.com/watch?v=gh1s6JHQWZA"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        <img
+            src="unusual-suite-trailer.png"
+            alt="Trailer di Unusual Suite">
+
+
+        <div
+            class="trailer-label"
+            id="trailerLabel">
+
+            GUARDA IL TRAILER →
+
+        </div>
+
+    </a>
+
+</section>
+
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro">
+
+    <p id="introText">
+
+        Un'esperienza performativa che attraversa musei,
+        palazzi storici e spazi espositivi, creando un dialogo
+        inatteso tra corpi, immagini, architettura e pubblico.
+
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     THE WORK
+===================================================== -->
+
+<section>
+
+    <div
+        class="section-label"
+        id="workLabel">
+
+        01 / IL LAVORO
+
+    </div>
+
+
+    <div class="work-text">
+
+
+        <div
+            class="work-text-title"
+            id="workTitle">
+
+            Presenze<br>
+            inattese<br>
+            tra le sale.
+
+        </div>
+
+
+        <div class="work-text-body">
+
+
+            <p id="workP1">
+
+                Unusual Suite attraversa musei, palazzi storici
+                e spazi espositivi, mettendo in relazione i corpi
+                dei performer con le immagini, l'architettura
+                e la presenza del pubblico.
+
+            </p>
+
+
+            <p id="workP2">
+
+                Presenze inattese e frammenti di danza emergono
+                tra le sale, creando un dialogo silenzioso
+                con lo spazio e con chi lo attraversa.
+
+            </p>
+
+
+            <p id="workP3">
+
+                Le azioni non trasformano il museo in una scena
+                tradizionale, ma si inseriscono nel luogo,
+                modificandone temporaneamente la percezione.
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOTO 1
+===================================================== -->
+
+<div class="vertical-image">
+
+    <img
+        src="unusual-suite-page.png"
+        alt="Unusual Suite">
+
+</div>
+
+
+
+<!-- =====================================================
+     EXPERIENCE
+===================================================== -->
+
+<section>
+
+    <div
+        class="section-label"
+        id="experienceLabel">
+
+        02 / ATTRAVERSARE LO SPAZIO
+
+    </div>
+
+
+    <div class="experience">
+
+
+        <div
+            class="experience-title"
+            id="experienceTitle">
+
+            Nessun<br>
+            percorso<br>
+            prestabilito.
+
+        </div>
+
+
+        <div class="experience-text">
+
+
+            <p id="experienceP1">
+
+                Non esiste un unico punto di vista né un percorso
+                prestabilito. Il pubblico è libero di attraversare
+                gli spazi, sostare davanti a una performance,
+                allontanarsi e tornare.
+
+            </p>
+
+
+            <p id="experienceP2">
+
+                Ogni sala custodisce un'azione, un'apparizione,
+                una lieve distorsione dell'ordinario.
+
+            </p>
+
+
+            <p id="experienceP3">
+
+                Lo spettatore costruisce così una propria esperienza,
+                scegliendo come attraversare lo spazio e componendo
+                autonomamente la propria “suite” di incontri,
+                immagini e relazioni.
+
+            </p>
+
+
+            <p id="experienceP4">
+
+                Un invito a rallentare, osservare e disallinearsi.
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOTO 2
+===================================================== -->
+
+<div class="vertical-image">
+
+    <img
+        src="unusual-suite-page-2.png"
+        alt="Unusual Suite">
+
+</div>
+
+
+
+<!-- =====================================================
+     CREDITS
+===================================================== -->
+
+<section class="credits">
+
+    <div
+        class="section-label"
+        id="creditsLabel">
+
+        03 / CREDITI
+
+    </div>
+
+
+    <div class="credits-grid">
+
+
+        <div>
+
+            <div
+                class="credit-label"
+                id="conceptLabel">
+
+                CONCEPT · COREOGRAFIA
+
+            </div>
+
+            <div class="credit-text">
+
+                Eleonora Gennari, Valeria Fiorini
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div
+                class="credit-label"
+                id="musicLabel">
+
+                MUSICHE
+
+            </div>
+
+            <div class="credit-text">
+
+                Kino
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div
+                class="credit-label"
+                id="technicalLabel">
+
+                SUPPORTO TECNICO
+
+            </div>
+
+            <div class="credit-text">
+
+                Antonio Rinaldi
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div
+                class="credit-label"
+                id="castLabel">
+
+                IN SCENA
+
+            </div>
+
+            <div class="credit-text">
+
+                Alex Tonti, Caterina Savioli,
+                Corinna Lattanzi, Daniele Mordini,
+                Elisa Tamagnini, Giorgia Berlini,
+                Luca Leardini, Maya Giorgetti
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     END
+===================================================== -->
+
+<section class="end">
+
+    <a href="index.html#works">
+
+        ← BACK TO WORKS
+
+    </a>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     LANGUAGE
+===================================================== -->
+
+<script>
+
+function setLanguage(language) {
+
+    const itButton =
+        document.getElementById("it");
+
+    const enButton =
+        document.getElementById("en");
+
+
+    if (language === "en") {
+
+        document.documentElement.lang = "en";
+
+        enButton.classList.add("active");
+        itButton.classList.remove("active");
+
+
+        document.getElementById("trailerLabel").innerHTML =
+            "WATCH TRAILER →";
+
+
+        document.getElementById("introText").innerHTML =
+            "A performative experience moving through museums, historic buildings " +
+            "and exhibition spaces, creating an unexpected dialogue between bodies, " +
+            "images, architecture and audience.";
+
+
+        document.getElementById("workLabel").innerHTML =
+            "01 / THE WORK";
+
+
+        document.getElementById("workTitle").innerHTML =
+            "Unexpected<br>" +
+            "presences<br>" +
+            "among the rooms.";
+
+
+        document.getElementById("workP1").innerHTML =
+            "Unusual Suite moves through museums, historic buildings and exhibition spaces, " +
+            "placing the performers' bodies in relation to images, architecture and the audience.";
+
+
+        document.getElementById("workP2").innerHTML =
+            "Unexpected presences and fragments of dance emerge among the rooms, " +
+            "creating a silent dialogue with the space and with those who move through it.";
+
+
+        document.getElementById("workP3").innerHTML =
+            "The actions do not turn the museum into a traditional stage, " +
+            "but enter the existing space and temporarily alter the way it is perceived.";
+
+
+        document.getElementById("experienceLabel").innerHTML =
+            "02 / MOVING THROUGH SPACE";
+
+
+        document.getElementById("experienceTitle").innerHTML =
+            "No<br>" +
+            "predetermined<br>" +
+            "route.";
+
+
+        document.getElementById("experienceP1").innerHTML =
+            "There is no single point of view and no predetermined route. " +
+            "The audience is free to move through the spaces, stop in front of a performance, " +
+            "walk away and return.";
+
+
+        document.getElementById("experienceP2").innerHTML =
+            "Each room contains an action, an apparition, a subtle distortion of the ordinary.";
+
+
+        document.getElementById("experienceP3").innerHTML =
+            "The spectator therefore builds a personal experience, choosing how to move through " +
+            "the space and composing their own “suite” of encounters, images and relationships.";
+
+
+        document.getElementById("experienceP4").innerHTML =
+            "An invitation to slow down, observe and step out of alignment.";
+
+
+        document.getElementById("creditsLabel").innerHTML =
+            "03 / CREDITS";
+
+
+        document.getElementById("conceptLabel").innerHTML =
+            "CONCEPT · CHOREOGRAPHY";
+
+
+        document.getElementById("musicLabel").innerHTML =
+            "MUSIC";
+
+
+        document.getElementById("technicalLabel").innerHTML =
+            "TECHNICAL SUPPORT";
+
+
+        document.getElementById("castLabel").innerHTML =
+            "PERFORMERS";
+
+    }
+
+
+    else {
+
+        document.documentElement.lang = "it";
+
+        itButton.classList.add("active");
+        enButton.classList.remove("active");
+
+
+        document.getElementById("trailerLabel").innerHTML =
+            "GUARDA IL TRAILER →";
+
+
+        document.getElementById("introText").innerHTML =
+            "Un'esperienza performativa che attraversa musei, " +
+            "palazzi storici e spazi espositivi, creando un dialogo " +
+            "inatteso tra corpi, immagini, architettura e pubblico.";
+
+
+        document.getElementById("workLabel").innerHTML =
+            "01 / IL LAVORO";
+
+
+        document.getElementById("workTitle").innerHTML =
+            "Presenze<br>" +
+            "inattese<br>" +
+            "tra le sale.";
+
+
+        document.getElementById("workP1").innerHTML =
+            "Unusual Suite attraversa musei, palazzi storici e spazi espositivi, " +
+            "mettendo in relazione i corpi dei performer con le immagini, " +
+            "l'architettura e la presenza del pubblico.";
+
+
+        document.getElementById("workP2").innerHTML =
+            "Presenze inattese e frammenti di danza emergono tra le sale, " +
+            "creando un dialogo silenzioso con lo spazio e con chi lo attraversa.";
+
+
+        document.getElementById("workP3").innerHTML =
+            "Le azioni non trasformano il museo in una scena tradizionale, " +
+            "ma si inseriscono nel luogo, modificandone temporaneamente la percezione.";
+
+
+        document.getElementById("experienceLabel").innerHTML =
+            "02 / ATTRAVERSARE LO SPAZIO";
+
+
+        document.getElementById("experienceTitle").innerHTML =
+            "Nessun<br>" +
+            "percorso<br>" +
+            "prestabilito.";
+
+
+        document.getElementById("experienceP1").innerHTML =
+            "Non esiste un unico punto di vista né un percorso prestabilito. " +
+            "Il pubblico è libero di attraversare gli spazi, sostare davanti a una performance, " +
+            "allontanarsi e tornare.";
+
+
+        document.getElementById("experienceP2").innerHTML =
+            "Ogni sala custodisce un'azione, un'apparizione, " +
+            "una lieve distorsione dell'ordinario.";
+
+
+        document.getElementById("experienceP3").innerHTML =
+            "Lo spettatore costruisce così una propria esperienza, scegliendo come attraversare " +
+            "lo spazio e componendo autonomamente la propria “suite” di incontri, immagini e relazioni.";
+
+
+        document.getElementById("experienceP4").innerHTML =
+            "Un invito a rallentare, osservare e disallinearsi.";
+
+
+        document.getElementById("creditsLabel").innerHTML =
+            "03 / CREDITI";
+
+
+        document.getElementById("conceptLabel").innerHTML =
+            "CONCEPT · COREOGRAFIA";
+
+
+        document.getElementById("musicLabel").innerHTML =
+            "MUSICHE";
+
+
+        document.getElementById("technicalLabel").innerHTML =
+            "SUPPORTO TECNICO";
+
+
+        document.getElementById("castLabel").innerHTML =
+            "IN SCENA";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
