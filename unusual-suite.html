@@ -8,7 +8,6 @@
 
 <title>Unusual Suite · Club Alieno</title>
 
-
 <style>
 
 /* =====================================================
@@ -73,6 +72,7 @@ body {
     cursor: pointer;
     font: inherit;
     padding: 0 4px;
+    color: black;
 }
 
 .language button.active {
@@ -111,11 +111,11 @@ body {
 ===================================================== */
 
 .hero {
-    margin-bottom: 120px;
+    margin-bottom: 110px;
 }
 
 .hero h1 {
-    margin: 0 0 40px;
+    margin: 0 0 45px;
 
     font-size: clamp(48px, 7vw, 105px);
 
@@ -128,33 +128,32 @@ body {
 
 
 /* =====================================================
-   TRAILER — IMMAGINE INTERA
+   TRAILER
+   FOTO INTERA + RIQUADRO PIÙ PICCOLO
 ===================================================== */
 
 .trailer {
     display: block;
     position: relative;
 
-    width: 72%;
-    height: auto;
+    width: 58%;
+    max-width: 900px;
 
     margin: 0 auto;
 
-    overflow: hidden;
-
-    background: transparent;
     color: white;
-
     text-decoration: none;
+
+    overflow: hidden;
 }
 
 .trailer img {
+    display: block;
+
     width: 100%;
     height: auto;
 
     object-fit: contain;
-
-    display: block;
 
     transition:
         transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -169,8 +168,8 @@ body {
     background:
         linear-gradient(
             to top,
-            rgba(0,0,0,0.25),
-            rgba(0,0,0,0) 35%
+            rgba(0,0,0,0.28),
+            rgba(0,0,0,0) 38%
         );
 
     pointer-events: none;
@@ -183,8 +182,8 @@ body {
 .trailer-label {
     position: absolute;
 
-    right: 24px;
-    bottom: 20px;
+    right: 22px;
+    bottom: 18px;
 
     z-index: 3;
 
@@ -267,33 +266,44 @@ body {
 
 /* =====================================================
    DUE FOTO AFFIANCATE
+
+   I due spazi hanno la stessa altezza.
+   Le immagini NON vengono tagliate.
+   La prima verticale viene quindi ridotta.
 ===================================================== */
 
 .page-images {
-    width: 72%;
+    width: 68%;
+    max-width: 1100px;
 
     margin: 0 auto 130px;
 
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
 
     gap: 36px;
 
     align-items: start;
 }
 
-.page-images div {
+.page-image-box {
+    height: 500px;
+
     display: flex;
+
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
-.page-images img {
-    width: 100%;
+.page-image-box img {
+    display: block;
+
+    width: auto;
     height: auto;
 
-    display: block;
+    max-width: 100%;
+    max-height: 100%;
 
     object-fit: contain;
 }
@@ -433,15 +443,23 @@ body {
         margin-bottom: 30px;
     }
 
+
+    /* TRAILER MOBILE */
+
     .trailer {
-        width: 100%;
-        height: auto;
+        width: 82%;
+        max-width: none;
     }
 
     .trailer-label {
-        right: 18px;
-        bottom: 18px;
+        right: 15px;
+        bottom: 14px;
+
+        font-size: 9px;
     }
+
+
+    /* INTRO */
 
     .intro {
         margin-bottom: 90px;
@@ -450,6 +468,9 @@ body {
     .intro p {
         font-size: 26px;
     }
+
+
+    /* TESTI */
 
     .work-text,
     .experience {
@@ -463,20 +484,32 @@ body {
         font-size: 16px;
     }
 
+
+    /* FOTO */
+
     .page-images {
-        width: 100%;
+        width: 82%;
 
         grid-template-columns: 1fr;
 
-        gap: 30px;
+        gap: 35px;
 
         margin-bottom: 90px;
     }
 
-    .page-images img {
-        width: 100%;
+    .page-image-box {
         height: auto;
     }
+
+    .page-image-box img {
+        width: 100%;
+        height: auto;
+
+        max-height: none;
+    }
+
+
+    /* CREDITS */
 
     .credits-grid {
         grid-template-columns: 1fr;
@@ -534,9 +567,7 @@ body {
                 id="it"
                 class="active"
                 onclick="setLanguage('it')">
-
                 IT
-
             </button>
 
             /
@@ -544,9 +575,7 @@ body {
             <button
                 id="en"
                 onclick="setLanguage('en')">
-
                 EN
-
             </button>
 
         </div>
@@ -702,7 +731,8 @@ body {
 
 <div class="page-images">
 
-    <div>
+
+    <div class="page-image-box">
 
         <img
             src="unusual-suite-page.png"
@@ -711,13 +741,14 @@ body {
     </div>
 
 
-    <div>
+    <div class="page-image-box">
 
         <img
             src="unusual-suite-page-2.png"
             alt="Unusual Suite">
 
     </div>
+
 
 </div>
 
