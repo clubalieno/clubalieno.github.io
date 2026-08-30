@@ -71,8 +71,8 @@ body {
     background: none;
     cursor: pointer;
     font: inherit;
-    padding: 0 4px;
     color: black;
+    padding: 0 4px;
 }
 
 .language button.active {
@@ -111,11 +111,11 @@ body {
 ===================================================== */
 
 .hero {
-    margin-bottom: 110px;
+    margin-bottom: 120px;
 }
 
 .hero h1 {
-    margin: 0 0 45px;
+    margin: 0 0 55px;
 
     font-size: clamp(48px, 7vw, 105px);
 
@@ -128,20 +128,80 @@ body {
 
 
 /* =====================================================
-   TRAILER
-   FOTO INTERA + RIQUADRO PIÙ PICCOLO
+   TRAILER FRAME
+   STESSA MISURA DELLE ALTRE PAGINE
+===================================================== */
+
+.trailer-frame {
+    position: relative;
+
+    width: 84%;
+    max-width: 1380px;
+
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   TRAILER VISUAL
+===================================================== */
+
+.trailer-visual {
+    position: relative;
+
+    display: flex;
+    align-items: stretch;
+
+    width: 100%;
+}
+
+
+/* =====================================================
+   ESTENSIONI LATERALI
+   CREMA / BEIGE
+===================================================== */
+
+.trailer-visual::before,
+.trailer-visual::after {
+    content: "";
+
+    flex: 0 0 7%;
+
+    min-width: 45px;
+}
+
+.trailer-visual::before {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(214, 199, 176, 0.48) 0%,
+            rgba(237, 226, 207, 0.94) 100%
+        );
+}
+
+.trailer-visual::after {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(237, 226, 207, 0.94) 0%,
+            rgba(214, 199, 176, 0.48) 100%
+        );
+}
+
+
+/* =====================================================
+   TRAILER IMAGE
 ===================================================== */
 
 .trailer {
     display: block;
-    position: relative;
 
-    width: 58%;
-    max-width: 900px;
+    flex: 1 1 auto;
+    min-width: 0;
 
-    margin: 0 auto;
+    aspect-ratio: 16 / 7.5;
 
-    color: white;
+    color: black;
     text-decoration: none;
 
     overflow: hidden;
@@ -151,44 +211,111 @@ body {
     display: block;
 
     width: 100%;
-    height: auto;
+    height: 100%;
 
-    object-fit: contain;
+    object-fit: cover;
+    object-position: center;
 
     transition:
-        transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+        transform 1s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-.trailer::after {
+.trailer:hover img {
+    transform: scale(1.008);
+}
+
+
+/* =====================================================
+   CORNICE SPEZZATA
+===================================================== */
+
+.trailer-frame::before {
     content: "";
 
     position: absolute;
-    inset: 0;
 
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,0.28),
-            rgba(0,0,0,0) 38%
-        );
+    top: -15px;
+    left: -15px;
+
+    width: 26%;
+    height: 100px;
+
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+
+    z-index: 5;
 
     pointer-events: none;
 }
 
-.trailer:hover img {
-    transform: scale(1.01);
+.trailer-frame::after {
+    content: "";
+
+    position: absolute;
+
+    top: -15px;
+    right: -15px;
+
+    width: 8%;
+    height: 70px;
+
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+.trailer-bottom-corner {
+    position: absolute;
+
+    right: -15px;
+    bottom: 48px;
+
+    width: 12%;
+    height: 90px;
+
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   GUARDA IL TRAILER
+===================================================== */
+
+.trailer-link-row {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 27px;
 }
 
 .trailer-label {
-    position: absolute;
+    display: inline-block;
 
-    right: 22px;
-    bottom: 18px;
+    color: black;
+    text-decoration: none;
 
-    z-index: 3;
+    font-size: 12px;
+    letter-spacing: 2.2px;
 
-    font-size: 11px;
-    letter-spacing: 2px;
+    padding-bottom: 7px;
+
+    border-bottom: 1px solid black;
+
+    transition:
+        transform 0.3s ease,
+        letter-spacing 0.3s ease;
+}
+
+.trailer-label:hover {
+    transform: translateX(5px);
+
+    letter-spacing: 2.5px;
 }
 
 
@@ -197,7 +324,7 @@ body {
 ===================================================== */
 
 .intro {
-    max-width: 900px;
+    max-width: 850px;
 
     margin: 0 auto 140px;
 }
@@ -205,42 +332,55 @@ body {
 .intro p {
     margin: 0;
 
-    font-size: clamp(24px, 3vw, 42px);
+    font-size: clamp(22px, 2.4vw, 34px);
 
-    line-height: 1.15;
+    line-height: 1.22;
 
     font-weight: 400;
 }
 
 
 /* =====================================================
-   LABEL
+   SECTION LABEL
 ===================================================== */
 
 .section-label {
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    margin-bottom: 45px;
+
     font-size: 11px;
     letter-spacing: 3px;
+}
 
-    margin-bottom: 48px;
+.section-label::after {
+    content: "";
+
+    height: 1px;
+
+    background: black;
+
+    flex: 1;
 }
 
 
 /* =====================================================
-   THE WORK
+   WORK
 ===================================================== */
 
 .work-text {
     display: grid;
 
-    grid-template-columns: 1fr 1.4fr;
+    grid-template-columns:
+        minmax(230px, 0.75fr)
+        minmax(380px, 1.35fr);
 
-    gap: 75px;
+    gap: 85px;
 
-    margin-bottom: 105px;
-
-    padding-top: 38px;
-
-    border-top: 1px solid black;
+    margin-bottom: 100px;
 }
 
 .work-text-title {
@@ -252,7 +392,7 @@ body {
 }
 
 .work-text-body {
-    max-width: 740px;
+    max-width: 720px;
 }
 
 .work-text-body p {
@@ -265,47 +405,138 @@ body {
 
 
 /* =====================================================
-   DUE FOTO AFFIANCATE
-
-   I due spazi hanno la stessa altezza.
-   Le immagini NON vengono tagliate.
-   La prima verticale viene quindi ridotta.
+   GALLERY
 ===================================================== */
 
-.page-images {
-    width: 68%;
-    max-width: 1100px;
+.gallery-wrap {
+    width: 88%;
 
-    margin: 0 auto 130px;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 36px;
-
-    align-items: start;
+    margin: 0 auto 135px;
 }
 
-.page-image-box {
-    height: 500px;
+.gallery-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+    margin-bottom: 18px;
+}
+
+.gallery-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.gallery-hint {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.gallery {
     display: flex;
 
-    justify-content: center;
-    align-items: center;
+    gap: 16px;
+
+    overflow-x: auto;
+
+    padding: 0 0 16px;
+
+    scroll-snap-type: x proximity;
+
+    scrollbar-width: thin;
+
+    -webkit-overflow-scrolling: touch;
 }
 
-.page-image-box img {
+.gallery-item {
+    flex: 0 0 190px;
+
+    width: 190px;
+    height: 190px;
+
+    border: none;
+    padding: 0;
+
+    background: none;
+
+    cursor: pointer;
+
+    scroll-snap-align: start;
+
+    overflow: hidden;
+}
+
+.gallery-item img {
     display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.45s ease,
+        opacity 0.45s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.035);
+
+    opacity: 0.88;
+}
+
+
+/* =====================================================
+   LIGHTBOX
+===================================================== */
+
+.lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px;
+
+    background: rgba(255,255,255,0.96);
+}
+
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 88vw;
+    max-height: 82vh;
 
     width: auto;
     height: auto;
 
-    max-width: 100%;
-    max-height: 100%;
-
     object-fit: contain;
+
+    display: block;
+}
+
+.lightbox-close {
+    position: fixed;
+
+    top: 28px;
+    right: 35px;
+
+    border: none;
+    background: none;
+
+    color: black;
+
+    font-size: 24px;
+
+    cursor: pointer;
 }
 
 
@@ -316,15 +547,13 @@ body {
 .experience {
     display: grid;
 
-    grid-template-columns: 1fr 1.4fr;
+    grid-template-columns:
+        minmax(230px, 0.75fr)
+        minmax(380px, 1.35fr);
 
-    gap: 75px;
+    gap: 85px;
 
-    margin-bottom: 105px;
-
-    padding-top: 38px;
-
-    border-top: 1px solid black;
+    margin-bottom: 120px;
 }
 
 .experience-title {
@@ -336,7 +565,7 @@ body {
 }
 
 .experience-text {
-    max-width: 740px;
+    max-width: 720px;
 }
 
 .experience-text p {
@@ -353,10 +582,6 @@ body {
 ===================================================== */
 
 .credits {
-    padding-top: 38px;
-
-    border-top: 1px solid black;
-
     margin-bottom: 100px;
 }
 
@@ -432,7 +657,7 @@ body {
     }
 
     .hero {
-        margin-bottom: 85px;
+        margin-bottom: 90px;
     }
 
     .hero h1 {
@@ -440,22 +665,54 @@ body {
 
         letter-spacing: -2px;
 
-        margin-bottom: 30px;
+        margin-bottom: 40px;
     }
 
 
-    /* TRAILER MOBILE */
+    /* TRAILER */
 
-    .trailer {
-        width: 82%;
+    .trailer-frame {
+        width: 95%;
         max-width: none;
     }
 
-    .trailer-label {
-        right: 15px;
-        bottom: 14px;
+    .trailer-visual::before,
+    .trailer-visual::after {
+        flex-basis: 6%;
 
-        font-size: 9px;
+        min-width: 18px;
+    }
+
+    .trailer {
+        aspect-ratio: 16 / 8.5;
+    }
+
+    .trailer-frame::before {
+        top: -9px;
+        left: -9px;
+
+        width: 38%;
+        height: 55px;
+    }
+
+    .trailer-frame::after {
+        top: -9px;
+        right: -9px;
+
+        width: 15%;
+        height: 42px;
+    }
+
+    .trailer-bottom-corner {
+        right: -9px;
+        bottom: 39px;
+
+        width: 18%;
+        height: 55px;
+    }
+
+    .trailer-label {
+        font-size: 10px;
     }
 
 
@@ -466,11 +723,11 @@ body {
     }
 
     .intro p {
-        font-size: 26px;
+        font-size: 24px;
     }
 
 
-    /* TESTI */
+    /* TEXT */
 
     .work-text,
     .experience {
@@ -479,33 +736,49 @@ body {
         gap: 35px;
     }
 
+    .work-text {
+        margin-bottom: 75px;
+    }
+
+    .experience {
+        margin-bottom: 90px;
+    }
+
     .work-text-body p,
     .experience-text p {
         font-size: 16px;
     }
 
 
-    /* FOTO */
+    /* GALLERY */
 
-    .page-images {
-        width: 82%;
-
-        grid-template-columns: 1fr;
-
-        gap: 35px;
-
-        margin-bottom: 90px;
-    }
-
-    .page-image-box {
-        height: auto;
-    }
-
-    .page-image-box img {
+    .gallery-wrap {
         width: 100%;
-        height: auto;
 
-        max-height: none;
+        margin-bottom: 100px;
+    }
+
+    .gallery-item {
+        flex: 0 0 145px;
+
+        width: 145px;
+        height: 145px;
+    }
+
+    .gallery-hint {
+        display: none;
+    }
+
+
+    /* LIGHTBOX */
+
+    .lightbox {
+        padding: 25px;
+    }
+
+    .lightbox img {
+        max-width: 94vw;
+        max-height: 80vh;
     }
 
 
@@ -535,7 +808,7 @@ body {
 
     <div>
 
-        <a href="index.html#whats-on">
+        <a href="whats-on.html">
             WHAT'S ON
         </a>
 
@@ -567,7 +840,9 @@ body {
                 id="it"
                 class="active"
                 onclick="setLanguage('it')">
+
                 IT
+
             </button>
 
             /
@@ -575,7 +850,9 @@ body {
             <button
                 id="en"
                 onclick="setLanguage('en')">
+
                 EN
+
             </button>
 
         </div>
@@ -614,26 +891,46 @@ body {
     </h1>
 
 
-    <a
-        class="trailer"
-        href="https://www.youtube.com/watch?v=gh1s6JHQWZA"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        <img
-            src="unusual-suite-trailer.png"
-            alt="Trailer di Unusual Suite">
+    <div class="trailer-frame">
 
 
-        <div
-            class="trailer-label"
-            id="trailerLabel">
+        <div class="trailer-visual">
 
-            GUARDA IL TRAILER →
+            <a
+                class="trailer"
+                href="https://www.youtube.com/watch?v=gh1s6JHQWZA"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <img
+                    src="unusual-suite-trailer.png"
+                    alt="Trailer di Unusual Suite">
+
+            </a>
 
         </div>
 
-    </a>
+
+        <span class="trailer-bottom-corner"></span>
+
+
+        <div class="trailer-link-row">
+
+            <a
+                class="trailer-label"
+                id="trailerLabel"
+                href="https://www.youtube.com/watch?v=gh1s6JHQWZA"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                GUARDA IL TRAILER →
+
+            </a>
+
+        </div>
+
+
+    </div>
 
 </section>
 
@@ -658,7 +955,7 @@ body {
 
 
 <!-- =====================================================
-     THE WORK
+     01 / IL LAVORO
 ===================================================== -->
 
 <section>
@@ -726,36 +1023,99 @@ body {
 
 
 <!-- =====================================================
-     DUE FOTO AFFIANCATE
+     GALLERY
 ===================================================== -->
 
-<div class="page-images">
+<section class="gallery-wrap">
+
+    <div class="gallery-top">
+
+        <div
+            class="gallery-label"
+            id="galleryLabel">
+
+            IMMAGINI
+
+        </div>
 
 
-    <div class="page-image-box">
+        <div
+            class="gallery-hint"
+            id="galleryHint">
 
-        <img
-            src="unusual-suite-page.png"
-            alt="Unusual Suite">
+            SCORRI · CLICCA PER INGRANDIRE
+
+        </div>
 
     </div>
 
 
-    <div class="page-image-box">
+    <div class="gallery">
 
-        <img
-            src="unusual-suite-page-2.png"
-            alt="Unusual Suite">
+
+        <button
+            class="gallery-item"
+            onclick="openLightbox('unusual-suite-page.png')">
+
+            <img
+                src="unusual-suite-page.png"
+                alt="Unusual Suite">
+
+        </button>
+
+
+        <button
+            class="gallery-item"
+            onclick="openLightbox('unusual-suite-page-2.png')">
+
+            <img
+                src="unusual-suite-page-2.png"
+                alt="Unusual Suite">
+
+        </button>
+
+
+        <button
+            class="gallery-item"
+            onclick="openLightbox('unusual1.png')">
+
+            <img
+                src="unusual1.png"
+                alt="Unusual Suite">
+
+        </button>
+
+
+        <button
+            class="gallery-item"
+            onclick="openLightbox('unusual2.jpg')">
+
+            <img
+                src="unusual2.jpg"
+                alt="Unusual Suite">
+
+        </button>
+
+
+        <button
+            class="gallery-item"
+            onclick="openLightbox('unusual3.png')">
+
+            <img
+                src="unusual3.png"
+                alt="Unusual Suite">
+
+        </button>
+
 
     </div>
 
-
-</div>
+</section>
 
 
 
 <!-- =====================================================
-     EXPERIENCE
+     02 / ATTRAVERSARE LO SPAZIO
 ===================================================== -->
 
 <section>
@@ -830,7 +1190,7 @@ body {
 
 
 <!-- =====================================================
-     CREDITS
+     03 / CREDITI
 ===================================================== -->
 
 <section class="credits">
@@ -975,10 +1335,94 @@ body {
 
 
 <!-- =====================================================
-     LANGUAGE
+     LIGHTBOX
+===================================================== -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+    onclick="closeLightbox(event)">
+
+
+    <button
+        class="lightbox-close"
+        onclick="closeLightboxButton()"
+        aria-label="Chiudi">
+
+        ×
+
+    </button>
+
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Unusual Suite">
+
+
+</div>
+
+
+
+<!-- =====================================================
+     SCRIPT
 ===================================================== -->
 
 <script>
+
+
+function openLightbox(imageSrc) {
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+    const image =
+        document.getElementById("lightboxImage");
+
+
+    image.src = imageSrc;
+
+    lightbox.classList.add("open");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeLightbox(event) {
+
+    if (event.target.id === "lightbox") {
+
+        document
+            .getElementById("lightbox")
+            .classList.remove("open");
+
+        document.body.style.overflow = "";
+    }
+}
+
+
+function closeLightboxButton() {
+
+    document
+        .getElementById("lightbox")
+        .classList.remove("open");
+
+    document.body.style.overflow = "";
+}
+
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+            closeLightboxButton();
+        }
+
+    }
+);
+
+
 
 function setLanguage(language) {
 
@@ -1030,6 +1474,14 @@ function setLanguage(language) {
         document.getElementById("workP3").innerHTML =
             "The actions do not turn the museum into a traditional stage, " +
             "but enter the existing space and temporarily alter the way it is perceived.";
+
+
+        document.getElementById("galleryLabel").innerHTML =
+            "IMAGES";
+
+
+        document.getElementById("galleryHint").innerHTML =
+            "SCROLL · CLICK TO ENLARGE";
 
 
         document.getElementById("experienceLabel").innerHTML =
@@ -1129,6 +1581,14 @@ function setLanguage(language) {
         document.getElementById("workP3").innerHTML =
             "Le azioni non trasformano il museo in una scena tradizionale, " +
             "ma si inseriscono nel luogo, modificandone temporaneamente la percezione.";
+
+
+        document.getElementById("galleryLabel").innerHTML =
+            "IMMAGINI";
+
+
+        document.getElementById("galleryHint").innerHTML =
+            "SCORRI · CLICCA PER INGRANDIRE";
 
 
         document.getElementById("experienceLabel").innerHTML =
