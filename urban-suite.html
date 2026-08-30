@@ -129,7 +129,7 @@ body {
 
 /* =====================================================
    TRAILER FRAME
-   STESSA MISURA DI SUITE
+   STESSA LARGHEZZA DI SUITE
 ===================================================== */
 
 .trailer-frame {
@@ -191,6 +191,7 @@ body {
 
 /* =====================================================
    TRAILER IMAGE
+   STESSA PROPORZIONE VISIVA DI SUITE
 ===================================================== */
 
 .trailer {
@@ -198,6 +199,8 @@ body {
 
     flex: 1 1 auto;
     min-width: 0;
+
+    aspect-ratio: 16 / 7.5;
 
     color: black;
     text-decoration: none;
@@ -209,9 +212,10 @@ body {
     display: block;
 
     width: 100%;
-    height: auto;
+    height: 100%;
 
-    object-fit: contain;
+    object-fit: cover;
+    object-position: center;
 
     transition:
         transform 1s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -445,11 +449,6 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
-
-/* =====================================================
-   FOTO QUADRATE
-===================================================== */
-
 .gallery-item {
     flex: 0 0 190px;
 
@@ -682,6 +681,10 @@ body {
     .trailer-visual::after {
         flex-basis: 6%;
         min-width: 18px;
+    }
+
+    .trailer {
+        aspect-ratio: 16 / 8.5;
     }
 
     .trailer-frame::before {
@@ -1376,11 +1379,6 @@ body {
 
 <script>
 
-
-/* =====================================================
-   LIGHTBOX
-===================================================== */
-
 function openLightbox(imageSrc) {
 
     const lightbox =
@@ -1432,10 +1430,6 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   LANGUAGE
-===================================================== */
-
 function setLanguage(language) {
 
     const itButton =
@@ -1456,45 +1450,56 @@ function setLanguage(language) {
         document.getElementById("trailerLabel").innerHTML =
             "WATCH TRAILER →";
 
+
         document.getElementById("introText").innerHTML =
             "Urban Suite brings the intimate dimension of everyday life " +
             "into the heart of the urban space, creating a poetic short circuit " +
             "between what belongs to the private sphere and what we share every day.";
 
+
         document.getElementById("workLabel").innerHTML =
             "01 / THE WORK";
+
 
         document.getElementById("workTitle").innerHTML =
             "The city<br>" +
             "as an intimate<br>" +
             "space.";
 
+
         document.getElementById("workP1").innerHTML =
             "Urban Suite is an itinerant performance that unfolds within the urban space, " +
             "transforming public and apparently anonymous places into environments charged " +
             "with intimacy and personal meaning.";
 
+
         document.getElementById("workP2").innerHTML =
             "Through a poetic and delicate gesture, the performers inhabit corners of the city " +
             "as if they were rooms in their own home: a kitchen, a bedroom, a living room.";
+
 
         document.getElementById("workP3").innerHTML =
             "Each action and movement is carried out with the naturalness and concentration " +
             "of someone inhabiting a private space, ignoring the rush and the external gaze, " +
             "as if no one else were there.";
 
+
         document.getElementById("workP4").innerHTML =
             "The performance invites the audience to reflect on the boundary between public " +
             "and private, between shared space and personal space.";
 
+
         document.getElementById("galleryLabel").innerHTML =
             "IMAGES";
+
 
         document.getElementById("galleryHint").innerHTML =
             "SCROLL · CLICK TO ENLARGE";
 
+
         document.getElementById("cityLabel").innerHTML =
             "02 / THE CITY AS A LIVING SPACE";
+
 
         document.getElementById("cityTitle").innerHTML =
             "A slow,<br>" +
@@ -1502,37 +1507,47 @@ function setLanguage(language) {
             "intimate<br>" +
             "occupation.";
 
+
         document.getElementById("cityP1").innerHTML =
             "Urban Suite questions the way we inhabit the city, often distractedly and " +
             "functionally, proposing instead a slow, affective and intimate occupation.";
 
+
         document.getElementById("cityP2").innerHTML =
             "Everyday places become the setting for a new presence, quiet yet intense, " +
             "restoring value to the human and sensitive dimension of inhabiting space.";
+
 
         document.getElementById("cityP3").innerHTML =
             "Bringing domestic elements and gestures into the urban environment is not only " +
             "a symbolic act, but a way of overturning our perception of the cityscape and " +
             "revealing hidden possibilities within its most ordinary corners.";
 
+
         document.getElementById("cityP4").innerHTML =
             "In this way, Urban Suite turns the spectator into the witness of a suspended " +
             "moment in which intimacy becomes visible and the city, for an instant, becomes home.";
 
+
         document.getElementById("creditsLabel").innerHTML =
             "03 / CREDITS";
+
 
         document.getElementById("conceptLabel").innerHTML =
             "CONCEPT · CHOREOGRAPHY";
 
+
         document.getElementById("musicLabel").innerHTML =
             "MUSIC";
+
 
         document.getElementById("lightLabel").innerHTML =
             "LIGHT DESIGNER";
 
+
         document.getElementById("castLabel").innerHTML =
             "PERFORMERS";
+
     }
 
 
@@ -1547,46 +1562,57 @@ function setLanguage(language) {
         document.getElementById("trailerLabel").innerHTML =
             "GUARDA IL TRAILER →";
 
+
         document.getElementById("introText").innerHTML =
             "Urban Suite porta la dimensione intima del quotidiano " +
             "nel cuore dello spazio urbano, creando un cortocircuito " +
             "poetico tra ciò che appartiene alla sfera privata " +
             "e ciò che condividiamo ogni giorno.";
 
+
         document.getElementById("workLabel").innerHTML =
             "01 / IL LAVORO";
+
 
         document.getElementById("workTitle").innerHTML =
             "La città<br>" +
             "come spazio<br>" +
             "intimo.";
 
+
         document.getElementById("workP1").innerHTML =
             "Urban Suite è una performance itinerante che si sviluppa all'interno " +
             "dello spazio urbano, trasformando luoghi pubblici e apparentemente anonimi " +
             "in ambienti carichi di intimità e significato personale.";
 
+
         document.getElementById("workP2").innerHTML =
             "Attraverso un gesto poetico e delicato, i performer abitano angoli della città " +
             "come se fossero stanze della propria casa: una cucina, una camera, un salotto.";
+
 
         document.getElementById("workP3").innerHTML =
             "Ogni azione e ogni movimento sono compiuti con la naturalezza e la concentrazione " +
             "di chi si trova nel proprio spazio privato, ignorando la frenesia e lo sguardo " +
             "esterno, come se intorno non ci fosse nessuno.";
 
+
         document.getElementById("workP4").innerHTML =
             "La performance invita il pubblico a riflettere sul confine tra pubblico e privato, " +
             "tra spazio condiviso e spazio personale.";
 
+
         document.getElementById("galleryLabel").innerHTML =
             "IMMAGINI";
+
 
         document.getElementById("galleryHint").innerHTML =
             "SCORRI · CLICCA PER INGRANDIRE";
 
+
         document.getElementById("cityLabel").innerHTML =
             "02 / LA CITTÀ COME SPAZIO DA ABITARE";
+
 
         document.getElementById("cityTitle").innerHTML =
             "Un'occupazione<br>" +
@@ -1594,38 +1620,49 @@ function setLanguage(language) {
             "affettiva,<br>" +
             "intima.";
 
+
         document.getElementById("cityP1").innerHTML =
             "Urban Suite interroga il modo in cui viviamo la città, spesso in modo distratto " +
             "e funzionale, proponendo invece un'occupazione lenta, affettiva, intima.";
 
+
         document.getElementById("cityP2").innerHTML =
             "I luoghi quotidiani diventano scenari di una presenza nuova, silenziosa ma intensa, " +
             "che restituisce valore alla dimensione umana e sensibile dell'abitare.";
+
 
         document.getElementById("cityP3").innerHTML =
             "La scelta di portare elementi e gesti domestici nello spazio urbano non è solo " +
             "un'azione simbolica, ma un modo per ribaltare la percezione del paesaggio urbano, " +
             "facendo emergere potenzialità nascoste nei suoi angoli più comuni.";
 
+
         document.getElementById("cityP4").innerHTML =
             "In questo modo, Urban Suite trasforma lo spettatore in testimone di una parentesi " +
             "di sospensione, dove l'intimità si fa visibile e la città diventa, per un momento, casa.";
 
+
         document.getElementById("creditsLabel").innerHTML =
             "03 / CREDITI";
+
 
         document.getElementById("conceptLabel").innerHTML =
             "CONCEPT · COREOGRAFIA";
 
+
         document.getElementById("musicLabel").innerHTML =
             "MUSICHE";
+
 
         document.getElementById("lightLabel").innerHTML =
             "LIGHT DESIGNER";
 
+
         document.getElementById("castLabel").innerHTML =
             "IN SCENA";
+
     }
+
 }
 
 </script>
