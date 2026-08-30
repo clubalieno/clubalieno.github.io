@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vedo il mondo girare · Club Alieno</title>
+
+<style>
+
+/* =====================================================
+   BASE
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: white;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu {
+    position: fixed;
+    top: 30px;
+    left: 40px;
+    right: 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 100;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.menu a {
+    color: black;
+    text-decoration: none;
+    margin-right: 22px;
+}
+
+.menu-right {
+    display: flex;
+    align-items: center;
+}
+
+.language {
+    display: flex;
+    align-items: center;
+}
+
+.language button {
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    font: inherit;
+    color: black;
+
+    padding: 0 4px;
+}
+
+.language button.active {
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page {
+    padding: 150px 7vw 100px;
+}
+
+
+/* =====================================================
+   BACK
+===================================================== */
+
+.back-link {
+    display: inline-block;
+
+    margin-bottom: 70px;
+
+    color: black;
+    text-decoration: none;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    margin-bottom: 120px;
+}
+
+.hero-topline {
+    margin-bottom: 18px;
+
+    font-size: 10px;
+    letter-spacing: 2.5px;
+}
+
+.hero h1 {
+    margin: 0 0 55px;
+
+    max-width: 1250px;
+
+    font-size: clamp(48px, 7vw, 105px);
+
+    font-weight: 400;
+
+    line-height: 0.92;
+
+    letter-spacing: -3px;
+}
+
+
+/* =====================================================
+   HERO PHOTO FRAME
+   STESSA GRAMMATICA DELLE ALTRE PAGINE
+===================================================== */
+
+.hero-frame {
+    position: relative;
+
+    width: 84%;
+    max-width: 1380px;
+
+    margin: 0 auto;
+}
+
+
+.hero-visual {
+    display: flex;
+    align-items: stretch;
+
+    width: 100%;
+}
+
+
+/* =====================================================
+   ESTENSIONI LATERALI
+   ARGENTO / AZZURRO
+===================================================== */
+
+.hero-visual::before,
+.hero-visual::after {
+    content: "";
+
+    flex: 0 0 7%;
+
+    min-width: 45px;
+}
+
+.hero-visual::before {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(181,196,205,0.34) 0%,
+            rgba(219,226,229,0.92) 100%
+        );
+}
+
+.hero-visual::after {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(219,226,229,0.92) 0%,
+            rgba(181,196,205,0.34) 100%
+        );
+}
+
+
+/* =====================================================
+   HERO IMAGE
+===================================================== */
+
+.hero-photo {
+    display: block;
+
+    flex: 1 1 auto;
+    min-width: 0;
+
+    aspect-ratio: 16 / 7.5;
+
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+.hero-photo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 48%;
+
+    transition:
+        transform 1s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.hero-photo:hover img {
+    transform: scale(1.008);
+}
+
+
+/* =====================================================
+   CORNICE SPEZZATA
+===================================================== */
+
+.hero-frame::before {
+    content: "";
+
+    position: absolute;
+
+    top: -15px;
+    left: -15px;
+
+    width: 26%;
+    height: 100px;
+
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+.hero-frame::after {
+    content: "";
+
+    position: absolute;
+
+    top: -15px;
+    right: -15px;
+
+    width: 8%;
+    height: 70px;
+
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+.hero-bottom-corner {
+    position: absolute;
+
+    right: -15px;
+    bottom: 48px;
+
+    width: 12%;
+    height: 90px;
+
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   PHOTO CREDIT
+===================================================== */
+
+.hero-credit-row {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 27px;
+}
+
+.hero-credit {
+    display: inline-block;
+
+    padding-bottom: 7px;
+
+    border-bottom: 1px solid black;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro {
+    max-width: 900px;
+
+    margin: 0 auto 145px;
+}
+
+.intro p {
+    margin: 0;
+
+    font-size: clamp(22px, 2.4vw, 34px);
+
+    line-height: 1.22;
+
+    font-weight: 400;
+}
+
+
+/* =====================================================
+   SECTION LABEL
+===================================================== */
+
+.section-label {
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    margin-bottom: 45px;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.section-label::after {
+    content: "";
+
+    height: 1px;
+
+    background: black;
+
+    flex: 1;
+}
+
+
+/* =====================================================
+   STANDARD TEXT GRID
+===================================================== */
+
+.text-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(230px, 0.75fr)
+        minmax(380px, 1.35fr);
+
+    gap: 85px;
+
+    margin-bottom: 135px;
+}
+
+.text-title {
+    font-size: clamp(30px, 3.2vw, 48px);
+
+    line-height: 1.02;
+
+    font-weight: 400;
+}
+
+.text-body {
+    max-width: 740px;
+}
+
+.text-body p {
+    margin: 0 0 25px;
+
+    font-size: 17px;
+
+    line-height: 1.55;
+}
+
+
+/* =====================================================
+   PHOTO ESSAY
+===================================================== */
+
+.photo-essay {
+    margin-bottom: 150px;
+}
+
+
+/* INTRO FOTOGRAFICO */
+
+.photo-intro {
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, 0.9fr)
+        minmax(380px, 1.1fr);
+
+    gap: 100px;
+
+    margin-bottom: 100px;
+}
+
+.photo-title {
+    margin: 0;
+
+    font-size: clamp(38px, 5vw, 76px);
+
+    font-weight: 400;
+
+    line-height: 0.96;
+
+    letter-spacing: -2px;
+}
+
+.photo-description {
+    max-width: 650px;
+
+    align-self: end;
+}
+
+.photo-description p {
+    margin: 0;
+
+    font-size: 18px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   PHOTO STORY
+===================================================== */
+
+.photo-story {
+    width: 88%;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(12, 1fr);
+
+    gap: 38px 28px;
+
+    align-items: start;
+}
+
+
+/* =====================================================
+   SINGOLE FOTO
+===================================================== */
+
+.story-photo {
+    padding: 0;
+    border: none;
+    background: none;
+
+    cursor: pointer;
+
+    overflow: hidden;
+}
+
+.story-photo img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    transition:
+        transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+        opacity 0.5s ease;
+}
+
+.story-photo:hover img {
+    transform: scale(1.012);
+
+    opacity: 0.93;
+}
+
+
+/* =====================================================
+   COMPOSIZIONE EDITORIALE
+===================================================== */
+
+/* giostre */
+.story-photo-1 {
+    grid-column: 1 / span 5;
+
+    margin-top: 0;
+}
+
+
+/* profilo */
+.story-photo-2 {
+    grid-column: 7 / span 4;
+
+    margin-top: 130px;
+}
+
+
+/* seduto */
+.story-photo-3 {
+    grid-column: 3 / span 5;
+
+    margin-top: 50px;
+}
+
+
+/* fermata */
+.story-photo-4 {
+    grid-column: 8 / span 4;
+
+    margin-top: 210px;
+}
+
+
+/* architettura */
+.story-photo-5 {
+    grid-column: 2 / span 6;
+
+    margin-top: 40px;
+}
+
+
+/* =====================================================
+   CREDIT FINALE FOTO
+===================================================== */
+
+.photo-credit-final {
+    width: 88%;
+
+    margin: 80px auto 0;
+
+    padding-top: 18px;
+
+    border-top: 1px solid black;
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   CREDITS
+===================================================== */
+
+.credits {
+    margin-bottom: 100px;
+}
+
+.credits-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 42px 65px;
+}
+
+.credit-label {
+    margin-bottom: 8px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+.credit-text {
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   LIGHTBOX
+===================================================== */
+
+.lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px;
+
+    background: rgba(255,255,255,0.97);
+}
+
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90vw;
+    max-height: 86vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+.lightbox-close {
+    position: fixed;
+
+    top: 28px;
+    right: 35px;
+
+    border: none;
+    background: none;
+
+    color: black;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   END
+===================================================== */
+
+.end {
+    padding-top: 50px;
+    padding-bottom: 25px;
+
+    border-top: 1px solid black;
+}
+
+.end a {
+    color: black;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .menu {
+        top: 20px;
+        left: 20px;
+        right: 20px;
+
+        font-size: 10px;
+    }
+
+    .menu a {
+        margin-right: 8px;
+    }
+
+
+    .page {
+        padding: 110px 25px 70px;
+    }
+
+
+    .back-link {
+        margin-bottom: 50px;
+    }
+
+
+    .hero {
+        margin-bottom: 90px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+
+        letter-spacing: -2px;
+
+        margin-bottom: 40px;
+    }
+
+
+    /* HERO PHOTO */
+
+    .hero-frame {
+        width: 95%;
+        max-width: none;
+    }
+
+    .hero-visual::before,
+    .hero-visual::after {
+        flex-basis: 6%;
+
+        min-width: 18px;
+    }
+
+    .hero-photo {
+        aspect-ratio: 16 / 9;
+    }
+
+    .hero-frame::before {
+        top: -9px;
+        left: -9px;
+
+        width: 38%;
+        height: 55px;
+    }
+
+    .hero-frame::after {
+        top: -9px;
+        right: -9px;
+
+        width: 15%;
+        height: 42px;
+    }
+
+    .hero-bottom-corner {
+        right: -9px;
+        bottom: 39px;
+
+        width: 18%;
+        height: 55px;
+    }
+
+    .hero-credit {
+        font-size: 9px;
+
+        letter-spacing: 1.4px;
+    }
+
+
+    /* INTRO */
+
+    .intro {
+        margin-bottom: 90px;
+    }
+
+    .intro p {
+        font-size: 24px;
+    }
+
+
+    /* TEXT */
+
+    .text-grid {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        margin-bottom: 100px;
+    }
+
+    .text-body p {
+        font-size: 16px;
+    }
+
+
+    /* PHOTO ESSAY */
+
+    .photo-intro {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        margin-bottom: 60px;
+    }
+
+    .photo-title {
+        font-size: 46px;
+
+        letter-spacing: -1px;
+    }
+
+    .photo-description p {
+        font-size: 16px;
+    }
+
+
+    /* PHOTO STORY MOBILE */
+
+    .photo-story {
+        width: 100%;
+
+        display: flex;
+
+        gap: 18px;
+
+        overflow-x: auto;
+
+        padding-bottom: 18px;
+
+        scroll-snap-type: x proximity;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .story-photo {
+        flex: 0 0 76%;
+
+        width: 76%;
+
+        margin-top: 0 !important;
+
+        scroll-snap-align: start;
+    }
+
+    .story-photo img {
+        width: 100%;
+        height: auto;
+    }
+
+
+    .photo-credit-final {
+        width: 100%;
+
+        margin-top: 45px;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    /* CREDITS */
+
+    .credits-grid {
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+    }
+
+
+    /* LIGHTBOX */
+
+    .lightbox {
+        padding: 25px;
+    }
+
+    .lightbox img {
+        max-width: 94vw;
+        max-height: 82vh;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     MENU
+===================================================== -->
+
+<nav class="menu">
+
+    <div>
+
+        <a href="whats-on.html">
+            WHAT'S ON
+        </a>
+
+        <a href="index.html#works">
+            WORKS
+        </a>
+
+        <a href="index.html#about">
+            ABOUT
+        </a>
+
+    </div>
+
+
+    <div class="menu-right">
+
+        <a href="index.html#contact">
+            CONTACT
+        </a>
+
+
+        <div class="language">
+
+            <button
+                id="it"
+                class="active"
+                onclick="setLanguage('it')">
+
+                IT
+
+            </button>
+
+            /
+
+            <button
+                id="en"
+                onclick="setLanguage('en')">
+
+                EN
+
+            </button>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<main class="page">
+
+
+<!-- =====================================================
+     BACK
+===================================================== -->
+
+<a
+    href="index.html#works"
+    class="back-link">
+
+    ← BACK TO WORKS
+
+</a>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div
+        class="hero-topline"
+        id="heroTopline">
+
+        NUOVA CREAZIONE · 2026
+
+    </div>
+
+
+    <h1>
+        VEDO IL MONDO GIRARE
+    </h1>
+
+
+    <div class="hero-frame">
+
+
+        <div class="hero-visual">
+
+            <div
+                class="hero-photo"
+                onclick="openLightbox('vimg1.jpg')">
+
+                <img
+                    src="vimg1.jpg"
+                    alt="Vedo il mondo girare">
+
+            </div>
+
+        </div>
+
+
+        <span class="hero-bottom-corner"></span>
+
+
+        <div class="hero-credit-row">
+
+            <div
+                class="hero-credit"
+                id="heroCredit">
+
+                PROGETTO FOTOGRAFICO · BEATRICE IMPERATO
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro">
+
+    <p id="introText">
+
+        In una pagina ancora bianca, un astronauta e una macchia
+        d'inchiostro si incontrano. Da questo incontro prende forma
+        un mondo: un segno, un colore, un suono alla volta.
+
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     01 / IL LAVORO
+===================================================== -->
+
+<section>
+
+    <div
+        class="section-label"
+        id="workLabel">
+
+        01 / IL LAVORO
+
+    </div>
+
+
+    <div class="text-grid">
+
+
+        <div
+            class="text-title"
+            id="workTitle">
+
+            Un mondo<br>
+            ancora<br>
+            da inventare.
+
+        </div>
+
+
+        <div class="text-body">
+
+
+            <p id="workP1">
+
+                Vedo il mondo girare nasce dall'incontro con l'universo
+                visivo di Hervé Tullet e dalla possibilità di trasformare
+                la scena in una pagina ancora da scrivere.
+
+            </p>
+
+
+            <p id="workP2">
+
+                Un astronauta arriva in uno spazio sconosciuto.
+                Lo esplora, lo misura, cerca una forma di contatto.
+                Poi compare una macchia d'inchiostro: una presenza
+                imprevedibile, mobile, impossibile da classificare.
+
+            </p>
+
+
+            <p id="workP3">
+
+                Tra i due nasce progressivamente un linguaggio.
+                Prima il gesto, poi il segno, il colore, il suono.
+                Ogni elemento appare come una scoperta e modifica
+                il modo in cui i due corpi possono stare insieme.
+
+            </p>
+
+
+            <p id="workP4">
+
+                Lo spettacolo attraversa così il momento fragile e
+                sorprendente in cui qualcosa che ancora non conosciamo
+                comincia ad avere un nome, una forma e una possibilità
+                di essere condiviso.
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     02 / L'ASTRONAUTA IN CITTÀ
+===================================================== -->
+
+<section class="photo-essay">
+
+    <div
+        class="section-label"
+        id="photoLabel">
+
+        02 / L'ASTRONAUTA IN CITTÀ
+
+    </div>
+
+
+    <div class="photo-intro">
+
+
+        <h2
+            class="photo-title"
+            id="photoTitle">
+
+            Un corpo estraneo<br>
+            nel paesaggio<br>
+            quotidiano.
+
+        </h2>
+
+
+        <div class="photo-description">
+
+            <p id="photoDescription">
+
+                Prima di entrare in scena, l'astronauta attraversa
+                la città. Un'esplorazione fotografica nei luoghi
+                di Riccione trasforma il quotidiano in un territorio
+                sconosciuto.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="photo-story">
+
+
+        <button
+            class="story-photo story-photo-1"
+            onclick="openLightbox('vimg2.jpg')">
+
+            <img
+                src="vimg2.jpg"
+                alt="L'astronauta in città">
+
+        </button>
+
+
+
+        <button
+            class="story-photo story-photo-2"
+            onclick="openLightbox('vimg3.jpg')">
+
+            <img
+                src="vimg3.jpg"
+                alt="L'astronauta in città">
+
+        </button>
+
+
+
+        <button
+            class="story-photo story-photo-3"
+            onclick="openLightbox('vimg4.jpg')">
+
+            <img
+                src="vimg4.jpg"
+                alt="L'astronauta in città">
+
+        </button>
+
+
+
+        <button
+            class="story-photo story-photo-4"
+            onclick="openLightbox('vimg5.jpg')">
+
+            <img
+                src="vimg5.jpg"
+                alt="L'astronauta in città">
+
+        </button>
+
+
+
+        <button
+            class="story-photo story-photo-5"
+            onclick="openLightbox('vimg.jpg')">
+
+            <img
+                src="vimg.jpg"
+                alt="L'astronauta in città">
+
+        </button>
+
+
+    </div>
+
+
+
+    <div class="photo-credit-final">
+
+        <div id="photoProject">
+            L'ASTRONAUTA IN CITTÀ
+        </div>
+
+        <div id="photoCreditFinal">
+            PROGETTO FOTOGRAFICO · BEATRICE IMPERATO
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     03 / LA RICERCA
+===================================================== -->
+
+<section>
+
+    <div
+        class="section-label"
+        id="researchLabel">
+
+        03 / SEGNO · CORPO · LINGUAGGIO
+
+    </div>
+
+
+    <div class="text-grid">
+
+
+        <div
+            class="text-title"
+            id="researchTitle">
+
+            Come nasce<br>
+            un linguaggio?
+
+        </div>
+
+
+        <div class="text-body">
+
+
+            <p id="researchP1">
+
+                Il lavoro osserva il linguaggio prima che diventi
+                una struttura definita: quando comunicare significa
+                ancora tentare, imitare, ripetere, sbagliare,
+                riconoscere una risposta nell'altro.
+
+            </p>
+
+
+            <p id="researchP2">
+
+                Il movimento non illustra una storia già esistente.
+                Sono i corpi, attraverso i loro incontri e le loro
+                trasformazioni, a produrre progressivamente le regole
+                del mondo che stanno abitando.
+
+            </p>
+
+
+            <p id="researchP3">
+
+                Segni, immagini e suoni entrano nello spazio come
+                presenze vive. Non accompagnano semplicemente l'azione:
+                diventano materia con cui i performer devono entrare
+                in relazione.
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     04 / CREDITI
+===================================================== -->
+
+<section class="credits">
+
+    <div
+        class="section-label"
+        id="creditsLabel">
+
+        04 / CREDITI
+
+    </div>
+
+
+    <div class="credits-grid">
+
+
+        <div>
+
+            <div
+                class="credit-label"
+                id="conceptLabel">
+
+                IDEAZIONE · COREOGRAFIA · CURA DEL MOVIMENTO
+
+            </div>
+
+            <div class="credit-text">
+
+                Valeria Fiorini, Eleonora Gennari
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div
+                class="credit-label"
+                id="castLabel">
+
+                IN SCENA
+
+            </div>
+
+            <div class="credit-text">
+
+                Luca Leardini, Elisa Tamagnini
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div
+                class="credit-label"
+                id="musicLabel">
+
+                MUSICHE
+
+            </div>
+
+            <div class="credit-text">
+
+                Kino
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div
+                class="credit-label"
+                id="lightsLabel">
+
+                LUCI · CONTRIBUTO DRAMMATURGICO
+
+            </div>
+
+            <div class="credit-text">
+
+                Antonio Rinaldi
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div
+                class="credit-label"
+                id="visionsLabel">
+
+                SEGNI · VISIONI
+
+            </div>
+
+            <div class="credit-text">
+
+                Hervé Tullet
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div
+                class="credit-label"
+                id="photosLabel">
+
+                PROGETTO FOTOGRAFICO
+
+            </div>
+
+            <div class="credit-text">
+
+                Beatrice Imperato
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     END
+===================================================== -->
+
+<section class="end">
+
+    <a href="index.html#works">
+
+        ← BACK TO WORKS
+
+    </a>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     LIGHTBOX
+===================================================== -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+    onclick="closeLightbox(event)">
+
+
+    <button
+        class="lightbox-close"
+        onclick="closeLightboxButton()"
+        aria-label="Chiudi">
+
+        ×
+
+    </button>
+
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Vedo il mondo girare">
+
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   LIGHTBOX
+===================================================== */
+
+function openLightbox(imageSrc) {
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+    const image =
+        document.getElementById("lightboxImage");
+
+
+    image.src = imageSrc;
+
+    lightbox.classList.add("open");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeLightbox(event) {
+
+    if (event.target.id === "lightbox") {
+
+        document
+            .getElementById("lightbox")
+            .classList.remove("open");
+
+        document.body.style.overflow = "";
+    }
+}
+
+
+function closeLightboxButton() {
+
+    document
+        .getElementById("lightbox")
+        .classList.remove("open");
+
+    document.body.style.overflow = "";
+}
+
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+            closeLightboxButton();
+        }
+
+    }
+);
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+function setLanguage(language) {
+
+    const itButton =
+        document.getElementById("it");
+
+    const enButton =
+        document.getElementById("en");
+
+
+    if (language === "en") {
+
+
+        document.documentElement.lang = "en";
+
+        enButton.classList.add("active");
+        itButton.classList.remove("active");
+
+
+        document.getElementById("heroTopline").innerHTML =
+            "NEW CREATION · 2026";
+
+
+        document.getElementById("heroCredit").innerHTML =
+            "PHOTOGRAPHIC PROJECT · BEATRICE IMPERATO";
+
+
+        document.getElementById("introText").innerHTML =
+            "On a still blank page, an astronaut and an ink blot meet. " +
+            "From this encounter a world begins to emerge: one mark, " +
+            "one colour and one sound at a time.";
+
+
+        document.getElementById("workLabel").innerHTML =
+            "01 / THE WORK";
+
+
+        document.getElementById("workTitle").innerHTML =
+            "A world<br>" +
+            "still waiting<br>" +
+            "to be invented.";
+
+
+        document.getElementById("workP1").innerHTML =
+            "I See the World Spin originates from an encounter with Hervé Tullet's " +
+            "visual universe and from the possibility of turning the stage into " +
+            "a page that has yet to be written.";
+
+
+        document.getElementById("workP2").innerHTML =
+            "An astronaut arrives in an unknown space. He explores it, measures it " +
+            "and searches for a form of contact. Then an ink blot appears: " +
+            "an unpredictable, mobile presence that resists classification.";
+
+
+        document.getElementById("workP3").innerHTML =
+            "A language gradually develops between them. First gesture, then mark, " +
+            "colour and sound. Each element appears as a discovery and changes " +
+            "the way the two bodies can exist together.";
+
+
+        document.getElementById("workP4").innerHTML =
+            "The performance moves through that fragile and surprising moment " +
+            "when something we do not yet know begins to acquire a name, " +
+            "a form and the possibility of being shared.";
+
+
+        document.getElementById("photoLabel").innerHTML =
+            "02 / THE ASTRONAUT IN THE CITY";
+
+
+        document.getElementById("photoTitle").innerHTML =
+            "A foreign body<br>" +
+            "in the everyday<br>" +
+            "landscape.";
+
+
+        document.getElementById("photoDescription").innerHTML =
+            "Before entering the stage, the astronaut moves through the city. " +
+            "A photographic exploration across Riccione transforms everyday places " +
+            "into unfamiliar territory.";
+
+
+        document.getElementById("photoProject").innerHTML =
+            "THE ASTRONAUT IN THE CITY";
+
+
+        document.getElementById("photoCreditFinal").innerHTML =
+            "PHOTOGRAPHIC PROJECT · BEATRICE IMPERATO";
+
+
+        document.getElementById("researchLabel").innerHTML =
+            "03 / MARK · BODY · LANGUAGE";
+
+
+        document.getElementById("researchTitle").innerHTML =
+            "How does<br>" +
+            "a language begin?";
+
+
+        document.getElementById("researchP1").innerHTML =
+            "The work observes language before it becomes a defined structure: " +
+            "when communicating still means trying, imitating, repeating, failing " +
+            "and recognising a response in another body.";
+
+
+        document.getElementById("researchP2").innerHTML =
+            "Movement does not illustrate a story that already exists. " +
+            "Through their encounters and transformations, the bodies themselves " +
+            "gradually produce the rules of the world they inhabit.";
+
+
+        document.getElementById("researchP3").innerHTML =
+            "Marks, images and sounds enter the space as living presences. " +
+            "They do not merely accompany the action: they become material " +
+            "with which the performers must enter into relationship.";
+
+
+        document.getElementById("creditsLabel").innerHTML =
+            "04 / CREDITS";
+
+
+        document.getElementById("conceptLabel").innerHTML =
+            "CONCEPT · CHOREOGRAPHY · MOVEMENT DIRECTION";
+
+
+        document.getElementById("castLabel").innerHTML =
+            "PERFORMERS";
+
+
+        document.getElementById("musicLabel").innerHTML =
+            "MUSIC";
+
+
+        document.getElementById("lightsLabel").innerHTML =
+            "LIGHTING · DRAMATURGICAL CONTRIBUTION";
+
+
+        document.getElementById("visionsLabel").innerHTML =
+            "MARKS · VISIONS";
+
+
+        document.getElementById("photosLabel").innerHTML =
+            "PHOTOGRAPHIC PROJECT";
+
+    }
+
+
+    else {
+
+
+        document.documentElement.lang = "it";
+
+        itButton.classList.add("active");
+        enButton.classList.remove("active");
+
+
+        document.getElementById("heroTopline").innerHTML =
+            "NUOVA CREAZIONE · 2026";
+
+
+        document.getElementById("heroCredit").innerHTML =
+            "PROGETTO FOTOGRAFICO · BEATRICE IMPERATO";
+
+
+        document.getElementById("introText").innerHTML =
+            "In una pagina ancora bianca, un astronauta e una macchia " +
+            "d'inchiostro si incontrano. Da questo incontro prende forma " +
+            "un mondo: un segno, un colore, un suono alla volta.";
+
+
+        document.getElementById("workLabel").innerHTML =
+            "01 / IL LAVORO";
+
+
+        document.getElementById("workTitle").innerHTML =
+            "Un mondo<br>" +
+            "ancora<br>" +
+            "da inventare.";
+
+
+        document.getElementById("workP1").innerHTML =
+            "Vedo il mondo girare nasce dall'incontro con l'universo visivo " +
+            "di Hervé Tullet e dalla possibilità di trasformare la scena " +
+            "in una pagina ancora da scrivere.";
+
+
+        document.getElementById("workP2").innerHTML =
+            "Un astronauta arriva in uno spazio sconosciuto. Lo esplora, lo misura, " +
+            "cerca una forma di contatto. Poi compare una macchia d'inchiostro: " +
+            "una presenza imprevedibile, mobile, impossibile da classificare.";
+
+
+        document.getElementById("workP3").innerHTML =
+            "Tra i due nasce progressivamente un linguaggio. Prima il gesto, " +
+            "poi il segno, il colore, il suono. Ogni elemento appare come una " +
+            "scoperta e modifica il modo in cui i due corpi possono stare insieme.";
+
+
+        document.getElementById("workP4").innerHTML =
+            "Lo spettacolo attraversa così il momento fragile e sorprendente " +
+            "in cui qualcosa che ancora non conosciamo comincia ad avere un nome, " +
+            "una forma e una possibilità di essere condiviso.";
+
+
+        document.getElementById("photoLabel").innerHTML =
+            "02 / L'ASTRONAUTA IN CITTÀ";
+
+
+        document.getElementById("photoTitle").innerHTML =
+            "Un corpo estraneo<br>" +
+            "nel paesaggio<br>" +
+            "quotidiano.";
+
+
+        document.getElementById("photoDescription").innerHTML =
+            "Prima di entrare in scena, l'astronauta attraversa la città. " +
+            "Un'esplorazione fotografica nei luoghi di Riccione trasforma " +
+            "il quotidiano in un territorio sconosciuto.";
+
+
+        document.getElementById("photoProject").innerHTML =
+            "L'ASTRONAUTA IN CITTÀ";
+
+
+        document.getElementById("photoCreditFinal").innerHTML =
+            "PROGETTO FOTOGRAFICO · BEATRICE IMPERATO";
+
+
+        document.getElementById("researchLabel").innerHTML =
+            "03 / SEGNO · CORPO · LINGUAGGIO";
+
+
+        document.getElementById("researchTitle").innerHTML =
+            "Come nasce<br>" +
+            "un linguaggio?";
+
+
+        document.getElementById("researchP1").innerHTML =
+            "Il lavoro osserva il linguaggio prima che diventi una struttura definita: " +
+            "quando comunicare significa ancora tentare, imitare, ripetere, sbagliare, " +
+            "riconoscere una risposta nell'altro.";
+
+
+        document.getElementById("researchP2").innerHTML =
+            "Il movimento non illustra una storia già esistente. Sono i corpi, " +
+            "attraverso i loro incontri e le loro trasformazioni, a produrre " +
+            "progressivamente le regole del mondo che stanno abitando.";
+
+
+        document.getElementById("researchP3").innerHTML =
+            "Segni, immagini e suoni entrano nello spazio come presenze vive. " +
+            "Non accompagnano semplicemente l'azione: diventano materia " +
+            "con cui i performer devono entrare in relazione.";
+
+
+        document.getElementById("creditsLabel").innerHTML =
+            "04 / CREDITI";
+
+
+        document.getElementById("conceptLabel").innerHTML =
+            "IDEAZIONE · COREOGRAFIA · CURA DEL MOVIMENTO";
+
+
+        document.getElementById("castLabel").innerHTML =
+            "IN SCENA";
+
+
+        document.getElementById("musicLabel").innerHTML =
+            "MUSICHE";
+
+
+        document.getElementById("lightsLabel").innerHTML =
+            "LUCI · CONTRIBUTO DRAMMATURGICO";
+
+
+        document.getElementById("visionsLabel").innerHTML =
+            "SEGNI · VISIONI";
+
+
+        document.getElementById("photosLabel").innerHTML =
+            "PROGETTO FOTOGRAFICO";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
