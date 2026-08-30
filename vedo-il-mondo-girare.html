@@ -70,10 +70,8 @@ body {
     border: none;
     background: none;
     cursor: pointer;
-
     font: inherit;
     color: black;
-
     padding: 0 4px;
 }
 
@@ -126,21 +124,20 @@ body {
 .hero h1 {
     margin: 0 0 55px;
 
-    max-width: 1250px;
+    max-width: 1150px;
 
-    font-size: clamp(48px, 7vw, 105px);
+    font-size: clamp(42px, 5.5vw, 78px);
 
     font-weight: 400;
 
-    line-height: 0.92;
+    line-height: 0.95;
 
-    letter-spacing: -3px;
+    letter-spacing: -2.5px;
 }
 
 
 /* =====================================================
-   HERO PHOTO FRAME
-   STESSA GRAMMATICA DELLE ALTRE PAGINE
+   HERO FRAME
 ===================================================== */
 
 .hero-frame {
@@ -152,7 +149,6 @@ body {
     margin: 0 auto;
 }
 
-
 .hero-visual {
     display: flex;
     align-items: stretch;
@@ -163,7 +159,6 @@ body {
 
 /* =====================================================
    ESTENSIONI LATERALI
-   ARGENTO / AZZURRO
 ===================================================== */
 
 .hero-visual::before,
@@ -195,7 +190,7 @@ body {
 
 
 /* =====================================================
-   HERO IMAGE
+   HERO PHOTO
 ===================================================== */
 
 .hero-photo {
@@ -288,7 +283,7 @@ body {
 
 
 /* =====================================================
-   PHOTO CREDIT
+   PHOTO CREDIT HERO
 ===================================================== */
 
 .hero-credit-row {
@@ -359,7 +354,7 @@ body {
 
 
 /* =====================================================
-   STANDARD TEXT GRID
+   TEXT GRID
 ===================================================== */
 
 .text-grid {
@@ -396,15 +391,12 @@ body {
 
 
 /* =====================================================
-   PHOTO ESSAY
+   PHOTO SECTION
 ===================================================== */
 
 .photo-essay {
     margin-bottom: 150px;
 }
-
-
-/* INTRO FOTOGRAFICO */
 
 .photo-intro {
     display: grid;
@@ -415,7 +407,7 @@ body {
 
     gap: 100px;
 
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 }
 
 .photo-title {
@@ -446,109 +438,74 @@ body {
 
 
 /* =====================================================
-   PHOTO STORY
+   PHOTO STRIP
 ===================================================== */
 
-.photo-story {
-    width: 88%;
+.photo-strip {
+    width: 90%;
 
     margin: 0 auto;
 
-    display: grid;
+    display: flex;
 
-    grid-template-columns:
-        repeat(12, 1fr);
+    gap: 24px;
 
-    gap: 38px 28px;
+    overflow-x: auto;
 
-    align-items: start;
+    padding-bottom: 18px;
+
+    scroll-snap-type: x proximity;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
 }
 
+.photo-item {
+    flex: 0 0 auto;
 
-/* =====================================================
-   SINGOLE FOTO
-===================================================== */
+    height: 430px;
 
-.story-photo {
-    padding: 0;
     border: none;
+    padding: 0;
+
     background: none;
 
     cursor: pointer;
 
     overflow: hidden;
+
+    scroll-snap-align: start;
 }
 
-.story-photo img {
+.photo-item img {
     display: block;
 
-    width: 100%;
-    height: auto;
+    height: 100%;
+    width: auto;
+
+    object-fit: contain;
 
     transition:
-        transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+        transform 0.5s ease,
         opacity 0.5s ease;
 }
 
-.story-photo:hover img {
-    transform: scale(1.012);
+.photo-item:hover img {
+    transform: scale(1.01);
 
     opacity: 0.93;
 }
 
 
 /* =====================================================
-   COMPOSIZIONE EDITORIALE
-===================================================== */
-
-/* giostre */
-.story-photo-1 {
-    grid-column: 1 / span 5;
-
-    margin-top: 0;
-}
-
-
-/* profilo */
-.story-photo-2 {
-    grid-column: 7 / span 4;
-
-    margin-top: 130px;
-}
-
-
-/* seduto */
-.story-photo-3 {
-    grid-column: 3 / span 5;
-
-    margin-top: 50px;
-}
-
-
-/* fermata */
-.story-photo-4 {
-    grid-column: 8 / span 4;
-
-    margin-top: 210px;
-}
-
-
-/* architettura */
-.story-photo-5 {
-    grid-column: 2 / span 6;
-
-    margin-top: 40px;
-}
-
-
-/* =====================================================
-   CREDIT FINALE FOTO
+   PHOTO CREDIT FINAL
 ===================================================== */
 
 .photo-credit-final {
-    width: 88%;
+    width: 90%;
 
-    margin: 80px auto 0;
+    margin: 45px auto 0;
 
     padding-top: 18px;
 
@@ -561,6 +518,25 @@ body {
 
     font-size: 10px;
     letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   AUDIENCE NOTE
+===================================================== */
+
+.audience-note {
+    margin-top: 50px;
+
+    padding-top: 24px;
+
+    border-top: 1px solid black;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    letter-spacing: 0.2px;
 }
 
 
@@ -689,31 +665,28 @@ body {
         margin-right: 8px;
     }
 
-
     .page {
         padding: 110px 25px 70px;
     }
 
-
     .back-link {
         margin-bottom: 50px;
     }
-
 
     .hero {
         margin-bottom: 90px;
     }
 
     .hero h1 {
-        font-size: 48px;
+        font-size: 43px;
 
-        letter-spacing: -2px;
+        letter-spacing: -1.5px;
 
         margin-bottom: 40px;
     }
 
 
-    /* HERO PHOTO */
+    /* HERO */
 
     .hero-frame {
         width: 95%;
@@ -788,14 +761,14 @@ body {
     }
 
 
-    /* PHOTO ESSAY */
+    /* PHOTO INTRO */
 
     .photo-intro {
         grid-template-columns: 1fr;
 
         gap: 35px;
 
-        margin-bottom: 60px;
+        margin-bottom: 50px;
     }
 
     .photo-title {
@@ -809,44 +782,23 @@ body {
     }
 
 
-    /* PHOTO STORY MOBILE */
+    /* PHOTO STRIP */
 
-    .photo-story {
+    .photo-strip {
         width: 100%;
-
-        display: flex;
 
         gap: 18px;
-
-        overflow-x: auto;
-
-        padding-bottom: 18px;
-
-        scroll-snap-type: x proximity;
-
-        -webkit-overflow-scrolling: touch;
     }
 
-    .story-photo {
-        flex: 0 0 76%;
-
-        width: 76%;
-
-        margin-top: 0 !important;
-
-        scroll-snap-align: start;
-    }
-
-    .story-photo img {
-        width: 100%;
-        height: auto;
+    .photo-item {
+        height: 330px;
     }
 
 
     .photo-credit-final {
         width: 100%;
 
-        margin-top: 45px;
+        margin-top: 35px;
 
         flex-direction: column;
 
@@ -1029,8 +981,9 @@ body {
     <p id="introText">
 
         In una pagina ancora bianca, un astronauta e una macchia
-        d'inchiostro si incontrano. Da questo incontro prende forma
-        un mondo: un segno, un colore, un suono alla volta.
+        d'inchiostro si incontrano. Da quel momento, ogni gesto
+        diventa un tentativo di conoscersi e di inventare
+        un linguaggio comune.
 
     </p>
 
@@ -1164,11 +1117,11 @@ body {
 
 
 
-    <div class="photo-story">
+    <div class="photo-strip">
 
 
         <button
-            class="story-photo story-photo-1"
+            class="photo-item"
             onclick="openLightbox('vimg2.jpg')">
 
             <img
@@ -1178,9 +1131,8 @@ body {
         </button>
 
 
-
         <button
-            class="story-photo story-photo-2"
+            class="photo-item"
             onclick="openLightbox('vimg3.jpg')">
 
             <img
@@ -1190,9 +1142,8 @@ body {
         </button>
 
 
-
         <button
-            class="story-photo story-photo-3"
+            class="photo-item"
             onclick="openLightbox('vimg4.jpg')">
 
             <img
@@ -1202,9 +1153,8 @@ body {
         </button>
 
 
-
         <button
-            class="story-photo story-photo-4"
+            class="photo-item"
             onclick="openLightbox('vimg5.jpg')">
 
             <img
@@ -1214,9 +1164,8 @@ body {
         </button>
 
 
-
         <button
-            class="story-photo story-photo-5"
+            class="photo-item"
             onclick="openLightbox('vimg.jpg')">
 
             <img
@@ -1248,7 +1197,7 @@ body {
 
 
 <!-- =====================================================
-     03 / LA RICERCA
+     03 / SEGNO CORPO LINGUAGGIO
 ===================================================== -->
 
 <section>
@@ -1306,6 +1255,16 @@ body {
                 in relazione.
 
             </p>
+
+
+            <div
+                class="audience-note"
+                id="audienceNote">
+
+                Un'esperienza pensata a partire dai 6 anni,
+                aperta a sguardi e generazioni differenti.
+
+            </div>
 
 
         </div>
@@ -1438,6 +1397,26 @@ body {
 
             <div
                 class="credit-label"
+                id="costumesLabel">
+
+                COSTUMI
+
+            </div>
+
+            <div class="credit-text">
+
+                Angela Bocchini, Caterina Savioli
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <div
+                class="credit-label"
                 id="photosLabel">
 
                 PROGETTO FOTOGRAFICO
@@ -1509,15 +1488,10 @@ body {
 
 
 <!-- =====================================================
-     JAVASCRIPT
+     SCRIPT
 ===================================================== -->
 
 <script>
-
-
-/* =====================================================
-   LIGHTBOX
-===================================================== */
 
 function openLightbox(imageSrc) {
 
@@ -1526,7 +1500,6 @@ function openLightbox(imageSrc) {
 
     const image =
         document.getElementById("lightboxImage");
-
 
     image.src = imageSrc;
 
@@ -1571,10 +1544,6 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   LANGUAGE
-===================================================== */
-
 function setLanguage(language) {
 
     const itButton =
@@ -1585,7 +1554,6 @@ function setLanguage(language) {
 
 
     if (language === "en") {
-
 
         document.documentElement.lang = "en";
 
@@ -1603,8 +1571,8 @@ function setLanguage(language) {
 
         document.getElementById("introText").innerHTML =
             "On a still blank page, an astronaut and an ink blot meet. " +
-            "From this encounter a world begins to emerge: one mark, " +
-            "one colour and one sound at a time.";
+            "From that moment, every gesture becomes an attempt to get to know " +
+            "one another and invent a shared language.";
 
 
         document.getElementById("workLabel").innerHTML =
@@ -1692,6 +1660,11 @@ function setLanguage(language) {
             "with which the performers must enter into relationship.";
 
 
+        document.getElementById("audienceNote").innerHTML =
+            "An experience conceived for audiences aged 6 and over, " +
+            "open to different perspectives and generations.";
+
+
         document.getElementById("creditsLabel").innerHTML =
             "04 / CREDITS";
 
@@ -1716,6 +1689,10 @@ function setLanguage(language) {
             "MARKS · VISIONS";
 
 
+        document.getElementById("costumesLabel").innerHTML =
+            "COSTUMES";
+
+
         document.getElementById("photosLabel").innerHTML =
             "PHOTOGRAPHIC PROJECT";
 
@@ -1723,7 +1700,6 @@ function setLanguage(language) {
 
 
     else {
-
 
         document.documentElement.lang = "it";
 
@@ -1741,8 +1717,9 @@ function setLanguage(language) {
 
         document.getElementById("introText").innerHTML =
             "In una pagina ancora bianca, un astronauta e una macchia " +
-            "d'inchiostro si incontrano. Da questo incontro prende forma " +
-            "un mondo: un segno, un colore, un suono alla volta.";
+            "d'inchiostro si incontrano. Da quel momento, ogni gesto " +
+            "diventa un tentativo di conoscersi e di inventare " +
+            "un linguaggio comune.";
 
 
         document.getElementById("workLabel").innerHTML =
@@ -1830,6 +1807,11 @@ function setLanguage(language) {
             "con cui i performer devono entrare in relazione.";
 
 
+        document.getElementById("audienceNote").innerHTML =
+            "Un'esperienza pensata a partire dai 6 anni, " +
+            "aperta a sguardi e generazioni differenti.";
+
+
         document.getElementById("creditsLabel").innerHTML =
             "04 / CREDITI";
 
@@ -1852,6 +1834,10 @@ function setLanguage(language) {
 
         document.getElementById("visionsLabel").innerHTML =
             "SEGNI · VISIONI";
+
+
+        document.getElementById("costumesLabel").innerHTML =
+            "COSTUMI";
 
 
         document.getElementById("photosLabel").innerHTML =
