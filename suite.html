@@ -73,6 +73,7 @@ body {
     cursor: pointer;
     font: inherit;
     padding: 0 4px;
+    color: black;
 }
 
 .language button.active {
@@ -115,7 +116,7 @@ body {
 }
 
 .hero h1 {
-    margin: 0 0 40px;
+    margin: 0 0 55px;
 
     font-size: clamp(48px, 7vw, 105px);
 
@@ -128,6 +129,20 @@ body {
 
 
 /* =====================================================
+   TRAILER WRAPPER
+===================================================== */
+
+.trailer-frame {
+    position: relative;
+
+    width: 84%;
+    max-width: 1350px;
+
+    margin: 0 auto;
+}
+
+
+/* =====================================================
    TRAILER
 ===================================================== */
 
@@ -135,63 +150,149 @@ body {
     display: block;
     position: relative;
 
-    width: 82%;
-    height: min(56vh, 600px);
+    width: 100%;
 
-    margin: 0 auto;
-
-    overflow: hidden;
-
-    background: black;
-    color: white;
-
+    color: black;
     text-decoration: none;
 }
 
-.trailer img {
+
+/* =====================================================
+   TRAILER IMAGE
+   sfumatura laterale
+===================================================== */
+
+.trailer-image {
+    position: relative;
+
     width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-    object-position: center;
-
-    display: block;
-
-    transition:
-        transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1),
-        opacity 0.8s ease;
 }
 
-.trailer::after {
+.trailer-image img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    -webkit-mask-image:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            black 7%,
+            black 93%,
+            transparent 100%
+        );
+
+    mask-image:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            black 7%,
+            black 93%,
+            transparent 100%
+        );
+
+    transition:
+        transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.trailer:hover img {
+    transform: scale(1.008);
+}
+
+
+/* =====================================================
+   CORNICE SPEZZATA TRAILER
+===================================================== */
+
+.trailer-frame::before {
     content: "";
 
     position: absolute;
-    inset: 0;
 
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,0.35),
-            rgba(0,0,0,0) 45%
-        );
+    top: -17px;
+    left: -17px;
+
+    width: 34%;
+    height: 105px;
+
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+
+    z-index: 4;
 
     pointer-events: none;
 }
 
-.trailer:hover img {
-    transform: scale(1.02);
+.trailer-frame::after {
+    content: "";
+
+    position: absolute;
+
+    right: -17px;
+    bottom: 42px;
+
+    width: 25%;
+    height: 120px;
+
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+
+    z-index: 4;
+
+    pointer-events: none;
+}
+
+
+/* piccolo segno in basso a sinistra */
+
+.trailer-corner {
+    position: absolute;
+
+    left: -17px;
+    bottom: 41px;
+
+    width: 85px;
+
+    border-bottom: 1px solid black;
+
+    z-index: 4;
+}
+
+
+/* =====================================================
+   TRAILER LINK ESTERNO
+===================================================== */
+
+.trailer-link-row {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 25px;
 }
 
 .trailer-label {
-    position: absolute;
+    display: inline-block;
 
-    right: 28px;
-    bottom: 25px;
+    color: black;
+    text-decoration: none;
 
-    z-index: 3;
+    font-size: 12px;
+    letter-spacing: 2.2px;
 
-    font-size: 11px;
-    letter-spacing: 2px;
+    padding-bottom: 6px;
+
+    border-bottom: 1px solid black;
+
+    transition:
+        transform 0.35s ease,
+        letter-spacing 0.35s ease;
+}
+
+.trailer-label:hover {
+    transform: translateX(5px);
+
+    letter-spacing: 2.5px;
 }
 
 
@@ -229,7 +330,7 @@ body {
 
 
 /* =====================================================
-   THE WORK
+   THE WORK — PRIMA PARTE
 ===================================================== */
 
 .work-text {
@@ -239,7 +340,7 @@ body {
 
     gap: 75px;
 
-    margin-bottom: 110px;
+    margin-bottom: 85px;
 
     padding-top: 38px;
 
@@ -268,20 +369,120 @@ body {
 
 
 /* =====================================================
-   FOTO ALEX
+   SECONDA PARTE DEL LAVORO
+   FOTO + TESTO
 ===================================================== */
 
-.alex-image {
-    width: 48%;
+.work-secondary {
+    width: 86%;
 
     margin: 0 auto 130px;
+
+    display: grid;
+
+    grid-template-columns: 0.8fr 1.25fr;
+
+    gap: 85px;
+
+    align-items: center;
 }
 
-.alex-image img {
+
+/* =====================================================
+   FOTO SECONDARIA
+===================================================== */
+
+.secondary-image-frame {
+    position: relative;
+
+    width: 100%;
+    max-width: 430px;
+
+    justify-self: end;
+
+    padding: 15px;
+}
+
+
+/* sfumatura */
+
+.secondary-image-frame img {
+    display: block;
+
     width: 100%;
     height: auto;
 
-    display: block;
+    -webkit-mask-image:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%
+        );
+
+    mask-image:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            black 10%,
+            black 90%,
+            transparent 100%
+        );
+}
+
+
+/* cornice spezzata */
+
+.secondary-image-frame::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 58%;
+    height: 75px;
+
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+
+    pointer-events: none;
+}
+
+.secondary-image-frame::after {
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+    bottom: 0;
+
+    width: 42%;
+    height: 90px;
+
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   TESTO ACCANTO ALLA FOTO
+===================================================== */
+
+.secondary-text {
+    max-width: 690px;
+}
+
+.secondary-text p {
+    margin: 0 0 24px;
+
+    font-size: 17px;
+
+    line-height: 1.55;
 }
 
 
@@ -416,19 +617,49 @@ body {
 
         letter-spacing: -2px;
 
-        margin-bottom: 30px;
+        margin-bottom: 40px;
     }
 
-    .trailer {
-        width: 100%;
 
-        height: 42vh;
+    /* TRAILER */
+
+    .trailer-frame {
+        width: 94%;
+    }
+
+    .trailer-frame::before {
+        top: -10px;
+        left: -10px;
+
+        width: 42%;
+        height: 55px;
+    }
+
+    .trailer-frame::after {
+        right: -10px;
+        bottom: 36px;
+
+        width: 28%;
+        height: 65px;
+    }
+
+    .trailer-corner {
+        left: -10px;
+        bottom: 35px;
+
+        width: 45px;
+    }
+
+    .trailer-link-row {
+        margin-top: 20px;
     }
 
     .trailer-label {
-        right: 18px;
-        bottom: 18px;
+        font-size: 10px;
     }
+
+
+    /* INTRO */
 
     .intro {
         margin-bottom: 90px;
@@ -438,21 +669,47 @@ body {
         font-size: 26px;
     }
 
+
+    /* WORK */
+
     .work-text {
         grid-template-columns: 1fr;
 
         gap: 35px;
+
+        margin-bottom: 65px;
     }
 
     .work-text-body p {
         font-size: 16px;
     }
 
-    .alex-image {
-        width: 80%;
 
-        margin-bottom: 90px;
+    /* SECOND IMAGE + TEXT */
+
+    .work-secondary {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+
+        margin-bottom: 100px;
     }
+
+    .secondary-image-frame {
+        width: 72%;
+        max-width: none;
+
+        justify-self: center;
+    }
+
+    .secondary-text p {
+        font-size: 16px;
+    }
+
+
+    /* ATMOSPHERE */
 
     .atmosphere {
         grid-template-columns: 1fr;
@@ -461,6 +718,9 @@ body {
 
         margin-bottom: 100px;
     }
+
+
+    /* CREDITS */
 
     .credits-grid {
         grid-template-columns: 1fr;
@@ -486,7 +746,7 @@ body {
 
     <div>
 
-        <a href="index.html#whats-on">
+        <a href="whats-on.html">
             WHAT'S ON
         </a>
 
@@ -569,26 +829,48 @@ body {
     </h1>
 
 
-    <a
-        class="trailer"
-        href="https://www.youtube.com/watch?v=Ho3r70iOjbQ"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        <img
-            src="suite-trailer.png"
-            alt="Trailer di Suite">
+    <div class="trailer-frame">
 
 
-        <div
-            class="trailer-label"
-            id="trailerLabel">
+        <a
+            class="trailer"
+            href="https://www.youtube.com/watch?v=Ho3r70iOjbQ"
+            target="_blank"
+            rel="noopener noreferrer">
 
-            GUARDA IL TRAILER →
+
+            <div class="trailer-image">
+
+                <img
+                    src="suite-trailer.png"
+                    alt="Trailer di Suite">
+
+            </div>
+
+
+        </a>
+
+
+        <span class="trailer-corner"></span>
+
+
+        <div class="trailer-link-row">
+
+            <a
+                class="trailer-label"
+                id="trailerLabel"
+                href="https://www.youtube.com/watch?v=Ho3r70iOjbQ"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                GUARDA IL TRAILER →
+
+            </a>
 
         </div>
 
-    </a>
+
+    </div>
 
 </section>
 
@@ -627,6 +909,8 @@ body {
     </div>
 
 
+    <!-- PRIMA PARTE -->
+
     <div class="work-text">
 
 
@@ -647,32 +931,29 @@ body {
 
             <p id="workP1">
 
-                In ambito musicale, la suite — dal francese
-                “successione” — è una composizione formata da una
-                serie di brani pensati per essere eseguiti in
-                sequenza. Ogni pezzo è un mondo a sé, ma parte
-                integrante di un disegno più ampio, come se ciascun
-                movimento fosse una tappa di un viaggio emotivo.
+                In ambito musicale, la suite — dal francese “successione” —
+                è una composizione formata da una serie di brani pensati
+                per essere eseguiti in sequenza. Ogni pezzo è un mondo a sé
+                e, allo stesso tempo, parte di un disegno più ampio,
+                come se ciascun movimento fosse una tappa di un viaggio emotivo.
 
             </p>
 
 
             <p id="workP2">
 
-                Ma “suite” è anche un termine che indica un
-                particolare tipo di camera d'albergo: uno spazio
-                privato, articolato come un piccolo appartamento,
-                dove si vive per un tempo limitato, in transito
-                tra un prima e un dopo.
+                Ma il termine indica anche un particolare tipo di camera
+                d'albergo: uno spazio privato, articolato come un piccolo
+                appartamento, che si abita per un tempo limitato,
+                in transito tra un prima e un dopo.
 
             </p>
 
 
             <p id="workP3">
 
-                La nostra Suite nasce proprio da questa doppia
-                ispirazione. È uno spettacolo composto da frammenti,
-                episodi, immagini in movimento, che si susseguono
+                Lo spettacolo nasce da questa doppia ispirazione e si compone
+                di frammenti, episodi e immagini in movimento che si susseguono
                 come in una partitura danzata.
 
             </p>
@@ -680,46 +961,9 @@ body {
 
             <p id="workP4">
 
-                Ogni quadro è un momento della vita, una sfumatura
-                dell'esperienza umana: gioia, smarrimento, desiderio,
-                paura, perdita, scoperta.
-
-            </p>
-
-
-            <p id="workP5">
-
-                Otto interpreti danno corpo e voce a questo mosaico
-                emotivo, intrecciando gesto e suono in una narrazione
-                che scorre come un filo sottile.
-
-            </p>
-
-
-            <p id="workP6">
-
-                Suite è un microcosmo in cui si riflette la
-                complessità dell'esistenza. Un percorso fatto di
-                passaggi, di eventi talvolta lieti, altre volte
-                dolorosi, che scandiscono il tempo della nostra vita.
-
-            </p>
-
-
-            <p id="workP7">
-
-                È anche — e soprattutto — un enigma, una tensione
-                sottile che attraversa l'intero spettacolo:
-                qualcosa accade, ma il significato non è subito
-                chiaro.
-
-            </p>
-
-
-            <p id="workP8">
-
-                Questo spettacolo non dà risposte, ma lascia spazio.
-                Spazio per sentire, per riflettere, per riconoscersi.
+                Ogni quadro attraversa un momento della vita,
+                una sfumatura dell'esperienza umana:
+                gioia, smarrimento, desiderio, paura, perdita, scoperta.
 
             </p>
 
@@ -728,21 +972,67 @@ body {
 
     </div>
 
+
+
+    <!-- FOTO + SECONDA PARTE DEL TESTO -->
+
+    <div class="work-secondary">
+
+
+        <div class="secondary-image-frame">
+
+            <img
+                src="suite-alex.jpg"
+                alt="Suite">
+
+        </div>
+
+
+        <div class="secondary-text">
+
+
+            <p id="workP5">
+
+                Otto interpreti danno corpo e voce a questo mosaico emotivo,
+                intrecciando gesto e suono in una narrazione
+                che scorre come un filo sottile.
+
+            </p>
+
+
+            <p id="workP6">
+
+                Ne emerge un microcosmo in cui si riflette la complessità
+                dell'esistenza: un percorso fatto di passaggi,
+                di eventi talvolta lieti, altre volte dolorosi,
+                che scandiscono il tempo della vita.
+
+            </p>
+
+
+            <p id="workP7">
+
+                A attraversarlo è anche — e soprattutto — un enigma,
+                una tensione sottile: qualcosa accade,
+                ma il suo significato non è subito chiaro.
+
+            </p>
+
+
+            <p id="workP8">
+
+                Il lavoro non cerca risposte, ma lascia spazio.
+                Spazio per sentire, riflettere, riconoscersi.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
 </section>
-
-
-
-<!-- =====================================================
-     FOTO ALEX
-===================================================== -->
-
-<div class="alex-image">
-
-    <img
-        src="suite-alex.jpg"
-        alt="Suite">
-
-</div>
 
 
 
@@ -978,26 +1268,26 @@ function setLanguage(language) {
 
 
         document.getElementById("workP1").innerHTML =
-            "In music, a suite — from the French word meaning “succession” — " +
-            "is a composition made up of a series of pieces designed to be performed " +
-            "in sequence. Each piece is a world of its own while remaining part " +
-            "of a broader design, as if each movement were a stage in an emotional journey.";
+            "In music, the suite — from the French word meaning “succession” — " +
+            "is a composition made up of a series of pieces intended to be performed in sequence. " +
+            "Each piece is a world of its own and, at the same time, part of a broader design, " +
+            "as if every movement were one stage of an emotional journey.";
 
 
         document.getElementById("workP2").innerHTML =
-            "But “suite” is also the term used for a particular kind of hotel room: " +
+            "The term also describes a particular kind of hotel room: " +
             "a private space arranged like a small apartment, inhabited for a limited time, " +
-            "suspended between a before and an after.";
+            "in transit between a before and an after.";
 
 
         document.getElementById("workP3").innerHTML =
-            "Our Suite grows from this double inspiration. It is a performance composed " +
-            "of fragments, episodes and moving images that follow one another like a danced score.";
+            "The performance grows from this double inspiration and unfolds through fragments, " +
+            "episodes and moving images that follow one another like a danced score.";
 
 
         document.getElementById("workP4").innerHTML =
-            "Each scene is a moment in life, a nuance of human experience: joy, " +
-            "disorientation, desire, fear, loss and discovery.";
+            "Each scene passes through a moment in life, a nuance of human experience: " +
+            "joy, disorientation, desire, fear, loss and discovery.";
 
 
         document.getElementById("workP5").innerHTML =
@@ -1006,19 +1296,19 @@ function setLanguage(language) {
 
 
         document.getElementById("workP6").innerHTML =
-            "Suite is a microcosm reflecting the complexity of existence: " +
+            "What emerges is a microcosm reflecting the complexity of existence: " +
             "a journey made of passages and events, sometimes joyful and sometimes painful, " +
-            "that mark the passing of our lives.";
+            "that mark the passing of life.";
 
 
         document.getElementById("workP7").innerHTML =
-            "It is also — and above all — an enigma, a subtle tension running " +
-            "through the entire performance: something happens, but its meaning is not immediately clear.";
+            "Running through it is also — and above all — an enigma, " +
+            "a subtle tension: something happens, but its meaning is not immediately clear.";
 
 
         document.getElementById("workP8").innerHTML =
-            "The performance offers no answers, but leaves space: " +
-            "space to feel, to reflect and to recognise ourselves.";
+            "The work does not seek answers, but leaves space. " +
+            "Space to feel, reflect and recognise ourselves.";
 
 
         document.getElementById("soundSectionLabel").innerHTML =
@@ -1096,25 +1386,24 @@ function setLanguage(language) {
 
         document.getElementById("workP1").innerHTML =
             "In ambito musicale, la suite — dal francese “successione” — " +
-            "è una composizione formata da una serie di brani pensati per essere eseguiti " +
-            "in sequenza. Ogni pezzo è un mondo a sé, ma parte integrante di un disegno più ampio, " +
+            "è una composizione formata da una serie di brani pensati per essere eseguiti in sequenza. " +
+            "Ogni pezzo è un mondo a sé e, allo stesso tempo, parte di un disegno più ampio, " +
             "come se ciascun movimento fosse una tappa di un viaggio emotivo.";
 
 
         document.getElementById("workP2").innerHTML =
-            "Ma “suite” è anche un termine che indica un particolare tipo di camera d'albergo: " +
-            "uno spazio privato, articolato come un piccolo appartamento, dove si vive per " +
-            "un tempo limitato, in transito tra un prima e un dopo.";
+            "Ma il termine indica anche un particolare tipo di camera d'albergo: " +
+            "uno spazio privato, articolato come un piccolo appartamento, " +
+            "che si abita per un tempo limitato, in transito tra un prima e un dopo.";
 
 
         document.getElementById("workP3").innerHTML =
-            "La nostra Suite nasce proprio da questa doppia ispirazione. " +
-            "È uno spettacolo composto da frammenti, episodi, immagini in movimento, " +
-            "che si susseguono come in una partitura danzata.";
+            "Lo spettacolo nasce da questa doppia ispirazione e si compone di frammenti, " +
+            "episodi e immagini in movimento che si susseguono come in una partitura danzata.";
 
 
         document.getElementById("workP4").innerHTML =
-            "Ogni quadro è un momento della vita, una sfumatura dell'esperienza umana: " +
+            "Ogni quadro attraversa un momento della vita, una sfumatura dell'esperienza umana: " +
             "gioia, smarrimento, desiderio, paura, perdita, scoperta.";
 
 
@@ -1124,19 +1413,19 @@ function setLanguage(language) {
 
 
         document.getElementById("workP6").innerHTML =
-            "Suite è un microcosmo in cui si riflette la complessità dell'esistenza. " +
-            "Un percorso fatto di passaggi, di eventi talvolta lieti, altre volte dolorosi, " +
-            "che scandiscono il tempo della nostra vita.";
+            "Ne emerge un microcosmo in cui si riflette la complessità dell'esistenza: " +
+            "un percorso fatto di passaggi, di eventi talvolta lieti, altre volte dolorosi, " +
+            "che scandiscono il tempo della vita.";
 
 
         document.getElementById("workP7").innerHTML =
-            "È anche — e soprattutto — un enigma, una tensione sottile che attraversa " +
-            "l'intero spettacolo: qualcosa accade, ma il significato non è subito chiaro.";
+            "A attraversarlo è anche — e soprattutto — un enigma, " +
+            "una tensione sottile: qualcosa accade, ma il suo significato non è subito chiaro.";
 
 
         document.getElementById("workP8").innerHTML =
-            "Questo spettacolo non dà risposte, ma lascia spazio. " +
-            "Spazio per sentire, per riflettere, per riconoscersi.";
+            "Il lavoro non cerca risposte, ma lascia spazio. " +
+            "Spazio per sentire, riflettere, riconoscersi.";
 
 
         document.getElementById("soundSectionLabel").innerHTML =
