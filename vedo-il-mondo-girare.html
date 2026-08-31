@@ -270,7 +270,7 @@ body {
     position: absolute;
 
     right: -15px;
-    bottom: 48px;
+    bottom: -15px;
 
     width: 12%;
     height: 90px;
@@ -283,36 +283,13 @@ body {
 
 
 /* =====================================================
-   PHOTO CREDIT HERO
-===================================================== */
-
-.hero-credit-row {
-    display: flex;
-    justify-content: flex-end;
-
-    margin-top: 27px;
-}
-
-.hero-credit {
-    display: inline-block;
-
-    padding-bottom: 7px;
-
-    border-bottom: 1px solid black;
-
-    font-size: 11px;
-    letter-spacing: 2px;
-}
-
-
-/* =====================================================
    INTRO
 ===================================================== */
 
 .intro {
     max-width: 900px;
 
-    margin: 0 auto 145px;
+    margin: 120px auto 145px;
 }
 
 .intro p {
@@ -391,6 +368,56 @@ body {
 
 
 /* =====================================================
+   AUDIENCE NOTE
+===================================================== */
+
+.audience-note {
+    margin-top: 50px;
+
+    padding-top: 24px;
+
+    border-top: 1px solid black;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    letter-spacing: 0.2px;
+}
+
+
+/* =====================================================
+   CREDITS
+===================================================== */
+
+.credits {
+    margin-bottom: 145px;
+}
+
+.credits-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 42px 65px;
+}
+
+.credit-label {
+    margin-bottom: 8px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+.credit-text {
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
    PHOTO SECTION
 ===================================================== */
 
@@ -402,38 +429,41 @@ body {
     display: grid;
 
     grid-template-columns:
-        minmax(300px, 0.9fr)
-        minmax(380px, 1.1fr);
+        minmax(230px, 0.75fr)
+        minmax(380px, 1.35fr);
 
-    gap: 100px;
+    gap: 85px;
 
     margin-bottom: 70px;
 }
 
+
+/* STESSA GRANDEZZA DI "UN MONDO ANCORA DA INVENTARE" */
+
 .photo-title {
     margin: 0;
 
-    font-size: clamp(38px, 5vw, 76px);
+    font-size: clamp(30px, 3.2vw, 48px);
 
     font-weight: 400;
 
-    line-height: 0.96;
+    line-height: 1.02;
 
-    letter-spacing: -2px;
+    letter-spacing: 0;
 }
 
 .photo-description {
-    max-width: 650px;
+    max-width: 740px;
 
-    align-self: end;
+    align-self: start;
 }
 
 .photo-description p {
     margin: 0;
 
-    font-size: 18px;
+    font-size: 17px;
 
-    line-height: 1.5;
+    line-height: 1.55;
 }
 
 
@@ -499,7 +529,7 @@ body {
 
 
 /* =====================================================
-   PHOTO CREDIT FINAL
+   PHOTOGRAPHY CREDIT
 ===================================================== */
 
 .photo-credit-final {
@@ -512,62 +542,10 @@ body {
     border-top: 1px solid black;
 
     display: flex;
-    justify-content: space-between;
-
-    gap: 30px;
+    justify-content: flex-end;
 
     font-size: 10px;
     letter-spacing: 2px;
-}
-
-
-/* =====================================================
-   AUDIENCE NOTE
-===================================================== */
-
-.audience-note {
-    margin-top: 50px;
-
-    padding-top: 24px;
-
-    border-top: 1px solid black;
-
-    font-size: 15px;
-
-    line-height: 1.5;
-
-    letter-spacing: 0.2px;
-}
-
-
-/* =====================================================
-   CREDITS
-===================================================== */
-
-.credits {
-    margin-bottom: 100px;
-}
-
-.credits-grid {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 42px 65px;
-}
-
-.credit-label {
-    margin-bottom: 8px;
-
-    font-size: 10px;
-
-    letter-spacing: 2px;
-}
-
-.credit-text {
-    font-size: 16px;
-
-    line-height: 1.5;
 }
 
 
@@ -674,11 +652,11 @@ body {
     }
 
     .hero {
-        margin-bottom: 90px;
+        margin-bottom: 80px;
     }
 
     .hero h1 {
-        font-size: 43px;
+        font-size: 40px;
 
         letter-spacing: -1.5px;
 
@@ -722,23 +700,17 @@ body {
 
     .hero-bottom-corner {
         right: -9px;
-        bottom: 39px;
+        bottom: -9px;
 
         width: 18%;
         height: 55px;
-    }
-
-    .hero-credit {
-        font-size: 9px;
-
-        letter-spacing: 1.4px;
     }
 
 
     /* INTRO */
 
     .intro {
-        margin-bottom: 90px;
+        margin: 90px 0;
     }
 
     .intro p {
@@ -761,6 +733,19 @@ body {
     }
 
 
+    /* CREDITS */
+
+    .credits {
+        margin-bottom: 100px;
+    }
+
+    .credits-grid {
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+    }
+
+
     /* PHOTO INTRO */
 
     .photo-intro {
@@ -772,9 +757,9 @@ body {
     }
 
     .photo-title {
-        font-size: 46px;
+        font-size: clamp(30px, 3.2vw, 48px);
 
-        letter-spacing: -1px;
+        letter-spacing: 0;
     }
 
     .photo-description p {
@@ -794,24 +779,12 @@ body {
         height: 330px;
     }
 
-
     .photo-credit-final {
         width: 100%;
 
         margin-top: 35px;
 
-        flex-direction: column;
-
-        gap: 8px;
-    }
-
-
-    /* CREDITS */
-
-    .credits-grid {
-        grid-template-columns: 1fr;
-
-        gap: 28px;
+        justify-content: flex-start;
     }
 
 
@@ -934,7 +907,6 @@ body {
 
     <div class="hero-frame">
 
-
         <div class="hero-visual">
 
             <div
@@ -951,20 +923,6 @@ body {
 
 
         <span class="hero-bottom-corner"></span>
-
-
-        <div class="hero-credit-row">
-
-            <div
-                class="hero-credit"
-                id="heroCredit">
-
-                PROGETTO FOTOGRAFICO · BEATRICE IMPERATO
-
-            </div>
-
-        </div>
-
 
     </div>
 
@@ -1062,201 +1020,6 @@ body {
             </p>
 
 
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     02 / L'ASTRONAUTA IN CITTÀ
-===================================================== -->
-
-<section class="photo-essay">
-
-    <div
-        class="section-label"
-        id="photoLabel">
-
-        02 / L'ASTRONAUTA IN CITTÀ
-
-    </div>
-
-
-    <div class="photo-intro">
-
-
-        <h2
-            class="photo-title"
-            id="photoTitle">
-
-            Un corpo estraneo<br>
-            nel paesaggio<br>
-            quotidiano.
-
-        </h2>
-
-
-        <div class="photo-description">
-
-            <p id="photoDescription">
-
-                Prima di entrare in scena, l'astronauta attraversa
-                la città. Un'esplorazione fotografica nei luoghi
-                di Riccione trasforma il quotidiano in un territorio
-                sconosciuto.
-
-            </p>
-
-        </div>
-
-
-    </div>
-
-
-
-    <div class="photo-strip">
-
-
-        <button
-            class="photo-item"
-            onclick="openLightbox('vimg2.jpg')">
-
-            <img
-                src="vimg2.jpg"
-                alt="L'astronauta in città">
-
-        </button>
-
-
-        <button
-            class="photo-item"
-            onclick="openLightbox('vimg3.jpg')">
-
-            <img
-                src="vimg3.jpg"
-                alt="L'astronauta in città">
-
-        </button>
-
-
-        <button
-            class="photo-item"
-            onclick="openLightbox('vimg4.jpg')">
-
-            <img
-                src="vimg4.jpg"
-                alt="L'astronauta in città">
-
-        </button>
-
-
-        <button
-            class="photo-item"
-            onclick="openLightbox('vimg5.jpg')">
-
-            <img
-                src="vimg5.jpg"
-                alt="L'astronauta in città">
-
-        </button>
-
-
-        <button
-            class="photo-item"
-            onclick="openLightbox('vimg.jpg')">
-
-            <img
-                src="vimg.jpg"
-                alt="L'astronauta in città">
-
-        </button>
-
-
-    </div>
-
-
-
-    <div class="photo-credit-final">
-
-        <div id="photoProject">
-            L'ASTRONAUTA IN CITTÀ
-        </div>
-
-        <div id="photoCreditFinal">
-            PROGETTO FOTOGRAFICO · BEATRICE IMPERATO
-        </div>
-
-    </div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     03 / SEGNO CORPO LINGUAGGIO
-===================================================== -->
-
-<section>
-
-    <div
-        class="section-label"
-        id="researchLabel">
-
-        03 / SEGNO · CORPO · LINGUAGGIO
-
-    </div>
-
-
-    <div class="text-grid">
-
-
-        <div
-            class="text-title"
-            id="researchTitle">
-
-            Come nasce<br>
-            un linguaggio?
-
-        </div>
-
-
-        <div class="text-body">
-
-
-            <p id="researchP1">
-
-                Il lavoro osserva il linguaggio prima che diventi
-                una struttura definita: quando comunicare significa
-                ancora tentare, imitare, ripetere, sbagliare,
-                riconoscere una risposta nell'altro.
-
-            </p>
-
-
-            <p id="researchP2">
-
-                Il movimento non illustra una storia già esistente.
-                Sono i corpi, attraverso i loro incontri e le loro
-                trasformazioni, a produrre progressivamente le regole
-                del mondo che stanno abitando.
-
-            </p>
-
-
-            <p id="researchP3">
-
-                Segni, immagini e suoni entrano nello spazio come
-                presenze vive. Non accompagnano semplicemente l'azione:
-                diventano materia con cui i performer devono entrare
-                in relazione.
-
-            </p>
-
-
             <div
                 class="audience-note"
                 id="audienceNote">
@@ -1276,7 +1039,7 @@ body {
 
 
 <!-- =====================================================
-     04 / CREDITI
+     02 / CREDITI
 ===================================================== -->
 
 <section class="credits">
@@ -1285,7 +1048,7 @@ body {
         class="section-label"
         id="creditsLabel">
 
-        04 / CREDITI
+        02 / CREDITI
 
     </div>
 
@@ -1419,7 +1182,7 @@ body {
                 class="credit-label"
                 id="photosLabel">
 
-                PROGETTO FOTOGRAFICO
+                PHOTOGRAPHY
 
             </div>
 
@@ -1433,6 +1196,128 @@ body {
 
 
     </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     03 / L'ASTRONAUTA IN CITTÀ
+===================================================== -->
+
+<section class="photo-essay">
+
+    <div
+        class="section-label"
+        id="photoLabel">
+
+        03 / L'ASTRONAUTA IN CITTÀ
+
+    </div>
+
+
+    <div class="photo-intro">
+
+
+        <h2
+            class="photo-title"
+            id="photoTitle">
+
+            Un corpo estraneo<br>
+            nel paesaggio<br>
+            quotidiano.
+
+        </h2>
+
+
+        <div class="photo-description">
+
+            <p id="photoDescription">
+
+                Prima di entrare in scena, l'astronauta attraversa
+                la città. Un'esplorazione fotografica nei luoghi
+                di Riccione trasforma il quotidiano in un territorio
+                sconosciuto.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="photo-strip">
+
+
+        <button
+            class="photo-item"
+            onclick="openLightbox('vimg2.jpg')">
+
+            <img
+                src="vimg2.jpg"
+                alt="L'astronauta in città">
+
+        </button>
+
+
+        <button
+            class="photo-item"
+            onclick="openLightbox('vimg3.jpg')">
+
+            <img
+                src="vimg3.jpg"
+                alt="L'astronauta in città">
+
+        </button>
+
+
+        <button
+            class="photo-item"
+            onclick="openLightbox('vimg4.jpg')">
+
+            <img
+                src="vimg4.jpg"
+                alt="L'astronauta in città">
+
+        </button>
+
+
+        <button
+            class="photo-item"
+            onclick="openLightbox('vimg5.jpg')">
+
+            <img
+                src="vimg5.jpg"
+                alt="L'astronauta in città">
+
+        </button>
+
+
+        <button
+            class="photo-item"
+            onclick="openLightbox('vimg.jpg')">
+
+            <img
+                src="vimg.jpg"
+                alt="L'astronauta in città">
+
+        </button>
+
+
+    </div>
+
+
+
+    <div class="photo-credit-final">
+
+        <div>
+            PHOTOGRAPHY · BEATRICE IMPERATO
+        </div>
+
+    </div>
+
 
 </section>
 
@@ -1488,10 +1373,15 @@ body {
 
 
 <!-- =====================================================
-     SCRIPT
+     JAVASCRIPT
 ===================================================== -->
 
 <script>
+
+
+/* =====================================================
+   LIGHTBOX
+===================================================== */
 
 function openLightbox(imageSrc) {
 
@@ -1500,6 +1390,7 @@ function openLightbox(imageSrc) {
 
     const image =
         document.getElementById("lightboxImage");
+
 
     image.src = imageSrc;
 
@@ -1544,6 +1435,10 @@ document.addEventListener(
 );
 
 
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
 function setLanguage(language) {
 
     const itButton =
@@ -1555,6 +1450,7 @@ function setLanguage(language) {
 
     if (language === "en") {
 
+
         document.documentElement.lang = "en";
 
         enButton.classList.add("active");
@@ -1563,10 +1459,6 @@ function setLanguage(language) {
 
         document.getElementById("heroTopline").innerHTML =
             "NEW CREATION · 2026";
-
-
-        document.getElementById("heroCredit").innerHTML =
-            "PHOTOGRAPHIC PROJECT · BEATRICE IMPERATO";
 
 
         document.getElementById("introText").innerHTML =
@@ -1609,64 +1501,13 @@ function setLanguage(language) {
             "a form and the possibility of being shared.";
 
 
-        document.getElementById("photoLabel").innerHTML =
-            "02 / THE ASTRONAUT IN THE CITY";
-
-
-        document.getElementById("photoTitle").innerHTML =
-            "A foreign body<br>" +
-            "in the everyday<br>" +
-            "landscape.";
-
-
-        document.getElementById("photoDescription").innerHTML =
-            "Before entering the stage, the astronaut moves through the city. " +
-            "A photographic exploration across Riccione transforms everyday places " +
-            "into unfamiliar territory.";
-
-
-        document.getElementById("photoProject").innerHTML =
-            "THE ASTRONAUT IN THE CITY";
-
-
-        document.getElementById("photoCreditFinal").innerHTML =
-            "PHOTOGRAPHIC PROJECT · BEATRICE IMPERATO";
-
-
-        document.getElementById("researchLabel").innerHTML =
-            "03 / MARK · BODY · LANGUAGE";
-
-
-        document.getElementById("researchTitle").innerHTML =
-            "How does<br>" +
-            "a language begin?";
-
-
-        document.getElementById("researchP1").innerHTML =
-            "The work observes language before it becomes a defined structure: " +
-            "when communicating still means trying, imitating, repeating, failing " +
-            "and recognising a response in another body.";
-
-
-        document.getElementById("researchP2").innerHTML =
-            "Movement does not illustrate a story that already exists. " +
-            "Through their encounters and transformations, the bodies themselves " +
-            "gradually produce the rules of the world they inhabit.";
-
-
-        document.getElementById("researchP3").innerHTML =
-            "Marks, images and sounds enter the space as living presences. " +
-            "They do not merely accompany the action: they become material " +
-            "with which the performers must enter into relationship.";
-
-
         document.getElementById("audienceNote").innerHTML =
             "An experience conceived for audiences aged 6 and over, " +
             "open to different perspectives and generations.";
 
 
         document.getElementById("creditsLabel").innerHTML =
-            "04 / CREDITS";
+            "02 / CREDITS";
 
 
         document.getElementById("conceptLabel").innerHTML =
@@ -1694,12 +1535,29 @@ function setLanguage(language) {
 
 
         document.getElementById("photosLabel").innerHTML =
-            "PHOTOGRAPHIC PROJECT";
+            "PHOTOGRAPHY";
+
+
+        document.getElementById("photoLabel").innerHTML =
+            "03 / THE ASTRONAUT IN THE CITY";
+
+
+        document.getElementById("photoTitle").innerHTML =
+            "A foreign body<br>" +
+            "in the everyday<br>" +
+            "landscape.";
+
+
+        document.getElementById("photoDescription").innerHTML =
+            "Before entering the stage, the astronaut moves through the city. " +
+            "A photographic exploration across Riccione transforms everyday places " +
+            "into unfamiliar territory.";
 
     }
 
 
     else {
+
 
         document.documentElement.lang = "it";
 
@@ -1709,10 +1567,6 @@ function setLanguage(language) {
 
         document.getElementById("heroTopline").innerHTML =
             "NUOVA CREAZIONE · 2026";
-
-
-        document.getElementById("heroCredit").innerHTML =
-            "PROGETTO FOTOGRAFICO · BEATRICE IMPERATO";
 
 
         document.getElementById("introText").innerHTML =
@@ -1756,64 +1610,13 @@ function setLanguage(language) {
             "una forma e una possibilità di essere condiviso.";
 
 
-        document.getElementById("photoLabel").innerHTML =
-            "02 / L'ASTRONAUTA IN CITTÀ";
-
-
-        document.getElementById("photoTitle").innerHTML =
-            "Un corpo estraneo<br>" +
-            "nel paesaggio<br>" +
-            "quotidiano.";
-
-
-        document.getElementById("photoDescription").innerHTML =
-            "Prima di entrare in scena, l'astronauta attraversa la città. " +
-            "Un'esplorazione fotografica nei luoghi di Riccione trasforma " +
-            "il quotidiano in un territorio sconosciuto.";
-
-
-        document.getElementById("photoProject").innerHTML =
-            "L'ASTRONAUTA IN CITTÀ";
-
-
-        document.getElementById("photoCreditFinal").innerHTML =
-            "PROGETTO FOTOGRAFICO · BEATRICE IMPERATO";
-
-
-        document.getElementById("researchLabel").innerHTML =
-            "03 / SEGNO · CORPO · LINGUAGGIO";
-
-
-        document.getElementById("researchTitle").innerHTML =
-            "Come nasce<br>" +
-            "un linguaggio?";
-
-
-        document.getElementById("researchP1").innerHTML =
-            "Il lavoro osserva il linguaggio prima che diventi una struttura definita: " +
-            "quando comunicare significa ancora tentare, imitare, ripetere, sbagliare, " +
-            "riconoscere una risposta nell'altro.";
-
-
-        document.getElementById("researchP2").innerHTML =
-            "Il movimento non illustra una storia già esistente. Sono i corpi, " +
-            "attraverso i loro incontri e le loro trasformazioni, a produrre " +
-            "progressivamente le regole del mondo che stanno abitando.";
-
-
-        document.getElementById("researchP3").innerHTML =
-            "Segni, immagini e suoni entrano nello spazio come presenze vive. " +
-            "Non accompagnano semplicemente l'azione: diventano materia " +
-            "con cui i performer devono entrare in relazione.";
-
-
         document.getElementById("audienceNote").innerHTML =
             "Un'esperienza pensata a partire dai 6 anni, " +
             "aperta a sguardi e generazioni differenti.";
 
 
         document.getElementById("creditsLabel").innerHTML =
-            "04 / CREDITI";
+            "02 / CREDITI";
 
 
         document.getElementById("conceptLabel").innerHTML =
@@ -1841,7 +1644,23 @@ function setLanguage(language) {
 
 
         document.getElementById("photosLabel").innerHTML =
-            "PROGETTO FOTOGRAFICO";
+            "PHOTOGRAPHY";
+
+
+        document.getElementById("photoLabel").innerHTML =
+            "03 / L'ASTRONAUTA IN CITTÀ";
+
+
+        document.getElementById("photoTitle").innerHTML =
+            "Un corpo estraneo<br>" +
+            "nel paesaggio<br>" +
+            "quotidiano.";
+
+
+        document.getElementById("photoDescription").innerHTML =
+            "Prima di entrare in scena, l'astronauta attraversa la città. " +
+            "Un'esplorazione fotografica nei luoghi di Riccione trasforma " +
+            "il quotidiano in un territorio sconosciuto.";
 
     }
 
