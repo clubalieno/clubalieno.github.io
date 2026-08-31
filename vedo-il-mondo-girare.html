@@ -452,12 +452,15 @@ body {
     letter-spacing: 0;
 }
 
+
+/* TESTO ABBASSATO PER ALLINEARLO VISIVAMENTE AL TITOLO */
+
 .photo-description {
     max-width: 740px;
 
     align-self: start;
 
-    padding-top: 18px;
+    margin-top: 58px;
 }
 
 .photo-description p {
@@ -762,6 +765,15 @@ body {
         font-size: clamp(30px, 3.2vw, 48px);
 
         letter-spacing: 0;
+    }
+
+    /*
+       Su telefono il testo torna subito sotto il titolo.
+       Non manteniamo i 58px usati su desktop.
+    */
+
+    .photo-description {
+        margin-top: 0;
     }
 
     .photo-description p {
