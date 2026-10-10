@@ -95,12 +95,9 @@ body {
 
 .back-link {
     display: inline-block;
-
     margin-bottom: 70px;
-
     color: black;
     text-decoration: none;
-
     font-size: 11px;
     letter-spacing: 2px;
 }
@@ -116,13 +113,9 @@ body {
 
 .hero h1 {
     margin: 0 0 55px;
-
     font-size: clamp(48px, 7vw, 105px);
-
     font-weight: 400;
-
     line-height: 0.95;
-
     letter-spacing: -3px;
 }
 
@@ -134,10 +127,8 @@ body {
 
 .trailer-frame {
     position: relative;
-
     width: 84%;
     max-width: 1380px;
-
     margin: 0 auto;
 }
 
@@ -148,10 +139,8 @@ body {
 
 .trailer-visual {
     position: relative;
-
     display: flex;
     align-items: stretch;
-
     width: 100%;
 }
 
@@ -164,9 +153,7 @@ body {
 .trailer-visual::before,
 .trailer-visual::after {
     content: "";
-
     flex: 0 0 7%;
-
     min-width: 45px;
 }
 
@@ -196,24 +183,18 @@ body {
 
 .trailer {
     display: block;
-
     flex: 1 1 auto;
     min-width: 0;
-
     aspect-ratio: 16 / 7.5;
-
     color: black;
     text-decoration: none;
-
     overflow: hidden;
 }
 
 .trailer img {
     display: block;
-
     width: 100%;
     height: 100%;
-
     object-fit: cover;
     object-position: center;
 
@@ -232,54 +213,38 @@ body {
 
 .trailer-frame::before {
     content: "";
-
     position: absolute;
-
     top: -15px;
     left: -15px;
-
     width: 26%;
     height: 100px;
-
     border-top: 1px solid black;
     border-left: 1px solid black;
-
     z-index: 5;
-
     pointer-events: none;
 }
 
 .trailer-frame::after {
     content: "";
-
     position: absolute;
-
     top: -15px;
     right: -15px;
-
     width: 8%;
     height: 70px;
-
     border-top: 1px solid black;
     border-right: 1px solid black;
-
     z-index: 5;
-
     pointer-events: none;
 }
 
 .trailer-bottom-corner {
     position: absolute;
-
     right: -15px;
     bottom: 48px;
-
     width: 12%;
     height: 90px;
-
     border-right: 1px solid black;
     border-bottom: 1px solid black;
-
     pointer-events: none;
 }
 
@@ -291,21 +256,16 @@ body {
 .trailer-link-row {
     display: flex;
     justify-content: flex-end;
-
     margin-top: 27px;
 }
 
 .trailer-label {
     display: inline-block;
-
     color: black;
     text-decoration: none;
-
     font-size: 12px;
     letter-spacing: 2.2px;
-
     padding-bottom: 7px;
-
     border-bottom: 1px solid black;
 
     transition:
@@ -315,7 +275,6 @@ body {
 
 .trailer-label:hover {
     transform: translateX(5px);
-
     letter-spacing: 2.5px;
 }
 
@@ -326,17 +285,13 @@ body {
 
 .intro {
     max-width: 850px;
-
     margin: 0 auto 140px;
 }
 
 .intro p {
     margin: 0;
-
     font-size: clamp(22px, 2.4vw, 34px);
-
     line-height: 1.22;
-
     font-weight: 400;
 }
 
@@ -348,22 +303,16 @@ body {
 .section-label {
     display: flex;
     align-items: center;
-
     gap: 22px;
-
     margin-bottom: 45px;
-
     font-size: 11px;
     letter-spacing: 3px;
 }
 
 .section-label::after {
     content: "";
-
     height: 1px;
-
     background: black;
-
     flex: 1;
 }
 
@@ -380,15 +329,12 @@ body {
         minmax(380px, 1.35fr);
 
     gap: 85px;
-
     margin-bottom: 100px;
 }
 
 .work-text-title {
     font-size: clamp(28px, 3vw, 44px);
-
     line-height: 1.04;
-
     font-weight: 400;
 }
 
@@ -398,10 +344,26 @@ body {
 
 .work-text-body p {
     margin: 0 0 24px;
-
     font-size: 17px;
-
     line-height: 1.55;
+}
+
+
+/* =====================================================
+   DOSSIER
+===================================================== */
+
+.dossier-note {
+    margin-top: 45px;
+    padding-top: 24px;
+    border-top: 1px solid black;
+}
+
+.dossier-link {
+    color: black;
+    text-decoration: underline;
+    font-size: 12px;
+    letter-spacing: 2px;
 }
 
 
@@ -411,7 +373,6 @@ body {
 
 .gallery-wrap {
     width: 88%;
-
     margin: 0 auto 135px;
 }
 
@@ -419,7 +380,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     margin-bottom: 18px;
 }
 
@@ -435,44 +395,30 @@ body {
 
 .gallery {
     display: flex;
-
     gap: 16px;
-
     overflow-x: auto;
-
     padding: 0 0 16px;
-
     scroll-snap-type: x proximity;
-
     scrollbar-width: thin;
-
     -webkit-overflow-scrolling: touch;
 }
 
 .gallery-item {
     flex: 0 0 190px;
-
     width: 190px;
     height: 190px;
-
     border: none;
     padding: 0;
-
     background: none;
-
     cursor: pointer;
-
     scroll-snap-align: start;
-
     overflow: hidden;
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
     display: block;
 
     transition:
@@ -482,7 +428,6 @@ body {
 
 .gallery-item:hover img {
     transform: scale(1.035);
-
     opacity: 0.88;
 }
 
@@ -493,18 +438,12 @@ body {
 
 .lightbox {
     position: fixed;
-
     inset: 0;
-
     z-index: 1000;
-
     display: none;
-
     align-items: center;
     justify-content: center;
-
     padding: 60px;
-
     background: rgba(255,255,255,0.96);
 }
 
@@ -515,28 +454,20 @@ body {
 .lightbox img {
     max-width: 88vw;
     max-height: 82vh;
-
     width: auto;
     height: auto;
-
     object-fit: contain;
-
     display: block;
 }
 
 .lightbox-close {
     position: fixed;
-
     top: 28px;
     right: 35px;
-
     border: none;
     background: none;
-
     color: black;
-
     font-size: 24px;
-
     cursor: pointer;
 }
 
@@ -553,15 +484,12 @@ body {
         minmax(380px, 1.35fr);
 
     gap: 85px;
-
     margin-bottom: 120px;
 }
 
 .city-title {
     font-size: clamp(28px, 3vw, 44px);
-
     line-height: 1.04;
-
     font-weight: 400;
 }
 
@@ -571,9 +499,7 @@ body {
 
 .city-text p {
     margin: 0 0 24px;
-
     font-size: 17px;
-
     line-height: 1.55;
 }
 
@@ -588,23 +514,18 @@ body {
 
 .credits-grid {
     display: grid;
-
     grid-template-columns: repeat(2, 1fr);
-
     gap: 42px 65px;
 }
 
 .credit-label {
     margin-bottom: 8px;
-
     font-size: 10px;
-
     letter-spacing: 2px;
 }
 
 .credit-text {
     font-size: 16px;
-
     line-height: 1.5;
 }
 
@@ -616,17 +537,13 @@ body {
 .end {
     padding-top: 50px;
     padding-bottom: 25px;
-
     border-top: 1px solid black;
 }
 
 .end a {
     color: black;
-
     text-decoration: none;
-
     font-size: 11px;
-
     letter-spacing: 2px;
 }
 
@@ -641,7 +558,6 @@ body {
         top: 20px;
         left: 20px;
         right: 20px;
-
         font-size: 10px;
     }
 
@@ -663,14 +579,9 @@ body {
 
     .hero h1 {
         font-size: 52px;
-
         letter-spacing: -2px;
-
         margin-bottom: 40px;
     }
-
-
-    /* TRAILER */
 
     .trailer-frame {
         width: 95%;
@@ -690,7 +601,6 @@ body {
     .trailer-frame::before {
         top: -9px;
         left: -9px;
-
         width: 38%;
         height: 55px;
     }
@@ -698,7 +608,6 @@ body {
     .trailer-frame::after {
         top: -9px;
         right: -9px;
-
         width: 15%;
         height: 42px;
     }
@@ -706,7 +615,6 @@ body {
     .trailer-bottom-corner {
         right: -9px;
         bottom: 39px;
-
         width: 18%;
         height: 55px;
     }
@@ -714,9 +622,6 @@ body {
     .trailer-label {
         font-size: 10px;
     }
-
-
-    /* INTRO */
 
     .intro {
         margin-bottom: 90px;
@@ -726,13 +631,9 @@ body {
         font-size: 24px;
     }
 
-
-    /* TEXT */
-
     .work-text,
     .city {
         grid-template-columns: 1fr;
-
         gap: 35px;
     }
 
@@ -749,18 +650,13 @@ body {
         font-size: 16px;
     }
 
-
-    /* GALLERY */
-
     .gallery-wrap {
         width: 100%;
-
         margin-bottom: 100px;
     }
 
     .gallery-item {
         flex: 0 0 145px;
-
         width: 145px;
         height: 145px;
     }
@@ -768,9 +664,6 @@ body {
     .gallery-hint {
         display: none;
     }
-
-
-    /* LIGHTBOX */
 
     .lightbox {
         padding: 25px;
@@ -781,12 +674,8 @@ body {
         max-height: 80vh;
     }
 
-
-    /* CREDITS */
-
     .credits-grid {
         grid-template-columns: 1fr;
-
         gap: 28px;
     }
 
@@ -1018,6 +907,22 @@ body {
                 tra pubblico e privato, tra spazio condiviso e spazio personale.
 
             </p>
+
+
+            <div class="dossier-note">
+
+                <a
+                    class="dossier-link"
+                    id="dossierLink"
+                    href="dossier/urban-suite.pdf"
+                    target="_blank"
+                    rel="noopener">
+
+                    SCARICA IL DOSSIER
+
+                </a>
+
+            </div>
 
 
         </div>
@@ -1334,7 +1239,7 @@ body {
 
             <div class="credit-text">
 
-                Kino
+                KINO
 
             </div>
 
@@ -1376,6 +1281,25 @@ body {
                 Corinna Lattanzi, Daniele Mordini,
                 Elisa Tamagnini, Giorgia Berlini,
                 Luca Leardini, Maya Giorgetti
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <div
+                class="credit-label"
+                id="producerLabel">
+
+                PRODUCER
+
+            </div>
+
+            <div class="credit-text">
+
+                Elena Marinelli
 
             </div>
 
@@ -1554,6 +1478,13 @@ function setLanguage(language) {
             "and private, between shared space and personal space.";
 
 
+        document.getElementById("dossierLink").innerHTML =
+            "DOWNLOAD DOSSIER";
+
+        document.getElementById("dossierLink").href =
+            "dossier/urban-suite-en.pdf";
+
+
         document.getElementById("galleryLabel").innerHTML =
             "IMAGES";
 
@@ -1613,6 +1544,10 @@ function setLanguage(language) {
         document.getElementById("castLabel").innerHTML =
             "PERFORMERS";
 
+
+        document.getElementById("producerLabel").innerHTML =
+            "PRODUCER";
+
     }
 
 
@@ -1665,6 +1600,13 @@ function setLanguage(language) {
         document.getElementById("workP4").innerHTML =
             "La performance invita il pubblico a riflettere sul confine tra pubblico e privato, " +
             "tra spazio condiviso e spazio personale.";
+
+
+        document.getElementById("dossierLink").innerHTML =
+            "SCARICA IL DOSSIER";
+
+        document.getElementById("dossierLink").href =
+            "dossier/urban-suite.pdf";
 
 
         document.getElementById("galleryLabel").innerHTML =
@@ -1725,6 +1667,10 @@ function setLanguage(language) {
 
         document.getElementById("castLabel").innerHTML =
             "IN SCENA";
+
+
+        document.getElementById("producerLabel").innerHTML =
+            "PRODUCER";
 
     }
 
