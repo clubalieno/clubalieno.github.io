@@ -345,6 +345,24 @@ body {
 
 
 /* =====================================================
+   DOSSIER
+===================================================== */
+
+.dossier-note {
+    margin-top: 45px;
+    padding-top: 24px;
+    border-top: 1px solid black;
+}
+
+.dossier-link {
+    color: black;
+    text-decoration: underline;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
    GALLERY
 ===================================================== */
 
@@ -835,6 +853,19 @@ body {
                 un mistero da comprendere – forse – solo alla fine.
             </p>
 
+            <div class="dossier-note">
+
+                <a
+                    class="dossier-link"
+                    id="dossierLink"
+                    href="dossier/suite.pdf"
+                    target="_blank"
+                    rel="noopener">
+                    SCARICA IL DOSSIER
+                </a>
+
+            </div>
+
         </div>
 
     </div>
@@ -909,7 +940,7 @@ body {
             <h2 id="soundTitle">SUONO</h2>
 
             <p id="soundText">
-                La musica elettronica di Kino, suonata dal vivo,
+                La musica elettronica di KINO, suonata dal vivo,
                 accompagna ogni frammento, creando uno spazio
                 sonoro che è esso stesso protagonista.
             </p>
@@ -965,7 +996,7 @@ body {
             </div>
 
             <div class="credit-text">
-                Kino
+                KINO
             </div>
         </div>
 
@@ -989,6 +1020,26 @@ body {
                 Corinna Lattanzi, Daniele Mordini,
                 Elisa Tamagnini, Giorgia Berlini,
                 Luca Leardini, Maya Giorgetti
+            </div>
+        </div>
+
+        <div>
+            <div class="credit-label" id="producerLabel">
+                PRODUCER
+            </div>
+
+            <div class="credit-text">
+                Elena Marinelli
+            </div>
+        </div>
+
+        <div>
+            <div class="credit-label" id="supportLabel">
+                CON IL SOSTEGNO DI
+            </div>
+
+            <div class="credit-text">
+                Teatro Dimora | L'Arboreto – Mondaino
             </div>
         </div>
 
@@ -1178,6 +1229,13 @@ function setLanguage(language) {
             "a mystery to be understood – perhaps – only at the end.";
 
 
+        document.getElementById("dossierLink").innerHTML =
+            "DOWNLOAD DOSSIER";
+
+        document.getElementById("dossierLink").href =
+            "dossier/suite-en.pdf";
+
+
         document.getElementById("galleryLabel").innerHTML =
             "IMAGES";
 
@@ -1195,7 +1253,7 @@ function setLanguage(language) {
 
 
         document.getElementById("soundText").innerHTML =
-            "Kino's electronic music, performed live, accompanies each fragment, " +
+            "KINO's electronic music, performed live, accompanies each fragment, " +
             "creating a sonic space that becomes a protagonist in its own right.";
 
 
@@ -1227,6 +1285,14 @@ function setLanguage(language) {
 
         document.getElementById("castLabel").innerHTML =
             "PERFORMERS";
+
+
+        document.getElementById("producerLabel").innerHTML =
+            "PRODUCER";
+
+
+        document.getElementById("supportLabel").innerHTML =
+            "WITH THE SUPPORT OF";
 
     }
 
@@ -1299,6 +1365,13 @@ function setLanguage(language) {
             "un mistero da comprendere – forse – solo alla fine.";
 
 
+        document.getElementById("dossierLink").innerHTML =
+            "SCARICA IL DOSSIER";
+
+        document.getElementById("dossierLink").href =
+            "dossier/suite.pdf";
+
+
         document.getElementById("galleryLabel").innerHTML =
             "IMMAGINI";
 
@@ -1316,7 +1389,7 @@ function setLanguage(language) {
 
 
         document.getElementById("soundText").innerHTML =
-            "La musica elettronica di Kino, suonata dal vivo, accompagna ogni frammento, " +
+            "La musica elettronica di KINO, suonata dal vivo, accompagna ogni frammento, " +
             "creando uno spazio sonoro che è esso stesso protagonista.";
 
 
@@ -1349,6 +1422,14 @@ function setLanguage(language) {
 
         document.getElementById("castLabel").innerHTML =
             "IN SCENA";
+
+
+        document.getElementById("producerLabel").innerHTML =
+            "PRODUCER";
+
+
+        document.getElementById("supportLabel").innerHTML =
+            "CON IL SOSTEGNO DI";
 
     }
 
