@@ -340,6 +340,24 @@ body {
 
 
 /* =====================================================
+   DOSSIER
+===================================================== */
+
+.dossier-note {
+    margin-top: 45px;
+    padding-top: 24px;
+    border-top: 1px solid black;
+}
+
+.dossier-link {
+    color: black;
+    text-decoration: underline;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
    GALLERY
 ===================================================== */
 
@@ -848,6 +866,21 @@ body {
 
             </p>
 
+            <div class="dossier-note">
+
+                <a
+                    class="dossier-link"
+                    id="dossierLink"
+                    href="dossier/unusual-suite.pdf"
+                    target="_blank"
+                    rel="noopener">
+
+                    SCARICA IL DOSSIER
+
+                </a>
+
+            </div>
+
         </div>
 
     </div>
@@ -1047,7 +1080,7 @@ body {
             </div>
 
             <div class="credit-text">
-                Kino
+                KINO
             </div>
 
         </div>
@@ -1101,6 +1134,22 @@ body {
                 Elisa Tamagnini, Giorgia Berlini,
                 Luca Leardini, Maya Giorgetti
 
+            </div>
+
+        </div>
+
+        <div>
+
+            <div
+                class="credit-label"
+                id="producerLabel">
+
+                PRODUCER
+
+            </div>
+
+            <div class="credit-text">
+                Elena Marinelli
             </div>
 
         </div>
@@ -1260,6 +1309,13 @@ function setLanguage(language) {
             "but enter the existing space and temporarily alter the way it is perceived.";
 
 
+        document.getElementById("dossierLink").innerHTML =
+            "DOWNLOAD DOSSIER";
+
+        document.getElementById("dossierLink").href =
+            "dossier/unusual-suite-en.pdf";
+
+
         document.getElementById("galleryLabel").innerHTML =
             "IMAGES";
 
@@ -1320,6 +1376,10 @@ function setLanguage(language) {
         document.getElementById("castLabel").innerHTML =
             "PERFORMERS";
 
+
+        document.getElementById("producerLabel").innerHTML =
+            "PRODUCER";
+
     }
 
 
@@ -1365,6 +1425,13 @@ function setLanguage(language) {
         document.getElementById("workP3").innerHTML =
             "Le azioni non trasformano il museo in una scena tradizionale, " +
             "ma si inseriscono nel luogo, modificandone temporaneamente la percezione.";
+
+
+        document.getElementById("dossierLink").innerHTML =
+            "SCARICA IL DOSSIER";
+
+        document.getElementById("dossierLink").href =
+            "dossier/unusual-suite.pdf";
 
 
         document.getElementById("galleryLabel").innerHTML =
@@ -1427,6 +1494,10 @@ function setLanguage(language) {
 
         document.getElementById("castLabel").innerHTML =
             "IN SCENA";
+
+
+        document.getElementById("producerLabel").innerHTML =
+            "PRODUCER";
 
     }
 
